@@ -11,9 +11,9 @@ Welcome to the project repository for **CS 6365: Introduction to Enterprise Comp
 * **TAs:** Murali, Satvik
 
 ### **Team Members**
-* 🎓 **Hwando Jang** (Student)
-* 🎓 **Carla Du Plessis** (Teammate)
-* 🎓 **Aayush Chandak** (Teammate)
+* 🎓 **Hwando Jang**
+* 🎓 **Carla Du Plessis**
+* 🎓 **Aayush Chandak**
 
 ---
 
@@ -63,10 +63,10 @@ gantt
     title Project DevOps Milestones Timeline
     dateFormat  YYYY-MM-DD
     section Milestones
-    Checkpoint 0: Reproducibility Exercise :active, cp0, 2026-05-18, 14d
-    Checkpoint 1: Project Proposal         : cp1, after cp0, 14d
-    Checkpoint 2: Progress & Adaptation   : cp2, after cp1, 21d
-    Checkpoint 3: Final Deliverables      : cp3, after cp2, 21d
+    "Checkpoint 0: Reproducibility Exercise" :active, cp0, 2026-05-18, 14d
+    "Checkpoint 1: Project Proposal"         : cp1, after cp0, 14d
+    "Checkpoint 2: Progress & Adaptation"   : cp2, after cp1, 21d
+    "Checkpoint 3: Final Deliverables"       : cp3, after cp2, 21d
 ```
 
 * **Checkpoint 0 (Week 3): Reproducibility Exercise**
