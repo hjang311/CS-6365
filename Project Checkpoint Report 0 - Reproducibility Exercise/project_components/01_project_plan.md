@@ -1,7 +1,7 @@
 # Project Plan Analysis — NORP_Spring26_G5
 
 ## CS 6365: Checkpoint 0 — Reproducibility Exercise
-**Evaluators:** Hwando Jang, Carla Du Plessis, Aayush Chandak
+**Evaluator:** Hwando Jang
 **Date:** May 25, 2026
 
 ---

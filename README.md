@@ -8,12 +8,11 @@ Welcome to the project repository for **CS 6365: Introduction to Enterprise Comp
 
 ### **Instructor Information**
 * **Professor:** Dr. Calton Pu ([calton.pu@cc.gatech.edu](mailto:calton.pu@cc.gatech.edu))
-* **TAs:** Murali, Satvik
+* **TAs:** Murali Rao, Satvik Agrawal
 
 ### **Team Members**
 * 🎓 **Hwando Jang**
 * 🎓 **Carla Du Plessis**
-* 🎓 **Aayush Chandak**
 
 ---
 

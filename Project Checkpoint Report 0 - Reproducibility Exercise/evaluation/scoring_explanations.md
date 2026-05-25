@@ -1,7 +1,7 @@
 # Scoring Explanations — NORP_Spring26_G5
 
 ## CS 6365: Checkpoint 0 — Reproducibility Exercise
-**Evaluators:** Hwando Jang, Carla Du Plessis, Aayush Chandak
+**Evaluator:** Hwando Jang
 **Date:** May 25, 2026
 
 ---
@@ -18,7 +18,7 @@
 
 2. **Dual-component architecture.** The plan combines an interactive RAG pipeline (Component A: natural language → SoQL → API) with a rigorous longitudinal statistical analysis (Component B: CP2–CP4). This demonstrates technical breadth, though the components operate independently without integration.
 
-3. **Thorough documentation.** The README (212 lines) and INSTRUCTIONS (239 lines) are among the most detailed we've seen — providing step-by-step execution guides, data source references, schema definitions, key findings, and even an "LLM Context Injection" section for AI-assisted development.
+3. **Thorough documentation.** The README (212 lines) and INSTRUCTIONS (239 lines) are among the most detailed I've seen — providing step-by-step execution guides, data source references, schema definitions, key findings, and even an "LLM Context Injection" section for AI-assisted development.
 
 4. **Methodological progression.** The CP2→CP3→CP4 pipeline structure mirrors genuine research practice (exploration → modeling → robustness validation), showing design maturity beyond a typical course project.
 

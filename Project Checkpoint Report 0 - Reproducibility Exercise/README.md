@@ -2,7 +2,7 @@
 
 ## CS 6365: Introduction to Enterprise Computing | Summer 2026
 
-**Team Members:** Hwando Jang, Carla Du Plessis, Aayush Chandak
+**Author:** Hwando Jang
 
 ---
 

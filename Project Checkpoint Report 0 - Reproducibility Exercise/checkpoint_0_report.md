@@ -1,7 +1,7 @@
 # Checkpoint 0: Reproducibility Exercise — Full Report
 
 ## CS 6365: Introduction to Enterprise Computing | Summer 2026
-**Team:** Hwando Jang, Carla Du Plessis, Aayush Chandak
+**Author:** Hwando Jang
 **Date:** May 2026
 **Target Project:** [NORP_Spring26_G5](https://github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5)
 
@@ -9,7 +9,7 @@
 
 ## 1. Introduction
 
-This report documents our team's reproducibility exercise of the **NORP_Spring26_G5** project package, originally created by Khalid A Bargoti and Khoa K Bui (CS 4365/6365, Spring 2026, Group 5). The project is formally titled *"Analysis of Socioeconomic Determinants of Violent Crime Using Retrieval-Augmented Query Generation"* and consists of two components: an interactive RAG pipeline for generating Socrata Query Language (SoQL) queries against the Chicago Crimes API, and a longitudinal statistical analysis of violent crime vs. socioeconomic factors across Chicago police districts (2015–2024).
+This report documents my reproducibility exercise of the **NORP_Spring26_G5** project package, originally created by Khalid A Bargoti and Khoa K Bui (CS 4365/6365, Spring 2026, Group 5). The project is formally titled *"Analysis of Socioeconomic Determinants of Violent Crime Using Retrieval-Augmented Query Generation"* and consists of two components: an interactive RAG pipeline for generating Socrata Query Language (SoQL) queries against the Chicago Crimes API, and a longitudinal statistical analysis of violent crime vs. socioeconomic factors across Chicago police districts (2015–2024).
 
 ### 1.1 Purpose
 The purpose of this exercise is to:
@@ -67,7 +67,7 @@ The project proposes a dual-component system: (A) an interactive RAG pipeline th
 > *See detailed log in: [inconsistencies.md](reproduction_logs/inconsistencies.md)*
 
 **Pre-Reproduction Findings:**
-During code analysis (before running any scripts), we identified several inconsistencies:
+During code analysis (before running any scripts), I identified several inconsistencies:
 1. 🔴 **Missing `data/combined_dataset.csv`** — The RAG knowledge base is absent from both the GT fork AND the original repository, making the interactive pipeline (Component A) non-functional.
 2. 🟠 **Model name mismatch** — README says `mistralai/devstral-2512:free`; code uses `openai/gpt-oss-20b:free`.
 3. 🟠 **README Step 6 error** — Says run `cp3_analysis.py` but describes `cp4_analysis.py` functionality.
