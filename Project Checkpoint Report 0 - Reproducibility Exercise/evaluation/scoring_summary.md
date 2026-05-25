@@ -1,6 +1,7 @@
 # Evaluation Scoring Summary — NORP_Spring26_G5
 
 ## CS 6365: Checkpoint 0 — Reproducibility Exercise
+**Evaluators:** Hwando Jang, Carla Du Plessis, Aayush Chandak
 
 ---
 
@@ -10,52 +11,56 @@
 ┌─────────────────────────────────────────────────────────────────┐
 │                    NORP_Spring26_G5 Evaluation                  │
 ├────────────┬──────────────┬──────────────┬──────────────────────┤
-│  Metric    │  Score       │  Max         │  Percentage          │
+│  Metric    │  Score       │  Max         │  Status              │
 ├────────────┼──────────────┼──────────────┼──────────────────────┤
-│  Plan      │  TBD         │  120%        │  TBD                 │
-│  Match     │  TBD         │  120%        │  TBD                 │
-│  Factual   │  TBD         │  100%        │  TBD                 │
+│  Plan      │  90%         │  120%        │  ✅ Complete         │
+│  Match     │  TBD         │  120%        │  ⏳ Pending          │
+│  Factual   │  TBD         │  100%        │  ⏳ Pending          │
 ├────────────┼──────────────┼──────────────┼──────────────────────┤
-│  Combined  │              │              │  TBD                 │
+│  Combined  │              │              │  ⏳ Pending          │
 └────────────┴──────────────┴──────────────┴──────────────────────┘
 ```
 
 ---
 
-## 1. Plan Score (up to 120%)
+## 1. Plan Score: 90% / 120% ✅
 
-**Score: TBD**
+**Assessment:** Substantial
 
-### Key Factors:
-- [ ] Project scope is clearly defined
-- [ ] Goals are specific and measurable
-- [ ] Architecture is well-documented
-- [ ] Timeline and milestones are reasonable
-- [ ] Technical approach is sound
+The project presents a genuine, well-scoped research question with a dual-component architecture (RAG pipeline + longitudinal crime analysis). Documentation is thorough (451 lines across README + INSTRUCTIONS). The CP2→CP3→CP4 analytical progression demonstrates methodological maturity. Deductions for disconnected components, no orchestration, thin RAG architecture, and unaddressed temporal data mismatch.
+
+> *See detailed reasoning in: [scoring_explanations.md](scoring_explanations.md)*
 
 ---
 
-## 2. Match Score (up to 120%)
+## 2. Match Score: TBD / 120%
 
-**Score: TBD**
+**Status:** Pending reproduction attempt (Day 3-4)
 
-### Key Factors:
-- [ ] All planned features are implemented
-- [ ] Code matches the described architecture
-- [ ] Pipeline stages function as documented
-- [ ] Additional features beyond the plan (bonus)
+### Pre-Reproduction Notes:
+- All 10 Python scripts present in repository
+- Code analysis shows quality ranging from "Moderate" (main.py) to "Excellent" (cp4_analysis.py)
+- Critical blocker: `data/combined_dataset.csv` missing — Component A may be non-functional
+- Strict execution order required (no orchestration)
+- Two API keys needed (Socrata + OpenRouter)
 
 ---
 
-## 3. Factual Score (up to 100%)
+## 3. Factual Score: TBD / 100%
 
-**Score: TBD**
+**Status:** Pending reproduction attempt (Day 3-4)
 
-### Key Factors:
-- [ ] Claimed results can be reproduced
-- [ ] Output data matches documentation
-- [ ] Screenshots/visualizations are genuine
-- [ ] No fabricated or misleading claims
+### Key Claims to Verify:
+- [ ] CP2 produces 220 rows (22 districts × 10 years)
+- [ ] CP3 panel has 140 rows (14 districts × 10 years)
+- [ ] Hardship correlation: +0.349 (pre-2020) → +0.072 (post-2020)
+- [ ] Income correlation: −0.241 → +0.120
+- [ ] Model 1 R² ≈ 0.42
+- [ ] Structural break confirmed via interaction term
+- [ ] RAG pipeline generates valid SoQL queries
+
+### Pre-Reproduction Risk:
+The missing `combined_dataset.csv` (absent from both the GT fork AND the original repo at github.com/KhalidBargoti/NORP) will directly impact the Factual score for Component A claims.
 
 ---
 
@@ -63,6 +68,6 @@
 
 ```
 Combined Achievement = Plan × Match × Factual
-                     = (TBD/120) × (TBD/120) × (TBD/100)
+                     = 0.90 × (TBD) × (TBD)
                      = TBD
 ```
