@@ -57,6 +57,6 @@ Project Checkpoint Report 0 - Reproducibility Exercise/
 - [x] Environment setup attempted
 - [x] Code execution attempted (CP2 — Day 2)
 - [x] Results reproduction attempted (CP3, CP4, RAG — Day 3)
-- [ ] Project components documented (Day 4)
-- [ ] Evaluation scores assigned (Day 4)
+- [x] Project components documented (Day 4)
+- [x] Evaluation scores assigned (Day 4)
 - [ ] Final report compiled (Day 5)
