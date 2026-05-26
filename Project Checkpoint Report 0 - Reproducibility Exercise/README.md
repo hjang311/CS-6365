@@ -53,10 +53,10 @@ Project Checkpoint Report 0 - Reproducibility Exercise/
 
 ## 📝 Status
 
-- [ ] Repository cloned and reviewed
-- [ ] Environment setup attempted
-- [ ] Code execution attempted
-- [ ] Results reproduction attempted
-- [ ] Project components documented
-- [ ] Evaluation scores assigned
-- [ ] Final report compiled
+- [x] Repository cloned and reviewed
+- [x] Environment setup attempted
+- [x] Code execution attempted (CP2 — Day 2)
+- [ ] Results reproduction attempted (CP3, CP4, RAG — Day 3)
+- [ ] Project components documented (Day 4)
+- [ ] Evaluation scores assigned (Day 4)
+- [ ] Final report compiled (Day 5)

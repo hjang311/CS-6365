@@ -105,15 +105,52 @@ This document tracks all inconsistencies, discrepancies, and issues found during
 
 ---
 
+## Runtime Inconsistencies (Day 2 — Execution)
+
+> The following inconsistencies were discovered during actual code execution on May 25, 2026.
+
+---
+
+### Issue #9: Python 3.10+ Type Hint Syntax Incompatibility
+- **Severity:** 🟠 Major
+- **Location:** `cp2_extraction.py`, line 37
+- **Description:** Uses `pd.DataFrame | None` union type hint syntax which is only available in Python 3.10+. The repository does not specify a minimum Python version anywhere, and no `.python-version` file or `python_requires` is set.
+- **Expected:** Code should work on Python 3.9 (a widely-used version) or explicitly document the minimum Python version requirement.
+- **Actual:** `TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'` on Python 3.9.6
+- **Fix Applied:** Added `from __future__ import annotations` at top of file.
+- **Impact on Scoring:** Reproducibility blocker — code will not run at all on Python 3.9 without this fix.
+
+---
+
+### Issue #10: Row Count Slightly Exceeds Documented Expectation
+- **Severity:** 🔵 Info
+- **Location:** Extraction output (`cp2_extraction.py`)
+- **Description:** The extraction produced 221 rows instead of the expected ~220. This is because District 31 appeared in the 2022 data with only 1 violent crime count, while it has no data for any other year.
+- **Expected:** ~220 rows (22 districts × 10 years)
+- **Actual:** 221 rows (22 districts × 10 years + 1 extra row for District 31 in 2022)
+- **Impact on Scoring:** Minimal — does not affect analysis integrity. The extra district is likely a data artifact.
+
+---
+
+### Issue #11: No Version Pins in requirements.txt
+- **Severity:** 🟡 Minor
+- **Location:** `requirements.txt`
+- **Description:** All 18 dependencies listed without version constraints. Different installation dates will produce different dependency versions, potentially causing compatibility issues or different results.
+- **Expected:** Pinned versions (e.g., `pandas==2.0.3`) for reproducibility.
+- **Actual:** Unpinned (e.g., just `pandas`).
+- **Impact on Scoring:** Potential reproducibility risk — behavior may differ across installations.
+
+---
+
 ## Summary
 
 | Severity | Count |
 |:---|:---:|
 | 🔴 Critical | 1 |
-| 🟠 Major | 2 |
-| 🟡 Minor | 4 |
-| 🔵 Info | 1 |
-| **Total** | **8** |
+| 🟠 Major | 3 |
+| 🟡 Minor | 5 |
+| 🔵 Info | 2 |
+| **Total** | **11** |
 
 ### Overall Assessment
-The project has **one critical reproducibility blocker** (missing RAG knowledge base) and **two major documentation mismatches**. The critical issue was confirmed as intentional by the course TA. The remaining issues are minor code quality observations that do not prevent the statistical pipeline (Component B) from functioning.
+The project has **one critical reproducibility blocker** (missing RAG knowledge base), **three major issues** (two documentation mismatches + one Python version incompatibility), and **seven minor/informational observations**. The critical issue was confirmed as intentional by the course TA. The Python 3.10+ type hint issue (#9) is a runtime blocker on older interpreters but was resolved with a one-line fix. The remaining issues are minor code quality observations that do not prevent the statistical pipeline (Component B) from functioning.

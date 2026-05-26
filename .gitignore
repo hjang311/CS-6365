@@ -158,3 +158,9 @@ cython_debug/
 # Project-specific
 CS 6365/bin/
 CS 6365/obj/
+
+# Agent-generated implementation plans (not for GitHub)
+\#\ Checkpoint\ 0_\ Reproducibility\ Exercise\ *Implementation\ Plan*.pdf
+
+# Cloned exemplar repository (for reproducibility exercise only)
+NORP_Spring26_G5/

@@ -1,143 +1,182 @@
 # Code Execution Log — NORP_Spring26_G5 Reproduction
 
-## Date: May 2026
+## Reproduction Date: May 25, 2026 (Day 2 of 3)
+## Reproducer Environment: macOS, Python 3.9, venv
 
 ---
 
 ## 1. Execution Order
 
-Based on the file naming convention (ca1, ca2, ca3, ca4), the expected execution order is:
+Based on the file naming convention (`cp2`, `cp3`, `cp4`) and dependency analysis, the execution order is:
 
-1. `ca1_setup.py` — Initial setup
-2. `ca2_extraction.py` — Data extraction
-3. `ca3_analysis.py` / `ca3_merge.py` / `ca3_geodata.py` — Analysis phase
-4. `ca4_analysis.py` — Advanced analysis
-5. `ingest.py` → `rag_pipeline.py` — RAG pipeline
-6. `main.py` — Main orchestrator (may call the above in sequence)
+1. `cp2_extraction.py` — Extract violent crime data from Chicago Data Portal API
+2. `cp2_eda.py` — Exploratory data analysis and visualization
+3. `cp3_merge.py` — Merge crime data with socioeconomic data
+4. `cp3_socioeco.py` — Socioeconomic factor analysis
+5. `cp3_analysis.py` — Statistical analysis (correlation, regression)
+6. `cp4_analysis.py` — Advanced/final analysis
+7. `ingest.py` → `rag_pipeline.py` — RAG pipeline (document ingestion + retrieval)
+8. `main.py` — Main orchestrator
+
+> **Note:** `Crime_API.py` is a utility module imported by other scripts, not executed directly.
 
 ---
 
 ## 2. Execution Attempts
 
-### 2.1 main.py
+### 2.1 cp2_extraction.py
+
+**Executed:** May 25, 2026 ~19:00 CDT
+
 ```bash
-python main.py
+source venv/bin/activate && python cp2_extraction.py
 ```
-**Output:**
+
+**Status:** ✅ SUCCESS  
+**Runtime:** ~13 seconds
+
+**Output file:** `data/cp2_violent_crimes_by_district_year.csv`
+
+**Fix applied before execution:**  
+Had to add `from __future__ import annotations` at the top of the file to resolve a Python 3.9 incompatibility with the `pd.DataFrame | None` type hint (PEP 604 union syntax requires Python 3.10+).
+
+**Execution details:**
+- API calls: 10 requests (one per year, 2015–2024)
+- Each year returned 22 districts, except 2022 which returned 23 (District 31)
+- Total rows produced: **221** (vs. expected ~220; +1 due to District 31 in 2022)
+- Districts found: 23 total — `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 22, 24, 25, 31]`
+- Years covered: 2015–2024
+
+**Warnings:**
+- `urllib3 NotOpenSSLWarning` — non-critical; urllib3 v2 prefers OpenSSL but LibreSSL works fine
+
+**Sample output (first 5 rows):**
+```csv
+year,district,violent_crime_count
+2015,1,326
+2015,2,548
+2015,3,596
+2015,4,604
 ```
-# TODO: Paste output here
-```
-**Status:** TBD
-**Notes:** TBD
 
 ---
 
-### 2.2 ca1_setup.py
+### 2.2 cp2_eda.py
+
+**Executed:** May 25, 2026 ~19:05 CDT
+
 ```bash
-python ca1_setup.py
+source venv/bin/activate && python cp2_eda.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+
+**Status:** ✅ SUCCESS  
+**Runtime:** ~20 seconds (includes matplotlib font cache build on first run)
+
+**Output files generated:**
+
+| File | Size | Description |
+|:-----|-----:|:------------|
+| `plots/cp2_citywide_trend.png` | 65,828 B | Citywide violent crime line chart 2015–2024 with COVID-2020 marker |
+| `plots/cp2_district_heatmap.png` | 185,171 B | District × year heatmap with cell annotations |
+| `plots/cp2_pre_post_2020.png` | 50,408 B | Grouped bar chart comparing pre- vs post-2020 averages |
+| `plots/cp2_pct_change.png` | 44,011 B | Horizontal bar chart of % change by district |
+| `data/cp2_eda_summary.csv` | 723 B | Summary statistics per district |
+
+**Key findings from EDA:**
+
+| Metric | Value |
+|:-------|------:|
+| Districts with **more** violent crime post-2020 | 12 |
+| Districts with **less** violent crime post-2020 | 10 |
+| Median % change across districts | **+5.4%** |
+| Largest increase | District 20 (**+34.1%**) |
+| Largest decrease | District 7 (**−14.7%**) |
+| Highest total crimes (10-year sum) | District 11 (**9,599**) |
+| Notable trend | District 12: 413 (2015) → 1,113 (2023), +32.7% avg |
 
 ---
 
-### 2.3 ca2_extraction.py
+### 2.3 cp3_merge.py
+
 ```bash
-python ca2_extraction.py
+source venv/bin/activate && python cp3_merge.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+**Status:** 🔲 TODO (Day 3)
 
 ---
 
-### 2.4 ca3_analysis.py
+### 2.4 cp3_socioeco.py
+
 ```bash
-python ca3_analysis.py
+source venv/bin/activate && python cp3_socioeco.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+**Status:** 🔲 TODO (Day 3)
 
 ---
 
-### 2.5 ca3_merge.py
+### 2.5 cp3_analysis.py
+
 ```bash
-python ca3_merge.py
+source venv/bin/activate && python cp3_analysis.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+**Status:** 🔲 TODO (Day 3)
 
 ---
 
-### 2.6 ca3_geodata.py
+### 2.6 cp4_analysis.py
+
 ```bash
-python ca3_geodata.py
+source venv/bin/activate && python cp4_analysis.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+**Status:** 🔲 TODO (Day 3)
 
 ---
 
-### 2.7 ca4_analysis.py
+### 2.7 ingest.py
+
 ```bash
-python ca4_analysis.py
+source venv/bin/activate && python ingest.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+**Status:** 🔲 TODO (Day 3)
 
 ---
 
-### 2.8 ingest.py
+### 2.8 rag_pipeline.py
+
 ```bash
-python ingest.py
+source venv/bin/activate && python rag_pipeline.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+**Status:** 🔲 TODO (Day 3)
 
 ---
 
-### 2.9 rag_pipeline.py
+### 2.9 main.py
+
 ```bash
-python rag_pipeline.py
+source venv/bin/activate && python main.py
 ```
-**Output:**
-```
-# TODO: Paste output here
-```
-**Status:** TBD
+**Status:** 🔲 TODO (Day 3)
 
 ---
 
-## 3. Execution Summary
+## 3. Issues & Fixes Log
+
+| # | Script | Issue | Fix Applied | Severity |
+|:-:|:-------|:------|:------------|:--------:|
+| 1 | `cp2_extraction.py` | `pd.DataFrame \| None` type hint fails on Python 3.9 | Added `from __future__ import annotations` | Minor |
+
+---
+
+## 4. Execution Summary
 
 | Script | Runs? | Correct Output? | Notes |
-|:---|:---:|:---:|:---|
-| `main.py` | TBD | TBD | |
-| `ca1_setup.py` | TBD | TBD | |
-| `ca2_extraction.py` | TBD | TBD | |
-| `ca3_analysis.py` | TBD | TBD | |
-| `ca3_merge.py` | TBD | TBD | |
-| `ca3_geodata.py` | TBD | TBD | |
-| `ca4_analysis.py` | TBD | TBD | |
-| `ingest.py` | TBD | TBD | |
-| `rag_pipeline.py` | TBD | TBD | |
+|:-------|:-----:|:---------------:|:------|
+| `cp2_extraction.py` | ✅ Yes | ✅ Yes (221 rows) | +1 row vs expected due to District 31 in 2022 |
+| `cp2_eda.py` | ✅ Yes | ✅ Yes (5 files) | 4 plots + 1 summary CSV generated |
+| `cp3_merge.py` | 🔲 | 🔲 | TODO — Day 3 |
+| `cp3_socioeco.py` | 🔲 | 🔲 | TODO — Day 3 |
+| `cp3_analysis.py` | 🔲 | 🔲 | TODO — Day 3 |
+| `cp4_analysis.py` | 🔲 | 🔲 | TODO — Day 3 |
+| `ingest.py` | 🔲 | 🔲 | TODO — Day 3 |
+| `rag_pipeline.py` | 🔲 | 🔲 | TODO — Day 3 |
+| `main.py` | 🔲 | 🔲 | TODO — Day 3 |
