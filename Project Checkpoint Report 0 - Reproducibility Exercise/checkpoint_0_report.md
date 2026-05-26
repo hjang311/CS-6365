@@ -73,7 +73,15 @@ The reproduction environment was set up on **macOS (ARM64)** with **Python 3.9.6
 
 Key EDA finding: 12 districts showed increased violent crime post-2020, 10 showed decreases. Median change was +5.4%. District 20 had the largest increase (+34.1%), District 7 the largest decrease (-14.7%).
 
-**Remaining scripts** (CP3, CP4, RAG pipeline) — scheduled for Day 3.
+**CP3 Socioeconomic Setup (`cp3_socioeco.py`):** ✅ Successfully built district-level socioeconomic indicators from hardcoded ACS data and API-derived community-to-district crosswalk. Produced data for **14 of 23 districts** — 9 districts could not be mapped, resulting in 37% data loss for the analysis panel.
+
+**CP3 Merge (`cp3_merge.py`):** ✅ Merged crime panel with socioeconomic data. Final panel: **140 rows** (14 districts × 10 years). 81 rows dropped due to unmatched districts.
+
+**CP3 Analysis (`cp3_analysis.py`):** ✅ Computed pre/post-2020 correlations and ran 3 OLS regression models. Key finding: hardship index correlation dropped from +0.348 to +0.071 (README claims +0.349 to +0.072 — **nearly identical**). Per capita income correlation shifted from -0.241 to +0.106 (README claims +0.120 — **close but slightly different**).
+
+**CP4 Robustness (`cp4_analysis.py`):** ✅ After fixing a Python 3.9 compatibility issue (same class as CP2). Ran 4 models including district fixed effects (R²=0.741). Key finding: the hardship×post2020 interaction is marginally significant (p=0.084) in the base model but becomes highly significant (p=0.002) with district fixed effects — and **non-significant** (p=0.248) when District 12 is excluded, suggesting this district drives much of the structural break finding.
+
+**RAG Pipeline (`main.py`):** ⚠️ Partial failure as expected. The pipeline loaded our CP2/CP3/CP4 output CSVs as context (12 files), but without the intended `combined_dataset.csv` knowledge base, retrieved chunks were unparseable and the LLM returned `NOT_ENOUGH_CONTEXT`. **Component A of the project is non-reproducible.**
 
 ### 3.3 Inconsistencies
 > *See detailed log in: [inconsistencies.md](reproduction_logs/inconsistencies.md)*
@@ -90,6 +98,12 @@ During actual code execution, three additional issues were identified:
 5. 🟠 **Python 3.10+ type hint incompatibility** — `cp2_extraction.py` uses `pd.DataFrame | None` syntax requiring Python 3.10+. No minimum Python version is documented.
 6. 🔵 **Row count deviation** — Extraction produced 221 rows vs. expected ~220 (District 31 appeared only in 2022).
 7. 🟡 **No version pins** — All 18 dependencies in `requirements.txt` lack version constraints, risking reproducibility across different installation dates.
+
+**Runtime Findings (Day 3):**
+8. 🟠 **cp4_analysis.py Python 3.10+ type hints** — Same class of issue as #5, with `tuple[...]` and `list[...]` on lines 137, 223, 252.
+9. 🟡 **Socioeconomic crosswalk data loss** — Only 14 of 23 districts matched, dropping 37% of crime data from CP3/CP4 analysis. Not documented in README.
+10. 🔴 **RAG pipeline non-functional** — Confirmed Critical Inconsistency #1. LLM returned `NOT_ENOUGH_CONTEXT` when tested.
+11. 🔵 **Slight correlation deviations** — Post-2020 values differ slightly from README (e.g., income: +0.106 vs claimed +0.120), likely due to live API data updates.
 
 ---
 

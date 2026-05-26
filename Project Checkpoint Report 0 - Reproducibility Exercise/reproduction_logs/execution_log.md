@@ -1,6 +1,6 @@
 # Code Execution Log — NORP_Spring26_G5 Reproduction
 
-## Reproduction Date: May 25, 2026 (Day 2 of 3)
+## Reproduction Date: May 25, 2026 (Day 3 of 3 — Final)
 ## Reproducer Environment: macOS, Python 3.9, venv
 
 ---
@@ -96,66 +96,163 @@ source venv/bin/activate && python cp2_eda.py
 
 ---
 
-### 2.3 cp3_merge.py
+### 2.3 cp3_socioeco.py
 
-```bash
-source venv/bin/activate && python cp3_merge.py
-```
-**Status:** 🔲 TODO (Day 3)
-
----
-
-### 2.4 cp3_socioeco.py
+**Executed:** May 25, 2026 ~20:30 CDT
 
 ```bash
 source venv/bin/activate && python cp3_socioeco.py
 ```
-**Status:** 🔲 TODO (Day 3)
+
+**Status:** ✅ SUCCESS  
+**Runtime:** ~5 seconds
+
+**Output files generated:**
+
+| File | Rows | Description |
+|:-----|-----:|:------------|
+| `data/cp3_community_socioeco.csv` | 77 | Community-area-level socioeconomic indicators |
+| `data/cp3_community_to_district.csv` | 78 | Community area → district crosswalk (78 mappings → 14 unique districts) |
+| `data/cp3_district_socioeco.csv` | 14 | District-level aggregated socioeconomic indicators |
+
+**Execution details:**
+- Made API call to Chicago Crimes API to build community_area → district crosswalk
+- Only **14 of 23 districts** could be mapped to community areas
+- Unmapped districts: 11, 15, 18, 19, 20, 22, 24, 25, 31 (no community area mappings available)
+- This mapping limitation propagates to all downstream analysis (cp3_merge, cp3_analysis, cp4_analysis)
+
+---
+
+### 2.4 cp3_merge.py
+
+**Executed:** May 25, 2026 ~20:32 CDT
+
+```bash
+source venv/bin/activate && python cp3_merge.py
+```
+
+**Status:** ✅ SUCCESS  
+**Runtime:** <1 second
+
+**Output file:** `data/cp3_panel.csv` — **140 rows** (14 districts × 10 years)
+
+**Columns produced:**
+`year`, `district`, `violent_crime_count`, `per_capita_income`, `pct_poverty`, `pct_unemployed`, `pct_no_hs`, `pct_crowded`, `hardship_index`, `post2020`, `log_crime`
+
+**Execution details:**
+- Merged `cp2_violent_crimes_by_district_year.csv` (221 rows) with `cp3_district_socioeco.csv` (14 rows)
+- **81 rows (9 districts) could not be matched** to socioeconomic data — dropped during merge
+- Pre-2020 rows: **70**, Post-2020 rows: **70** (balanced panel for remaining 14 districts)
+
+> **Warning:** The 9 unmapped districts from cp3_socioeco.py result in ~37% data loss at the merge step. All subsequent analysis operates on only 14 of 23 districts.
 
 ---
 
 ### 2.5 cp3_analysis.py
 
+**Executed:** May 25, 2026 ~20:35 CDT
+
 ```bash
 source venv/bin/activate && python cp3_analysis.py
 ```
-**Status:** 🔲 TODO (Day 3)
+
+**Status:** ✅ SUCCESS  
+**Runtime:** ~3 seconds
+
+**Output files generated:**
+
+| File | Description |
+|:-----|:------------|
+| `data/cp3_correlation_table.csv` | Pre/post-2020 correlations with delta |
+| `data/cp3_regression_results.txt` | Full OLS regression output |
+| `plots/cp3_correlation_heatmap.png` | Pre/post correlation comparison |
+| `plots/cp3_scatter_*.png` | Scatter plots (3 plots) |
+
+**Key correlation results (crime vs. socioeconomic indicators):**
+
+| Indicator | Pre-2020 | Post-2020 | Delta |
+|:----------|:--------:|:---------:|:-----:|
+| `hardship_index` | +0.348 | +0.071 | **−0.277** |
+| `per_capita_income` | −0.241 | +0.106 | **+0.346** |
+| `pct_poverty` | +0.335 | +0.124 | **−0.211** |
+
+**OLS regression models:**
+
+| Model | Description | R² |
+|:------|:------------|:---:|
+| Model 1 | Socioeconomic predictors only | 0.397 |
+| Model 2 | + post2020 dummy | 0.397 |
+| Model 3 | + interaction terms | 0.067 |
+
+**Interpretation:** Correlations between socioeconomic disadvantage and violent crime weakened substantially after 2020, suggesting the pandemic disrupted pre-existing spatial crime patterns.
 
 ---
 
 ### 2.6 cp4_analysis.py
 
+**Executed:** May 25, 2026 ~20:40 CDT
+
 ```bash
 source venv/bin/activate && python cp4_analysis.py
 ```
-**Status:** 🔲 TODO (Day 3)
+
+**Status:** ✅ SUCCESS (after Python 3.9 fix)  
+**Runtime:** ~5 seconds
+
+**Fix applied before execution:**  
+Added `from __future__ import annotations` to resolve Python 3.9 incompatibility with lowercase generic type hints (same issue as cp2_extraction.py).
+
+**Output files generated:**
+
+| File | Description |
+|:-----|:------------|
+| `data/cp4_*.csv` | 5 CSV files (model results, coefficients, robustness) |
+| `data/cp4_*_results.txt` | 2 text files (full OLS output) |
+| `plots/cp4_*.png` | 6 plots (diagnostics, effects, robustness) |
+
+**Population normalization:** Skipped — `cp4_district_population.csv` not provided (noted as optional in code).
+
+**Regression results (4 models, outcome = log_crime):**
+
+| Model | Description | R² | Interaction p-value |
+|:------|:------------|:---:|:-------------------:|
+| Model 1 | Socioeconomic predictors only | 0.447 | — |
+| Model 2 | + post2020 dummy | 0.447 | — |
+| Model 3 | + interaction terms | 0.067 | 0.084 (marginal) |
+| Model 4 | + district fixed effects | **0.741** | **0.002** (significant) |
+
+**Key finding:** The post-2020 × socioeconomic interaction is significant only with district fixed effects (Model 4). Without controlling for district-level heterogeneity, the effect is only marginally significant.
+
+**Robustness check (excluding District 12):**
+- Interaction becomes non-significant (p = 0.248)
+- R² drops to 0.143
+- Suggests District 12 is a high-leverage outlier driving the main result
 
 ---
 
-### 2.7 ingest.py
+### 2.7 main.py (RAG Pipeline)
 
-```bash
-source venv/bin/activate && python ingest.py
-```
-**Status:** 🔲 TODO (Day 3)
-
----
-
-### 2.8 rag_pipeline.py
-
-```bash
-source venv/bin/activate && python rag_pipeline.py
-```
-**Status:** 🔲 TODO (Day 3)
-
----
-
-### 2.9 main.py
+**Executed:** May 25, 2026 ~21:00 CDT
 
 ```bash
 source venv/bin/activate && python main.py
 ```
-**Status:** 🔲 TODO (Day 3)
+
+**Status:** ⚠️ PARTIAL FAILURE (as expected)  
+**Runtime:** ~30 seconds (including model download)
+
+**Execution details:**
+- Successfully loaded **12 CSV files** from `data/` directory
+- Skipped **3 `.txt` files** (unsupported format)
+- Retrieved 5 chunks — all unparseable (CSV analysis data, not NL→SoQL example pairs)
+- LLM returned `NOT_ENOUGH_CONTEXT`
+- No valid SoQL JSON produced
+
+**Root cause:** Missing `combined_dataset.csv` — the RAG knowledge base containing natural language → SoQL query example pairs. Without this file, the retrieval step returns irrelevant CSV data instead of query translation examples.
+
+**Conclusion:** The RAG pipeline is non-functional without its intended knowledge base. This confirms **Critical Inconsistency #1** identified in the code audit: the pipeline's core dependency is absent from the repository.
+
+> **Note:** `ingest.py` and `rag_pipeline.py` are utility modules imported by `main.py`. They were exercised as part of the `main.py` execution and do not need to be run separately.
 
 ---
 
@@ -164,6 +261,9 @@ source venv/bin/activate && python main.py
 | # | Script | Issue | Fix Applied | Severity |
 |:-:|:-------|:------|:------------|:--------:|
 | 1 | `cp2_extraction.py` | `pd.DataFrame \| None` type hint fails on Python 3.9 | Added `from __future__ import annotations` | Minor |
+| 2 | `cp4_analysis.py` | Lowercase generic type hints fail on Python 3.9 | Added `from __future__ import annotations` | Minor |
+| 3 | `cp3_socioeco.py` | Only 14/23 districts mappable via community area crosswalk | None — data limitation | Moderate |
+| 4 | `main.py` | `combined_dataset.csv` missing → RAG returns irrelevant chunks | None — missing dependency | **Critical** |
 
 ---
 
@@ -173,10 +273,12 @@ source venv/bin/activate && python main.py
 |:-------|:-----:|:---------------:|:------|
 | `cp2_extraction.py` | ✅ Yes | ✅ Yes (221 rows) | +1 row vs expected due to District 31 in 2022 |
 | `cp2_eda.py` | ✅ Yes | ✅ Yes (5 files) | 4 plots + 1 summary CSV generated |
-| `cp3_merge.py` | 🔲 | 🔲 | TODO — Day 3 |
-| `cp3_socioeco.py` | 🔲 | 🔲 | TODO — Day 3 |
-| `cp3_analysis.py` | 🔲 | 🔲 | TODO — Day 3 |
-| `cp4_analysis.py` | 🔲 | 🔲 | TODO — Day 3 |
-| `ingest.py` | 🔲 | 🔲 | TODO — Day 3 |
-| `rag_pipeline.py` | 🔲 | 🔲 | TODO — Day 3 |
-| `main.py` | 🔲 | 🔲 | TODO — Day 3 |
+| `cp3_socioeco.py` | ✅ Yes | ✅ Yes (3 CSVs) | Only 14/23 districts mappable |
+| `cp3_merge.py` | ✅ Yes | ✅ Yes (140 rows) | 81 rows dropped (9 unmapped districts) |
+| `cp3_analysis.py` | ✅ Yes | ✅ Yes (6 files) | 3 OLS models, correlation table |
+| `cp4_analysis.py` | ✅ Yes | ✅ Yes (13 files) | 4 models; District 12 drives significance |
+| `main.py` | ⚠️ Partial | ❌ No SoQL output | RAG fails — missing `combined_dataset.csv` |
+
+**Final tally:** 6/7 scripts execute successfully. 1 script (`main.py` / RAG pipeline) fails due to missing knowledge base file.
+
+> **All scripts have been executed. Reproduction exercise complete.**
