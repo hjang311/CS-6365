@@ -1,116 +1,49 @@
-# NORP: Non-Profit Organization Project
+# NORP: Agentic Data Exploration Pipeline
 ## CS 6365 Enterprise Computing Semester Project
 
 ---
 
 ## 📌 Executive Summary
 
-Modern Non-Profit Organizations (NPOs) face unique, complex operational challenges: orchestrating volunteer networks, securing and auditing donor transactions, scaling up digital infrastructure during emergency relief drives, and using modern data tools to optimize outreach. 
+Modern Non-Profit Organizations (NPOs) generate and report massive amounts of data (such as IRS Form 990s). However, synthesizing this data with external, often messy datasets (from Data.gov, Kaggle) to find actionable sociological correlations is highly labor-intensive.
 
-The **NORP** project aims to build a modern, high-QoS, cloud-native enterprise platform tailored specifically for NPOs. This platform translates academic principles of Enterprise Computing into practical, reliable, and scalable software solutions that support social impact.
-
----
-
-## 🛠️ Application of Enterprise Computing Pillars
-
-Our architecture is structured around the four core technical modules of CS 6365:
-
-```
-               ┌──────────────────────────────────────────────────┐
-               │              NORP Enterprise Portal              │
-               └─────────┬──────────────────────────────┬─────────┘
-                         │                              │
-        ┌────────────────▼────────────────┐    ┌────────▼────────────────────────┐
-        │   MT: Transaction Management    │    │      MS: Services & Workflows   │
-        │  - ACID donor ledger            │    │ - WED-flow engine               │
-        │  - "Conservation of Money"      │    │ - Microservices architecture    │
-        │  - Multi-party reconciliation   │    │ - Volunteer dispatching         │
-        └─────────────────────────────────┘    └─────────────────────────────────┘
-        ┌─────────────────────────────────┐    ┌─────────────────────────────────┐
-        │       MQ: QoS & Cloud Scale     │    │         MA: AI/ML Integration   │
-        │ - Statistical QoS monitoring    │    │ - LLM-powered donor outreach    │
-        │ - Horizontal autoscaling        │    │ - Smart volunteer matching      │
-        │ - p99 latency & resilience      │    │ - Situational awareness dashboards│
-        └─────────────────────────────────┘    └─────────────────────────────────┘
-```
-
-### 1. MT: Transaction Processing (Conservation of Money)
-* **Problem:** Auditable financial integrity is paramount for NPOs. Donations, grant distributions, and programmatic spending must be perfectly recorded.
-* **Our Solution:** A rigorous ledger system enforcing **ACID transactions**. We implement two-phase commits for donor-to-program allocations to ensure no funds are lost or incorrectly credited, upholding the *Principle of Conservation of Money*.
-
-### 2. MQ: Quality of Service (QoS) & Cloud Scalability
-* **Problem:** NPOs experience sudden spikes in traffic during holiday donation campaigns or natural disaster responses. A slow or crashed site translates directly to lost relief funds.
-* **Our Solution:** Horizontally scalable cloud infrastructure with built-in **statistical QoS guarantees**. We target **five-nines availability** (99.999% uptime) and a **p99 latency under 200ms** by implementing automated load-balancing, microservice replication, and database read-replicas.
-
-### 3. MS: Services Computing & Workflows (WED-flow)
-* **Problem:** NPO operations involve multi-step processes—such as onboarding volunteers, running background checks, and matching them with specific community events.
-* **Our Solution:** Implementing a **WED-flow** (Workflows, Events, Data-flows) composition model. By decomposing the system into decentralized microservices, we build decoupled event-driven workflows that track the progression from volunteer sign-up to post-event reporting.
-
-### 4. MA: AI/ML & Situational Awareness
-* **Problem:** NPOs have limited administrative staff, making personalized donor engagement and manual resource matching highly inefficient.
-* **Our Solution:** Leveraging AI tools for **situational awareness** and operational optimization:
-  * **Donor Retention Predictor:** A classifier to flag donors likely to lapse, allowing proactive, personalized outreach.
-  * **GenAI Campaign Assistant:** Utilizing LLMs to auto-draft highly personalized campaign newsletters based on a donor’s past giving history.
-  * **Smart Matcher:** An optimized recommendation engine matching volunteers to opportunities based on skill-sets, location, and history.
+The **NORP Agentic Data Exploration Pipeline** utilizes the **Google Antigravity SDK** to orchestrate an autonomous multi-agent system. This system acts as a "Data Scientist in a Box", autonomously triaging raw datasets, writing code to clean and merge them, and programmatically verifying the results before applying statistical models.
 
 ---
 
-## 📈 Project Scope: Moving from [A] to [B]
+## 🛠️ System Architecture
 
-To satisfy the CS 6365 DevOps checklist, we define our explicit milestones:
+Our architecture is structured around a pipeline of specialized AI agents:
 
-### 🏁 **Starting Point [A]**
-* A basic web repository with mock volunteer databases.
-* Manual, un-orchestrated processes for event management and donation logging.
-* No automated scalability, monitoring, or unified workflow engine.
+### 1. The Orchestrator Agent
+* **Role:** The high-level strategic planner.
+* **Function:** Receives sociological hypotheses, determines the necessary data transformations, and delegates Python coding tasks to the subordinate agents. 
 
-### 🏆 **Ending Point [B]**
-* A robust, cloud-deployed backend platform.
-* Fully orchestrated microservices with a decoupled event engine (WED-flow).
-* High-confidence transaction system with automated unit tests for concurrency.
-* Live statistical QoS monitoring dashboard showing p90/p99 latencies under load tests.
-* Fully integrated AI models for volunteer-to-event matching and LLM-assisted donor outreach.
+### 2. The Code Agent (REPL Sandbox)
+* **Role:** The execution engine.
+* **Function:** Operates inside a Python REPL environment. It writes, executes, and iteratively debugs `pandas` and `scikit-learn` scripts to process Form 990 data.
 
----
-
-## 🗂️ Repository & DevOps Structure
-
-To maximize our `#Factual` evaluation, we maintain a highly structured, automated repository layout:
-
-```
-CS-6365/
-│
-├── .gitignore               # Excludes virtual environments and keys
-├── README.md                # Project homepage & course summary
-├── NORP_PROJECT.md          # Project charter & architectural overview
-│
-├── checkpoints/             # Contains bi-weekly DevOps reports
-│   ├── checkpoint_0.md
-│   └── checkpoint_1.md
-│
-├── src/                     # Core application source code
-│   ├── transactions/        # ACID donor ledger service
-│   ├── workflows/           # WED-flow volunteer orchestrator
-│   ├── ai_engine/           # Smart matcher & GenAI integration
-│   └── portal/              # Web/Frontend interface
-│
-├── tests/                   # Automated validation suites
-│   ├── load_testing/        # Locust/JMeter scripts for MQ evaluation
-│   └── unit_tests/          # Transaction integrity & workflow tests
-│
-└── scripts/                 # Automation & Reproducibility scripts
-    ├── setup.sh             # One-click environment bootstrap
-    └── run_tests.sh         # Executes the complete test suite
-```
+### 3. Pipeline Stages
+* **Stage 1: Triage Gate:** The Code Agent writes statistical profiling scripts to assess the "health" of a raw dataset. If a dataset is completely unresolvable, the system applies a **"Drop and Move" heuristic** to skip it.
+* **Stage 2: Cleaning Pipeline:** The system autonomously handles nulls, outliers, and schema alignment to join external data with the Form 990 anchor.
+* **Stage 3: Programmatic Verification:** The system writes assertions (verifying distributions and schema integrity) to mathematically prove the data is clean.
+* **Stage 4: Math & Correlation Engine:** The Code Agent generates regression models and calculates **Context-Adjusted Performance Scores** for non-profits based on geographic archetypes (e.g., Rust Belt vs. Sun Belt).
 
 ---
 
-## ⚡ Initial Action Plan
+## 📈 Project Milestones (Summer 2026)
 
-1. **Phase 1: Environment Setup & Checkpoint 0**
-   * Perform the reproducibility exercise by cloning and running an exemplar repository from previous semesters.
-   * Document and submit the reproducibility report (`checkpoint_0.md`).
-2. **Phase 2: System Blueprint & Checkpoint 1**
-   * Draft the final database schemas for ACID donation tracking.
-   * Detail the API gateway specifications and register our microservices.
-   * Complete and submit the initial project proposal (`checkpoint_1.md`) with comprehensive self-evaluations.
+Our progress is tracked through specific phases aligned with the CS 6365 DevOps checkpoints:
+
+* **Phase 1: Foundation & Triage Gate**
+  * Establish the Python `agentic_pipeline` environment.
+  * Implement the Orchestrator and Code agents.
+  * Build the initial data profiling script for the core 990 CSV.
+* **Phase 2: Autonomous Cleaning Pipeline**
+  * Implement the "Drop and Move" heuristic.
+  * Autonomously merge external datasets with the anchor data.
+* **Phase 3: Auto-Verification & Math Engine**
+  * Implement the Context-Adjusted Performance Score mathematics.
+  * Generate factual regression models proving sociological correlations.
+* **Phase 4: Synthesis & Presentation**
+  * Finalize the `#Factual` evidence and prepare the final deliverables.
