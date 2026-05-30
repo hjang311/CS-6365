@@ -11,14 +11,31 @@ The goal of this pipeline is to use the `google-antigravity` SDK to autonomously
 - **`main.py`**: The entry point to initialize the environment and run the pipeline.
 
 ## Setup Instructions
-1. Install Python 3.10 or higher.
+
+> [!IMPORTANT]
+> **Windows Users:** The `google-antigravity` SDK requires pre-compiled binaries that are currently only available for Linux and Apple Silicon (Mac). It cannot be installed natively on Windows. You **must** use Windows Subsystem for Linux (WSL) or Docker.
+
+### Windows Setup (via WSL)
+If you are on Windows, follow these steps to set up a Linux environment:
+1. Open PowerShell as Administrator and install WSL (with Ubuntu):
+   `wsl --install`
+2. Restart your computer if prompted, and open the Ubuntu app to create your username/password.
+3. In the Ubuntu terminal, ensure Python 3.10+ and pip/venv are installed:
+   `sudo apt update && sudo apt install python3 python3-pip python3-venv -y`
+4. Navigate to your Windows project directory from within WSL:
+   `cd /mnt/c/Users/YOUR_USERNAME/path/to/CS-6365/agentic_pipeline`
+5. Proceed to the standard project setup below.
+
+### Standard Project Setup (Linux, Mac, or WSL)
+1. Ensure you have Python 3.10 or higher.
 2. Create and activate a virtual environment:
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
-3. Install dependencies:
+3. Upgrade pip and install dependencies:
    ```bash
+   pip install --upgrade pip
    pip install -r requirements.txt
    ```
 4. Create a `.env` file based on `.env.example` and add your API Key:
