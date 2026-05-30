@@ -29,6 +29,11 @@ Our architecture is structured around a pipeline of specialized AI agents:
 * **Stage 3: Programmatic Verification:** The system writes assertions (verifying distributions and schema integrity) to mathematically prove the data is clean.
 * **Stage 4: Math & Correlation Engine:** The Code Agent generates regression models and calculates **Context-Adjusted Performance Scores** for non-profits based on geographic archetypes (e.g., Rust Belt vs. Sun Belt).
 
+### 4. Hybrid Execution Architecture (Skills vs SDK)
+The project utilizes a dual-engine "Hybrid Strategy" to separate the agent logic (the "Brain") from the execution environment (the "Engine"):
+* **The Skills Model:** All agent behaviors, rules, and system instructions are written as declarative Markdown files and stored in the `.agent/skills/` directory. This allows for zero-cost, iterative testing and sub-agent delegation natively within the Antigravity desktop app.
+* **The SDK Model:** When the pipeline is ready for production, the `google-antigravity` Python SDK is used as a headless framework. The `agents.py` scripts dynamically read the exact same Markdown files from the `.agent/skills/` directory, guaranteeing 100% reproducible outputs between local testing and remote server deployment.
+
 ---
 
 ## 📈 Project Milestones (Summer 2026)
