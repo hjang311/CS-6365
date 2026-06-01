@@ -164,3 +164,4 @@ CS 6365/obj/
 
 # Cloned exemplar repository (for reproducibility exercise only)
 NORP_Spring26_G5/
+venv_*/

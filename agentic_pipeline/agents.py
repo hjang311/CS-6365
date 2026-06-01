@@ -30,3 +30,11 @@ def create_code_agent():
         config=get_config(),
         system_instruction=code_agent_prompt
     )
+
+def create_validator_agent():
+    """Creates the Validator Agent responsible for Programmatic Verification."""
+    validator_prompt = get_prompt_from_file(os.path.join(".agent", "skills", "norp-validator-agent", "SKILL.md"))
+    return Agent(
+        config=get_config(),
+        system_instruction=validator_prompt
+    )

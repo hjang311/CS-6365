@@ -15,18 +15,22 @@ The **NORP Agentic Data Exploration Pipeline** utilizes the **Google Antigravity
 
 Our architecture is structured around a pipeline of specialized AI agents:
 
-### 1. The Orchestrator Agent
-* **Role:** The high-level strategic planner.
-* **Function:** Receives sociological hypotheses, determines the necessary data transformations, and delegates Python coding tasks to the subordinate agents. 
+### 1. The Orchestrator Agent (The Manager)
+* **Role:** The high-level strategic planner and **Proactive Discovery Engine**.
+* **Function:** Does not wait for user hypotheses. It mandates an automated Exploratory Data Analysis (EDA) sweep (e.g., using Predictive Power Scores and robust statistics) immediately upon receiving a dataset. It surfaces statistically verified patterns and delegates Python execution to subordinate agents.
 
-### 2. The Code Agent (REPL Sandbox)
-* **Role:** The execution engine.
-* **Function:** Operates inside a Python REPL environment. It writes, executes, and iteratively debugs `pandas` and `scikit-learn` scripts to process Form 990 data.
+### 2. The Code Agent (The Engineer)
+* **Role:** The execution engine inside a Python REPL sandbox.
+* **Function:** Operates on a strict **Sense-Plan-Act-Learn** loop. It flattens nested data (e.g., Form 990 XMLs), writes `pandas` and `scikit-learn` scripts, and iteratively self-corrects any tracebacks until execution succeeds.
 
-### 3. Pipeline Stages
-* **Stage 1: Triage Gate:** The Code Agent writes statistical profiling scripts to assess the "health" of a raw dataset. If a dataset is completely unresolvable, the system applies a **"Drop and Move" heuristic** to skip it.
-* **Stage 2: Cleaning Pipeline:** The system autonomously handles nulls, outliers, and schema alignment to join external data with the Form 990 anchor.
-* **Stage 3: Programmatic Verification:** The system writes assertions (verifying distributions and schema integrity) to mathematically prove the data is clean.
+### 3. The Validator Agent (The QA)
+* **Role:** The adversarial programmatic verification gateway.
+* **Function:** Receives cleaned datasets from the Code Agent and writes independent, ruthless Python assertions (Data Contracts) to mathematically prove the data conforms to the schema. It bounces failed data back to the Code Agent for correction before allowing the Orchestrator to proceed.
+
+### 4. Pipeline Stages
+* **Stage 1: Triage Gate & Proactive EDA:** The Orchestrator commands the Code Agent to run an EDA sweep. If a dataset is completely unresolvable, the system applies a **"Drop and Move" heuristic** to skip it.
+* **Stage 2: CodeAct Cleaning Pipeline:** The Code Agent autonomously handles nulls, outliers, and schema alignment to join external data with the Form 990 anchor.
+* **Stage 3: Programmatic Verification:** The Validator Agent runs Data Contracts to prove the data is clean and hallucinatory-free.
 * **Stage 4: Math & Correlation Engine:** The Code Agent generates regression models and calculates **Context-Adjusted Performance Scores** for non-profits based on geographic archetypes (e.g., Rust Belt vs. Sun Belt).
 
 ### 4. Hybrid Execution Architecture (Skills vs SDK)
