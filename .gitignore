@@ -172,3 +172,4 @@ dataverse_files/
 *.xlsx
 .DS_Store
 .claude/
+.git-token
