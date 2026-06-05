@@ -165,8 +165,6 @@ CS 6365/obj/
 # Cloned exemplar repository (for reproducibility exercise only)
 NORP_Spring26_G5/
 venv_*/
-
-# --- NORP data exclusions (added for GitHub) ---
 dataverse_files/
 *.csv
 *.xlsx

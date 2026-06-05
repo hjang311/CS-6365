@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{geometry}
+\usepackage{pifont}
+\usepackage{xcolor}
+\geometry{a4paper, margin=1in}
+
+\title{Checkpoint 0: Reproducibility Exercise --- Full Report}
+\author{Hwando Jang}
+\date{May 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Run and Reproduce}
+\subsection{Documentation and Execution}
+The target project is \textbf{NORP\_Spring26\_G5}. The environment was set up on macOS with Python 3.9.6. A virtual environment was created, and all dependencies from \texttt{requirements.txt} were installed.
+
+The reproduction involved running six core scripts sequentially. A critical setup issue was discovered: \texttt{cp2\_extraction.py} and \texttt{cp4\_analysis.py} use Python 3.10+ type hint syntax, which caused a \texttt{TypeError} on older interpreters. This was fixed by adding \texttt{from \_\_future\_\_ import annotations}.
+
+We successfully executed the data extraction, generating 221 rows of Chicago violent crime data across 23 districts (2015--2024), and built the socioeconomic panel dataset (140 rows). We reproduced all statistical regression models (CP3 and CP4) and generated all plots. 
+
+\subsection{Inconsistencies}
+During our 3-day reproduction audit, we logged a total of \textbf{15 inconsistencies}, ranging from minor code-quality issues (such as dead dependencies in \texttt{requirements.txt} and unused imports) to critical reproduction blockers. The most significant inconsistencies affecting the project's viability include:
+\begin{itemize}
+    \item \textbf{Missing Dataset (Critical):} The RAG knowledge base (\nolinkurl{data/combined_dataset.csv}) is absent from the repository. This renders the interactive pipeline (Component A) non-functional.
+    \item \textbf{LLM Model Mismatch:} The README claims the model is \nolinkurl{mistralai/devstral-2512:free}, but the code uses \nolinkurl{openai/gpt-oss-20b:free}.
+    \item \textbf{Type Hint Errors:} Syntax incompatibility with Python 3.9.
+    \item \textbf{Data Loss:} 37\% of crime data was dropped in the socioeconomic crosswalk due to 9 unmapped districts. This was not documented.
+\end{itemize}
+
+\section{Project Components}
+
+\subsection{Project Plan}
+The project proposes a dual-component system. Component A is an interactive Retrieval-Augmented Generation (RAG) pipeline designed to convert natural language into Socrata Query Language (SoQL) queries against the Chicago Crimes API. Component B is a longitudinal statistical analysis investigating whether the COVID-19 pandemic (post-2020) fundamentally shifted the relationship between socioeconomic determinants and violent crime. The research question is genuine and testable, and the planned architecture is substantial (10 Python scripts totaling 1,788 lines of code). The documentation is exceptionally thorough, providing step-by-step guides and execution steps.
+
+\subsection{Project Execution}
+Component B (longitudinal analysis) was executed via a linear pipeline of 6 scripts. It successfully built a 140-row panel dataset spanning 10 years and leveraged \texttt{statsmodels} to run advanced Ordinary Least Squares (OLS) fixed-effects regressions. The code quality for this component is high. However, Component A (RAG pipeline) attempted to use \texttt{sentence-transformers} and cosine similarity but is entirely non-functional due to the missing knowledge base dataset. When queried, it loads raw CSVs as context, fails to infer SoQL parameters, and returns \texttt{NOT\_ENOUGH\_CONTEXT}.
+
+\subsection{Supporting Evidence}
+The original repository lacks committed execution evidence (0 console logs, 0 output CSVs, and 0 saved plots). This is a major deviation from standard enterprise engineering practices, forcing the reviewer to rely entirely on live reproduction from scratch. During our reproduction, we successfully generated all missing evidence for Component B. Our reproduction perfectly verified the post-2020 correlation shifts (hardship: +0.348 to +0.071, income: -0.241 to +0.106) and the high-leverage influence of District 12. However, claims regarding Component A's functionality are completely unverifiable.
+
+\section{Additional Requirements}
+
+\subsection{Project Overview (RAG Pipeline)}
+Component A acts as a natural language interface for the Chicago Crimes database. It implements a Retrieval-Augmented Generation (RAG) loop:
+\begin{enumerate}
+    \item \textbf{Retrieval:} It uses a pre-trained model to convert a user's question into a dense vector embedding and computes cosine similarity against a database of example question-SoQL translation pairs (\texttt{combined\_dataset.csv}).
+    \item \textbf{Generation:} Examples are injected as few-shot context to an LLM via the OpenRouter API to generate SoQL parameters.
+    \item \textbf{Execution:} The generated JSON is used to query the Socrata API and retrieve live crime statistics.
+\end{enumerate}
+
+\subsection{Natural Language Query Testing}
+We designed five distinct queries to evaluate Component A (e.g., "How many violent crimes occurred in district 1 in 2023?"). Because \texttt{combined\_dataset.csv} is missing, the script indexed statistical CSVs instead. The LLM was overwhelmed by raw data and returned \texttt{NOT\_ENOUGH\_CONTEXT} for every query, failing to generate any valid SoQL.
+
+\subsection{Observations and Failure Cases}
+During our testing, the following core failures were documented:
+\begin{itemize}
+    \item \textbf{Knowledge Base Chunking Failure:} \texttt{ingest.py} lacks a sentence-splitting strategy, blindly loading raw data cells instead of query-translation examples.
+    \item \textbf{LLM Context Overload:} Without proper few-shot query structures, the system prompt collapses, leading to escape responses.
+    \item \textbf{Interpreter Syntax Failures:} Python 3.10+ union type hints (\texttt{DataFrame | None}) caused immediate crashes on older interpreters.
+\end{itemize}
+
+\subsection{Directions for Improvement}
+To reach an enterprise-grade standard, the following improvements are recommended:
+\begin{itemize}
+    \item \textbf{Restore Knowledge Base:} Reconstruct and commit \texttt{combined\_dataset.csv}.
+    \item \textbf{Integrate Vector Database:} Utilize ChromaDB (already in requirements) for metadata filtering.
+    \item \textbf{Standardize Environment:} Pin dependency versions and enforce Python 3.10+.
+    \item \textbf{Implement Orchestration:} Add a unified shell script to chain execution automatically.
+    \item \textbf{Validation Suite:} Create \texttt{pytest} unit tests to verify SoQL structures.
+\end{itemize}
+
+\section{Evaluate the Project}
+\begin{itemize}
+    \item \textbf{Plan:} 90\% / 120\%
+    \item \textbf{Match:} 95\% / 120\%
+    \item \textbf{Factual:} 75\% / 100\%
+\end{itemize}
+\textbf{Combined Score:} $0.900 \times 0.950 \times 0.750 = 64.1\%$
+
+\section{Explanations}
+
+\subsection{Plan Score Explanation (90\%)}
+The plan is "Substantial" and well above a Hello World demo. It demonstrates genuine analytical ambition and methodological rigor (exploration, modeling, robustness validation). However, the two components are architecturally disconnected, the RAG structure is simplistic, and the repository contains dead dependencies (e.g., Langchain, ChromaDB). A score of 90\% reflects a strong, well-documented plan with addressable weaknesses.
+
+\subsection{Match Score Explanation (95\%)}
+The original team wrote complete functional code for all 10 Python modules specified. Component B was 100\% matched, producing every data file and OLS regression model planned, exceeding expectations with advanced robustness sweeps. However, a 10\% deduction was applied because Component A was blocked by the missing dataset, and a 5\% deduction was applied for technical debt (Python 3.10+ incompatibilities and dead dependencies).
+
+\subsection{Factual Score Explanation (75\%)}
+The statistical claims made in the documentation are highly accurate and mathematically sound. Every OLS coefficient, p-value, R-squared statistic, and correlation trend claimed in the README was verified by our execution logs. However, a 25\% penalty was applied because the primary feature (the RAG-driven query engine) is completely unsubstantiated due to the missing knowledge base, and the authors committed zero output artifacts (logs, plots) to back up their claims.
+
+\end{document}
