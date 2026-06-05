@@ -165,9 +165,3 @@ CS 6365/obj/
 # Cloned exemplar repository (for reproducibility exercise only)
 NORP_Spring26_G5/
 venv_*/
-dataverse_files/
-*.csv
-*.xlsx
-.DS_Store
-.claude/
-.git-token
