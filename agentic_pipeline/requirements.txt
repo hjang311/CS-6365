@@ -1,0 +1,6 @@
+google-antigravity
+pandas
+scikit-learn
+statsmodels
+python-dotenv
+pyarrow
