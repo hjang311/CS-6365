@@ -1,5 +1,0 @@
-Stage,Agent,Skill loaded,Outcome
-1,Orchestrator (me),norp-orchestrator,"Sensed columns, delegated parsing"
-2,Code Agent (sub-agent),norp-code-agent,"Sense→Plan→Act→Learn: read data dictionary, decoded Likert, cleaned, cross-tabbed, wrote cleaned_test_case_1.csv"
-3,Validator Agent (sub-agent),norp-validator-agent,6/6 Data Contract assertions PASS → APPROVED
-4,Orchestrator synthesis,-,Chi-square significance + report comparison

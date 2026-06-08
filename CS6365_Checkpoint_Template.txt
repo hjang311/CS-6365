@@ -1,0 +1,73 @@
+Georgia Institute of Technology
+CS 4365/6365: Introduction to Enterprise Computing
+Summer 2026
+Project Checkpoint X Report
+
+Group: 
+Name(s): 
+Project Name:
+Context and Related Work:
+Project Plan (Plan)
+Provide clear understanding of the current state of the respective idea/related work to provide context and the starting point. 
+Project Deliverables
+Add the deliverables planned for the project at the end of the semester and remove this line.
+
+Deliverable
+Description
+Technical Stack
+
+
+
+
+
+
+
+
+
+
+
+
+Project Milestones
+Show the project plan and the planned work for each teammate and remove this line.
+
+Checkpoint
+Milestone
+Technical Scope & Deliverables
+Work Splitup
+Status
+Checkpoint 1
+
+
+
+
+Checkpoint 2
+
+
+
+
+Checkpoint 3
+
+
+
+
+Current Progress Report (Match)
+	•	Provide a report on the work done during the last 2 weeks. 
+	•	Compare the work done with the initially planned milestone chart.
+	•	Mention what your planned work is for the next 2 weeks.
+	•	Mention any changes to the original plan due to the findings over the past 2 weeks. 
+Supporting Evidence (Factual)
+	•	Add the URL to your GitHub project to demonstrate the progress claimed above. Please provide links for individual files or directories pointing to the work you have done over the past 2 weeks. This will help TAs and peer reviewers efficiently assess factual accuracy.
+	•	Datasets would show metadata, followed by a sample of data items. Software platforms would show documentation, followed by a sample demo (Hello World). Your own code would show a code listing, followed by execution results.
+	•	Add screenshots as necessary.
+Skill Learning Report
+Mention each skill, followed by 1-2 lines on how you are making progress towards learning the skills or implementing them in your project, or a 3-4 line explanation on how you have learnt a particular skill.
+Self-Evaluation
+	•	Plan: X
+	•	Match: X
+	•	Factual: X
+LLM Feedback: 
+	•	Project Plan (Plan): X
+	•	Progress Report (Match): X 
+	•	Supporting Evidence (Factual): X 
+Actionable Suggestions:
+

@@ -165,3 +165,12 @@ CS 6365/obj/
 # Cloned exemplar repository (for reproducibility exercise only)
 NORP_Spring26_G5/
 venv_*/
+
+# Data files, documents, and personal research notes
+Project Research & Initial Plan/
+dataverse_files/
+*.csv
+*.xlsx
+*.docx
+*.pdf
+.DS_Store
