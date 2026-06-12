@@ -1,0 +1,6 @@
+Passed: Staff_EpsdVltnr_2023 & Staff_EpsdVltnr_2024: p-value = 4.1385e-289 < 0.05 (r = 0.9976)
+Passed: Staff_Fulltime_2023 & Staff_Fulltime_2024: p-value = 3.0876e-288 < 0.05 (r = 0.9976)
+Passed: Staff_RegVlntr_2023 & Staff_RegVlntr_2024: p-value = 3.0553e-206 < 0.05 (r = 0.9888)
+Passed: Staff_Boardmmbr_2023 & Staff_Boardmmbr_2024: p-value = 6.5000e-135 < 0.05 (r = 0.9571)
+Passed: Staff_Other_Est_2023 & Staff_Other_Est_2024: p-value = 2.1855e-129 < 0.05 (r = 0.9524)
+ALL_PASS

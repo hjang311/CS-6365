@@ -174,3 +174,6 @@ dataverse_files/
 *.docx
 *.pdf
 .DS_Store
+
+# Ignore project data directories
+Checkpoint 1/Broadband Access x Fundraising Efficiency/Data/
