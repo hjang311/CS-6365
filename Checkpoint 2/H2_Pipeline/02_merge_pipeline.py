@@ -88,12 +88,40 @@ def main():
         df["professional_fundraising_fees"].fillna(0)
         + df["fundraising_events_direct_expenses"].fillna(0))
 
-    # drop orgs with zero fundraising spend (infinite/undefined ratio; not in scope)
-    before = len(df)
-    df = df[df["fundraising_expense_proxy"] > 0].copy()
-    print(f"[merge] dropped {before - len(df):,} orgs with zero fundraising spend")
+    # ------------------------------------------------------------------
+    # DV CLEANING RECIPE — removes the artifacts that make the ratio (and
+    # therefore Pearson) meaningless. Each step prints its drop count so the
+    # cleaning is fully auditable in the findings write-up.
+    # ------------------------------------------------------------------
+    FUND_SPEND_FLOOR = 5_000      # min plausible fundraising spend ($)
+    EFFICIENCY_CAP   = 1_000      # >$1,000 raised per $1 spent = reporting artifact
+    MIN_ZIP_POP      = 1_000      # drop tiny ZCTAs that inflate per-capita density
+
+    def drop(mask, reason):
+        nonlocal df
+        n = (~mask).sum()
+        df = df[mask].copy()
+        print(f"[clean] dropped {n:,} rows — {reason}  (remaining {len(df):,})")
+
+    # Step 1: validity — no negative/zero contributions or fundraising spend
+    #         (these are amended/error returns, not real performance)
+    drop((df["total_contributions"] > 0) & (df["fundraising_expense_proxy"] > 0),
+         "invalid: contributions<=0 or fundraising spend<=0")
+
+    # Step 2: sane denominator floor — kills ratio blow-ups from non-reporters
+    drop(df["fundraising_expense_proxy"] >= FUND_SPEND_FLOOR,
+         f"fundraising spend < ${FUND_SPEND_FLOOR:,}")
 
     df["fundraising_efficiency"] = df["total_contributions"] / df["fundraising_expense_proxy"]
+
+    # Step 3: domain cap — implausible efficiency is a data artifact, not skill
+    drop(df["fundraising_efficiency"] <= EFFICIENCY_CAP,
+         f"efficiency > {EFFICIENCY_CAP} (>${EFFICIENCY_CAP} raised per $1)")
+
+    # Step 5 (IV side): drop tiny-population ZIPs that inflate per-capita density
+    if "population" in df.columns and df["population"].notna().any():
+        drop(~(df["population"] < MIN_ZIP_POP),
+             f"ZIP population < {MIN_ZIP_POP:,}")
 
     # --- controls / segments ---
     df = df[df["total_revenue"] >= 500_000].copy()
@@ -104,7 +132,14 @@ def main():
                                 bins=[500_000, 2_000_000, float("inf")],
                                 labels=["mid", "large"])
 
-    # winsorize the DV lightly to tame extreme outliers (cap at 99th pct)
+    # Step 4: analyze on logs — makes Pearson's linearity assumption valid on
+    # these log-normal variables (this is the step that converges Pearson->Spearman)
+    df["log_fundraising_efficiency"] = np.log(df["fundraising_efficiency"].clip(lower=1e-9))
+    for cand in ("bank_branch_density", "bank_branch_density_raw"):
+        if cand in df.columns:
+            df[f"log_{cand}"] = np.log1p(df[cand].clip(lower=0))
+
+    # keep a winsorized level DV too (for level-scale OLS / robustness)
     cap = df["fundraising_efficiency"].quantile(0.99)
     df["fundraising_efficiency_w"] = df["fundraising_efficiency"].clip(upper=cap)
 

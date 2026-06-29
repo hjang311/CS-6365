@@ -45,11 +45,28 @@ def main():
     iv = iv_column(df)
     d = df.dropna(subset=[iv]).copy()
 
-    # --- Model 1: raw correlation ---
+    # --- Model 1: correlation (level + log-log) ---
     pr, pp = stats.pearsonr(d[iv], d["fundraising_efficiency_w"])
     sr, sp = stats.spearmanr(d[iv], d["fundraising_efficiency_w"])
     print(f"\n=== Model 1 correlation (n={len(d):,}) ===")
-    print(f"  Pearson r={pr:.4f} (p={pp:.4g}) | Spearman rho={sr:.4f} (p={sp:.4g})")
+    print(f"  [level] Pearson r={pr:.4f} (p={pp:.4g}) | Spearman rho={sr:.4f} (p={sp:.4g})")
+
+    # log-log Pearson — the valid statistic on these log-normal variables.
+    log_iv = f"log_{iv}"
+    lpr = lpp = float("nan")
+    if log_iv in d.columns and "log_fundraising_efficiency" in d.columns:
+        dl = d.dropna(subset=[log_iv, "log_fundraising_efficiency"])
+        lpr, lpp = stats.pearsonr(dl[log_iv], dl["log_fundraising_efficiency"])
+        print(f"  [log-log] Pearson r={lpr:.4f} (p={lpp:.4g})  <-- valid linear measure")
+
+    # --- Threshold check: efficiency by IV quartile (catches non-linearity) ---
+    print("\n=== Density-quartile means (threshold/non-linearity check) ===")
+    dq = d.copy()
+    dq["iv_quartile"] = pd.qcut(dq[iv], 4, labels=["Q1_low", "Q2", "Q3", "Q4_high"],
+                                duplicates="drop")
+    qtab = dq.groupby("iv_quartile", observed=True)["fundraising_efficiency_w"].agg(
+        ["count", "mean", "median"])
+    print(qtab.round(2).to_string())
 
     # --- Model 2: full OLS ---
     m2 = run_ols(d, iv, "Model 2 — full filtered sample")
@@ -77,7 +94,8 @@ def main():
         f"| IV used | `{iv}` |",
         f"| Mean bank-branch density | {d[iv].mean():.4f} ± {d[iv].std():.4f} |",
         f"| Mean fundraising efficiency | {fe.mean():.3f} ± {fe.std():.3f} |",
-        f"| Pearson r (Model 1) | r={pr:.4f}, p={pp:.4g} |",
+        f"| Pearson r — level (Model 1) | r={pr:.4f}, p={pp:.4g} |",
+        f"| Pearson r — log-log (Model 1, valid) | r={lpr:.4f}, p={lpp:.4g} |",
         f"| Spearman rho (Model 1) | rho={sr:.4f}, p={sp:.4g} |",
         f"| OLS beta on IV (Model 2) | {m2.params[iv]:.5f} "
         f"(95% CI {m2.conf_int().loc[iv,0]:.5f}, {m2.conf_int().loc[iv,1]:.5f}), "
@@ -87,6 +105,14 @@ def main():
     for seg, m in mods.items():
         lines.append(f"| OLS beta on IV ({seg}, Model 3) | {m.params[iv]:.5f}, "
                      f"p={m.pvalues[iv]:.4g}, R2={m.rsquared:.4f} |")
+
+    # density-quartile means (threshold / non-linearity check)
+    lines += ["", "## Fundraising efficiency by bank-branch-density quartile",
+              "| IV quartile | n | mean efficiency | median efficiency |",
+              "|---|---|---|---|"]
+    for q, row in qtab.iterrows():
+        lines.append(f"| {q} | {int(row['count']):,} | {row['mean']:.2f} | {row['median']:.2f} |")
+
     out = os.path.join(HERE, "findings_results.md")
     open(out, "w").write("\n".join(lines) + "\n")
     print(f"\n[analysis] findings table written -> {out}")
