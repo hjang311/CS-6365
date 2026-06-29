@@ -177,3 +177,6 @@ dataverse_files/
 
 # Ignore project data directories
 Checkpoint 1/Broadband Access x Fundraising Efficiency/Data/
+
+# H2 pipeline large/re-downloadable data
+Checkpoint 2/H2_Pipeline/data/
