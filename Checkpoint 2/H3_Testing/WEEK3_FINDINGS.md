@@ -14,8 +14,10 @@ sources before committing engineering effort.
 fees are absent from the structured NCCS CORE data and exist only as free-text line items
 in the raw 990 e-file XML. Using a streaming parser (`remotezip`, which extracts
 individual returns from the 2.6 GB IRS archive via HTTP range requests rather than
-downloading it whole), we sampled 600 returns and found that only **8 of 145 qualifying
-nonprofits (≈5.5%)** itemized an identifiable payment-processing fee (`processing_fee_pct`
+downloading it whole), we extracted a random sample of 600 individual returns. After
+restricting to full Form 990 filers (270 returns) and then to our study population of
+nonprofits with revenue ≥ $500,000 (145 returns), we found that only **8 organizations
+(≈5.5%)** itemized an identifiable payment-processing fee (`processing_fee_pct`
 median ≈ 1.6%, max ≈ 4.3%). This coverage is far too low for a primary analysis, and —
 because all 990-derived databases (ProPublica, Candid, Cause IQ, NCCS) inherit the same
 filings — no alternative database can exceed this ceiling.

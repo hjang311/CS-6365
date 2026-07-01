@@ -19,8 +19,9 @@ Payment-processing fees are **not** in NCCS CORE (CORE has the Line 24 *amounts*
 - **Probe:** `04_parse_efile_fees.py` — streamed a 600-return sample from the 2022 IRS
   e-file ZIP via HTTP range requests (`remotezip`; no 2.6 GB download) and regex-matched
   payment-processing descriptions.
-- **Result:** of 145 sampled full-990 filers with revenue ≥ $500K, only **8 (≈5.5%)**
-  reported an identifiable payment-processing fee line. Among those, `processing_fee_pct`
+- **Result:** After restricting the 600 returns to full Form 990 filers (270 returns) and
+  then to our study population of nonprofits with revenue ≥ $500K (145 returns), only
+  **8 (≈5.5%)** reported an identifiable payment-processing fee line. Among those, `processing_fee_pct`
   median ≈ 1.6%, max ≈ 4.3%.
 - **Verdict:** ❌ **Not viable as a primary measure.** Coverage is ~5.5% and the subset
   is **selection-biased** — orgs that itemize "credit card / Stripe fees" are
