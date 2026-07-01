@@ -180,3 +180,6 @@ Checkpoint 1/Broadband Access x Fundraising Efficiency/Data/
 
 # H2 pipeline large/re-downloadable data
 Checkpoint 2/H2_Pipeline/data/
+
+# H3 probe data (re-downloadable)
+Checkpoint 2/H3_Testing/data/
