@@ -19,12 +19,13 @@ Following the architectural constraint to eliminate external API dependencies fo
 The offline Human-In-The-Loop (HITL) engine ran a deterministic, robust OLS regression (cov_type="HC1") on the `cp3_modeling_frame.csv` with the following control covariates: `log_total_revenue`, `C(ntee_major)`, `C(region)`, `poverty_rate`, and `median_hh_income`.
 
 **Results Summary:**
-- **Number of Observations (n):** 116,587
-- **R-squared ($R^2$):** 0.1766
-- **IV Coefficient (beta):** -7.91647
-- **IV P-value:** 2.427e-22
+| Sample | n | IV coefficient (beta) | p-value | 95% CI | R-squared |
+|---|---|---|---|---|---|
+| Full (>=$500K) | 116,587 | -7.91647 | 2.427e-22 | [-9.5124, -6.3205] | 0.1766 |
+| Mid ($500K-$2M) | 53,650 | -2.99536 | 3.615e-11 | [-3.8823, -2.1084] | 0.0912 |
+| Large (>=$2M) | 62,936 | -11.53377 | 2.447e-16 | [-14.2913, -8.7762] | 0.0985 |
 
-**Interpretation:** There is a highly statistically significant ($p < 0.001$) negative association between local real estate prices and fundraising efficiency. For a 1-unit increase in the log of ZHVI, the winsorized fundraising efficiency decreases by approximately 7.92 units, assuming all other control variables are held constant. This provides strong preliminary evidence for the nonprofit spatial mismatch hypothesis.
+**Interpretation:** There is a highly statistically significant ($p < 0.001$) negative association between local real estate prices and fundraising efficiency across all size segments. For the full sample, a 1-unit increase in the log of ZHVI decreases the winsorized fundraising efficiency by approximately 7.92 units. Notably, the penalty of operating in high-cost ZIP codes is much more severe for large organizations ($\beta = -11.53$) than for mid-sized organizations ($\beta = -3.00$). This provides strong preliminary evidence for the nonprofit spatial mismatch hypothesis.
 
 ## Agentic Engine & Hybrid Architecture Details
 

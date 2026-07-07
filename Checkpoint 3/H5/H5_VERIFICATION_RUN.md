@@ -30,10 +30,16 @@ than larger (≥$2M) ones.
 * **Key Citations:** Rose-Ackerman (1982), Weisbrod (1988), Thornton (2006).
 
 ## Quantitative Findings
-*Pending execution of `06_run_h4_h5_split.py` on the CP3 modeling frame (requires the Census
-key to build ACS population/controls). Results will be written to `H5/H5_results.md`.*
+Using the full suite of socioeconomic controls (including Census ACS data), the deterministic regression run (`06_run_h4_h5_split.py`) yielded the following results for the model `fundraising_efficiency_w ~ log_nonprofit_branch_density + [controls]`:
+
+| Sample | n | IV coefficient (beta) | p-value | 95% CI | R-squared |
+|---|---|---|---|---|---|
+| Full (>=$500K) | 117,510 | 2.11963 | 0.002447 | [0.7485, 3.4908] | 0.1756 |
+| Mid ($500K-$2M) | 53,972 | 1.10692 | 0.004737 | [0.3388, 1.8751] | 0.0904 |
+| Large (>=$2M) | 63,537 | 3.05552 | 0.009074 | [0.7603, 5.3507] | 0.0973 |
+
+**Interpretation:** 
+The hypothesis is **rejected**. The data reveals a highly statistically significant ($p < 0.01$) **positive** association between social-service provider density and fundraising efficiency across all size segments. Rather than intense competition depressing efficiency, a higher density of mission-critical nonprofits in a ZIP code is correlated with *better* fundraising efficiency. This may suggest an agglomeration effect or a clustering around high-donor capital that offsets the competition. Furthermore, contrary to expectations, the positive effect is stronger for large organizations ($\beta = +3.05$) than mid-sized ones ($\beta = +1.11$).
 
 ## Artifacts
-- `../06_run_h4_h5_split.py` — deterministic runner (full + mid + large) shared with H4,
-  writing this hypothesis's output to `H5/H5_results.md`.
-- `../data/hypotheses.json` — hypothesis #4 (provider density) is the H5 entry.
+- `H5_results.md` — The raw Markdown output produced by `06_run_h4_h5_split.py`.
