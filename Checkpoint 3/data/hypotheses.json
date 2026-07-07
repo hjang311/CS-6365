@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "iv": "log_nonprofit_branch_density",
+    "dv": "log_fundraising_efficiency",
+    "rationale": "High social service nonprofit density increases fundraising competition, lowering efficiency.",
+    "novelty_score": 4,
+    "prior_art_summary": "Existing research on nonprofit competition suggests that clustering intensifies donor solicitation efforts, raising fundraising expenses relative to contributions.",
+    "key_citations": ["Rose-Ackerman (1982)", "Weisbrod (1988)"]
+  },
+  {
+    "id": 2,
+    "iv": "log_zhvi_2022",
+    "dv": "log_fundraising_efficiency",
+    "rationale": "High local real estate prices increase overhead costs, reducing fundraising efficiency.",
+    "novelty_score": 5,
+    "prior_art_summary": "Spatial mismatch literature traditionally focuses on employment and housing, not nonprofit cost-efficiency. Highly novel application.",
+    "key_citations": ["Kain (1968)", "Bielefeld (2000)"]
+  },
+  {
+    "id": 3,
+    "iv": "poverty_rate",
+    "dv": "log_fundraising_efficiency",
+    "rationale": "High poverty rate ZIPs have lower local donor capital, raising fundraising costs.",
+    "novelty_score": 2,
+    "prior_art_summary": "Socioeconomic conditions of local markets are well-established determinants of donor responses and fundraising efficiency.",
+    "key_citations": ["Okten & Weisbrod (2000)"]
+  },
+  {
+    "id": 4,
+    "iv": "log_nonprofit_branch_density",
+    "dv": "fundraising_efficiency_w",
+    "rationale": "Winsorized efficiency shows robust negative correlation with local branch density.",
+    "novelty_score": 4,
+    "prior_art_summary": "Winsorization is a standard econometric approach to deal with outliers, confirming spatial competition effects.",
+    "key_citations": ["Thornton (2006)"]
+  },
+  {
+    "id": 5,
+    "iv": "log_zhvi_2022",
+    "dv": "fundraising_efficiency_w",
+    "rationale": "Winsorized efficiency is lower in high-cost ZIP codes (testing spatial mismatch).",
+    "novelty_score": 5,
+    "prior_art_summary": "Confirms the spatial mismatch hypothesis using robust outlier-capped DVs.",
+    "key_citations": ["Harrison & Wolch (1998)"]
+  }
+]
