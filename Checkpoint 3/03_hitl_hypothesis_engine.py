@@ -1,7 +1,7 @@
 """
 03_hitl_hypothesis_engine.py  —  Phase 3: HITL Hypothesis Engine
 
-Reads CP3 modeling frame, loads offline brainstormed hypotheses and prior art checks, 
+Reads CP3 modeling frame, uses the Antigravity Agent interactive prompt to brainstorm hypotheses,
 pauses for human-in-the-loop (HITL) approval, and runs a deterministic log-log OLS regression.
 No external API calls or API keys required.
 """
@@ -47,23 +47,43 @@ def run_ols(df, iv, dv, label):
 
 def run_engine():
     frame_path = os.path.join(DATA, "cp3_modeling_frame.csv")
-    hypotheses_path = os.path.join(DATA, "hypotheses.json")
     
     if not os.path.exists(frame_path):
         print(f"Error: Modeling frame not found at {frame_path}. Run Phase 1 & 2 first.")
         return
         
-    if not os.path.exists(hypotheses_path):
-        print(f"Error: Hypotheses baseline file not found at {hypotheses_path}.")
+    df = pd.read_csv(frame_path)
+    
+    print("\n=== [Engine] Step 1 & 2: Brainstorming Hypotheses & Prior Art Check ===")
+    print("====================================================================")
+    print("AGENT ACTION REQUIRED: Please act as the Sociological Hypothesis LLM.")
+    print("System Instruction: You are an expert sociological researcher. Given a dataset's columns, generate 5 strong hypotheses that test relationships between these variables.")
+    print("Your output MUST be a valid JSON array of objects, with each object having the following keys: 'id' (int 1-5), 'iv' (string), 'dv' (string), 'rationale' (string), 'novelty_score' (int 1-5), 'prior_art_summary' (string), 'key_citations' (list of strings).")
+    print(f"Available Columns: {list(df.columns)}")
+    print("---")
+    print("Please paste the generated JSON below. Type 'END_OF_RESPONSE' on a new line when finished.")
+    print("====================================================================")
+    
+    response_lines = []
+    while True:
+        try:
+            line = input()
+            if line.strip() == "END_OF_RESPONSE":
+                break
+            response_lines.append(line)
+        except EOFError:
+            break
+            
+    response_text = "\n".join(response_lines)
+    
+    try:
+        hypotheses = json.loads(response_text)
+    except json.JSONDecodeError as e:
+        print(f"Failed to parse JSON. Error: {e}")
+        print("Raw response:")
+        print(response_text)
         return
         
-    df = pd.read_csv(frame_path)
-    with open(hypotheses_path, "r") as f:
-        hypotheses = json.load(f)
-        
-    print("\n=== [Engine] Step 1 & 2: Loading Brainstormed Hypotheses & Prior Art ===")
-    print("Offline baseline hypotheses and prior art validations loaded successfully.")
-    
     print("\n=== [Engine] Step 3: Human-In-The-Loop Interactive Loop ===")
     print("Here are the sociologically grounded hypotheses and their novelty scores:")
     for h in hypotheses:
@@ -83,10 +103,13 @@ def run_engine():
         dv = input("Enter Dependent Variable (DV) column name: ")
     else:
         try:
-            selected = next(h for h in hypotheses if str(h["id"]) == choice)
+            selected = next(h for h in hypotheses if str(h["id"]) == choice.strip())
             iv, dv = selected["iv"], selected["dv"]
         except StopIteration:
             print("Invalid choice. Exiting.")
+            return
+        except ValueError:
+            print("Invalid choice format. Exiting.")
             return
 
     # Deterministic OLS Run
