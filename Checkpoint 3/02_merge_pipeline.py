@@ -151,6 +151,11 @@ def main():
     df["region"] = df["STATE"].map(census_region)
     df["ntee_major"] = df["NTEE_CD"].astype(str).str.slice(0, 1)
 
+    # Size segment for the small-vs-large comparison ($500K-$2M vs >=$2M)
+    df["size_segment"] = pd.cut(df["total_revenue"],
+                                bins=[500_000, 2_000_000, float("inf")],
+                                labels=["mid", "large"])
+
     out = os.path.join(DATA, "cp3_modeling_frame.csv")
     df.to_csv(out, index=False)
     print(f"[Merge] Saved final CP3 modeling frame with {len(df):,} rows to {out}")
