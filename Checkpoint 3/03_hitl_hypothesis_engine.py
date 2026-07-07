@@ -117,7 +117,7 @@ def run_engine():
     
     # Save output to Markdown Results
     if model:
-        res_path = os.path.join(HERE, "cp3_results.md")
+        res_path = os.path.join(HERE, "H4", "H4_results.md")
         lines = [
             f"# Checkpoint 3 Hypothesis Testing Results\n",
             f"**Hypothesis Tested:** `{dv} ~ {iv}`\n",

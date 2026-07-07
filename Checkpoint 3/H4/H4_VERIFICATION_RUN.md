@@ -1,8 +1,8 @@
 # H4 Verification Run — Spatial Mismatch & Fundraising Efficiency
 
 ## Objective
-Following the architectural constraint to eliminate external API dependencies for iterative hypothesis testing, we instituted an **offline-resilient hybrid engine**. This verification run (H4) serves two purposes:
-1. **Architectural Verification:** Ensure the `03_hitl_hypothesis_engine.py` can execute locally without triggering 429 RESOURCE_EXHAUSTED errors or incurring API costs by reading offline-generated baseline schemas.
+Following the architectural constraint to eliminate external API dependencies for iterative hypothesis testing, we instituted a **Dynamic Interactive Agent Engine**. This verification run (H4) serves two purposes:
+1. **Architectural Verification:** Ensure the `03_hitl_hypothesis_engine.py` can execute locally without triggering `429 RESOURCE_EXHAUSTED` errors or incurring API costs by directly prompting the Antigravity Agent for hypotheses via standard input (`stdin`).
 2. **Sociological Validation:** Test a highly novel hypothesis (Novelty Score: 5/5) regarding the spatial mismatch of real estate prices and nonprofit fundraising efficiency.
 
 ## Formal Hypothesis
@@ -28,13 +28,12 @@ The offline Human-In-The-Loop (HITL) engine ran a deterministic, robust OLS regr
 
 ## Agentic Engine & Hybrid Architecture Details
 
-To address the limitations discovered during earlier phases (specifically the `429 RESOURCE_EXHAUSTED` errors when relying on high-frequency API calls for LLM brainstorming):
+To address the limitations discovered during earlier phases (specifically the `429 RESOURCE_EXHAUSTED` errors when relying on high-frequency Google GenAI API calls):
 
-1. **Local Fallback Schema:** The engine was refactored to read from a local JSON payload (`data/hypotheses.json`) populated by the agent. This decoupling means the agent acts as an offline "brain" that stages the sociological logic, rather than an active dependency during the regression execution phase.
-2. **Offline Resilience:** The orchestrator successfully called the regression tools (`run_ols`) strictly through local Python logic. The prompt templates and constraints defined in the `.agent/skills/` directory ensured the outputs adhered to the required deterministic structure.
-3. **Reproducibility:** This hybrid approach guarantees that the exact same hypothesis and control variables can be re-run indefinitely without requiring API quotas, fulfilling the requirement for a fully autonomous yet stable pipeline.
+1. **Interactive Prompt Pattern:** We removed the Google GenAI API dependencies. The Python scripts (`00_dataset_discovery_agent.py` and `03_hitl_hypothesis_engine.py`) now print explicit instructions to standard output when an LLM is required, and wait for standard input. 
+2. **Antigravity Agent as the LLM:** When the user initiates a run, the Antigravity Agent executes the script, intercepts the prompt in the terminal, dynamically synthesizes the output (such as the JSON hypotheses array) using its unlimited local environment, and feeds the response back into the script via `stdin`.
+3. **Reproducibility:** This dynamic approach guarantees that we get the full brainstorming intelligence of the agent on every run, but without relying on paid network APIs or static fallback files. The exact OLS mathematics remain deterministic and robust.
 
 ## Artifacts
-- `H4_results.md` — The raw Markdown output produced by the offline HITL hypothesis engine during this verification run.
-- `03_hitl_hypothesis_engine.py` — The refactored local engine script.
-- `data/hypotheses.json` — The offline baseline fallback used by the engine.
+- `H4_results.md` — The raw Markdown output produced by the HITL hypothesis engine during this verification run.
+- `03_hitl_hypothesis_engine.py` — The refactored engine script that dynamically requests LLM inputs via the terminal.
