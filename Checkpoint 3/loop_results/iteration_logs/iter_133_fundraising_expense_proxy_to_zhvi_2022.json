@@ -1,0 +1,16 @@
+{
+  "id": 133,
+  "iv": "fundraising_expense_proxy",
+  "dv": "zhvi_2022",
+  "n": 116587,
+  "beta": 0.005068693571682371,
+  "pvalue": 0.0007724718454001288,
+  "rsquared": 0.5880253584159394,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "ZIP codes with higher housing costs reflect wealthier metro areas with higher nonprofit branch density (ZHVI) due to urban concentration and resource availability.",
+    "prior_art_notes": "Wolch (1990) and Bielefeld (2000) show nonprofit branch density is highly correlated with property wealth.",
+    "strength": "weak",
+    "interpretation": "A statistically significant positive correlation was found. Higher fundraising expense is associated with higher home values, reflecting standard urban dynamics where dense metro regions support higher concentrations of services and drive up housing costs."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 83,
+  "iv": "population",
+  "dv": "log_zhvi_2022",
+  "n": 116587,
+  "beta": 3.0458063477109787e-06,
+  "pvalue": 0.0,
+  "rsquared": 0.6992008887699609,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "More populous ZIP codes are often located in denser urban metros which have higher log real estate prices (ZHVI) due to land scarcity and high demand.",
+    "prior_art_notes": "Kain (1968) and urban economics literature detail relationships between city density, population growth, and property valuation.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant positive correlation was found. More populous ZIP codes are associated with higher log real estate values, reflecting standard urban economic dynamics where high population density drives up housing costs."
+  }
+}

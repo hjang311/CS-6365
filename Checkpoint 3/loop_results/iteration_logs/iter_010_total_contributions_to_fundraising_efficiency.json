@@ -1,0 +1,16 @@
+{
+  "id": 10,
+  "iv": "total_contributions",
+  "dv": "fundraising_efficiency",
+  "n": 117510,
+  "beta": 2.069414926493618e-07,
+  "pvalue": 3.035753260674863e-11,
+  "rsquared": 0.1711375815289624,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Nonprofits with higher total contributions likely benefit from economies of scale in fundraising, yielding higher fundraising efficiency overall.",
+    "prior_art_notes": "Thornton (2006) and Okten & Weisbrod (2000) show that larger nonprofits achieve higher returns to scale in their fundraising activities.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible positive correlation (beta \u2248 0.00) was found. This indicates that while there may be a slight statistical economy of scale, it has virtually no practical effect size on fundraising efficiency in levels, suggesting other organizational or market factors dominate fundraising returns."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 98,
+  "iv": "social_service_count",
+  "dv": "fundraising_efficiency_w",
+  "n": 117510,
+  "beta": 0.39450109824583407,
+  "pvalue": 0.005765067381749312,
+  "rsquared": 0.17560670074177753,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Higher local social service presence indicates positive spillover and agglomeration effects that improve winsorized fundraising efficiency.",
+    "prior_art_notes": "Okten & Weisbrod (2000) discuss returns to scale and clustering effects.",
+    "strength": "moderate",
+    "interpretation": "A statistically significant positive correlation was found. An increase in the count of social service organizations is associated with higher winsorized fundraising efficiency, showing positive agglomeration spillover."
+  }
+}

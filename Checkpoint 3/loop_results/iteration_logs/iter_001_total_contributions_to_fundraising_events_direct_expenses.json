@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "iv": "total_contributions",
+  "dv": "fundraising_events_direct_expenses",
+  "n": 117510,
+  "beta": 0.0022808615367208955,
+  "pvalue": 1.8634026504896143e-10,
+  "rsquared": 0.06486009103873647,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Nonprofits that receive larger amounts of total contributions are likely to scale up their fundraising efforts, including holding more direct fundraising events which incurs higher direct event expenses.",
+    "prior_art_notes": "Andreoni (1989) discusses the crowding-out effect and the economics of fundraising expenditures, showing a positive correlation between donor capital size and solicitation costs.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant positive correlation was found. Nonprofits with larger donor pools spend more on the direct costs of fundraising events, reflecting the scaling up of development programs to sustain large contributor networks."
+  }
+}

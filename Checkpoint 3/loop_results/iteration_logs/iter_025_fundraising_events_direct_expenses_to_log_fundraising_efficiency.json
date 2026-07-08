@@ -1,0 +1,16 @@
+{
+  "id": 25,
+  "iv": "fundraising_events_direct_expenses",
+  "dv": "log_fundraising_efficiency",
+  "n": 117510,
+  "beta": -5.594452181141446e-07,
+  "pvalue": 1.161693642775032e-20,
+  "rsquared": 0.24077460697819764,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Log fundraising efficiency decreases with event-related expenses due to high direct costs of event coordination.",
+    "prior_art_notes": "Thornton (2006) discusses high overhead of special events.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible negative correlation was found. Nonprofits spending more on events show a very slight drop in log fundraising efficiency."
+  }
+}

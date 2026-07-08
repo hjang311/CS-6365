@@ -1,0 +1,16 @@
+{
+  "id": 142,
+  "iv": "fundraising_efficiency",
+  "dv": "professional_fundraising_fees",
+  "n": 117510,
+  "beta": -299.96444905454183,
+  "pvalue": 2.3767799117652374e-30,
+  "rsquared": 0.02597733976186245,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Paying high professional fundraising fees represents a high direct fundraising cost, which reduces the overall fundraising efficiency metric.",
+    "prior_art_notes": "Thornton (2006) discusses return determinants on fundraising investments.",
+    "strength": "weak",
+    "interpretation": "A statistically significant negative correlation was found. Higher professional fees are associated with lower overall fundraising efficiency, reflecting that outsourced fundraising is a costly acquisition channel."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 20,
+  "iv": "fundraising_events_direct_expenses",
+  "dv": "social_service_count",
+  "n": 117510,
+  "beta": 3.442056045911103e-08,
+  "pvalue": 0.007843315779156087,
+  "rsquared": 0.018653645131778473,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Holding fundraising events requires localized presence, and organizations in areas with a higher density/count of social services might be larger and conduct more event-based fundraising.",
+    "prior_art_notes": "Bielefeld (2000) shows clustering of non-profit operations is associated with higher local fundraising activity.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible positive correlation was found. Nonprofits running special events are slightly located in ZIPs with higher social service counts, but the relationship has an effect size of zero."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 94,
+  "iv": "social_service_count",
+  "dv": "fundraising_efficiency",
+  "n": 117510,
+  "beta": 0.44323308191587735,
+  "pvalue": 0.012120997151289068,
+  "rsquared": 0.16747556470340796,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "A higher count of social service organizations indicates a supportive local philanthropic ecosystem or agglomeration effects, boosting fundraising efficiency.",
+    "prior_art_notes": "Okten & Weisbrod (2000) discuss how local market demand and clustering can improve nonprofit efficiency.",
+    "strength": "moderate",
+    "interpretation": "A statistically significant positive correlation was found. An increase in the count of local social services is associated with higher fundraising efficiency, indicating positive spillover or clustering effects that benefit fundraising returns."
+  }
+}

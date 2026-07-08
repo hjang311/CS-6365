@@ -1,0 +1,16 @@
+{
+  "id": 77,
+  "iv": "population",
+  "dv": "nonprofit_branch_density",
+  "n": 117510,
+  "beta": -2.2984058547457554e-05,
+  "pvalue": 0.0,
+  "rsquared": 0.11499239653877968,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Although larger populations have more social services, the density per 10k residents actually decreases because population growth outpaces the entry rate of new nonprofit branches.",
+    "prior_art_notes": "Bielefeld (2000) and Wolch (1990) show that geographic density measures are subject to scale dynamics relative to total metropolitan populations.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant negative correlation was found. As ZIP code populations grow, the density of social-service nonprofits per 10k residents decreases. This suggests economies of scale or service capacity limits where larger population zones are served by fewer but larger branches."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 171,
+  "iv": "log_nonprofit_branch_density",
+  "dv": "fundraising_expense_proxy",
+  "n": 117510,
+  "beta": 7890.475185203385,
+  "pvalue": 0.04295146280997348,
+  "rsquared": 0.052888905449272605,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Areas with higher log nonprofit branch density are denser charity hubs, where organizations are larger and conduct more fundraising, thus spending more on fundraising inputs.",
+    "prior_art_notes": "Bielefeld (2000) discusses clustering effects and geographic agglomeration of non-profit operations.",
+    "strength": "weak",
+    "interpretation": "A statistically significant positive correlation was found. An increase in log nonprofit branch density is associated with higher fundraising expenditures, indicating that local nonprofit density scales alongside the size and spending of localized organizations."
+  }
+}

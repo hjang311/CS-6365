@@ -1,0 +1,16 @@
+{
+  "id": 189,
+  "iv": "fundraising_efficiency_w",
+  "dv": "total_contributions",
+  "n": 117510,
+  "beta": 21917.981529622477,
+  "pvalue": 1.5749538721577352e-18,
+  "rsquared": 0.11380149061063816,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Higher winsorized fundraising efficiency (contributions raised per dollar spent) naturally correlates with a larger volume of total contributions.",
+    "prior_art_notes": "Thornton (2006) discusses return to scale efficiencies in fundraising.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant positive correlation was found. Nonprofits with higher winsorized fundraising efficiency raise substantially more contributions on average, confirming that efficiency is associated with overall scale and resource mobilization capacity."
+  }
+}

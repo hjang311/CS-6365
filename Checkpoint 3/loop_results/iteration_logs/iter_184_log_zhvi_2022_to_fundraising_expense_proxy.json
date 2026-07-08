@@ -1,0 +1,16 @@
+{
+  "id": 184,
+  "iv": "log_zhvi_2022",
+  "dv": "fundraising_expense_proxy",
+  "n": 116587,
+  "beta": 38900.010024283954,
+  "pvalue": 3.84363130447441e-21,
+  "rsquared": 0.05224338811747231,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "ZIP codes with higher housing costs reflect higher operational cost structures, so nonprofits operating in these regions spend more on fundraising (fees + events).",
+    "prior_art_notes": "Harrison & Wolch (1998) discuss spatial constraints and cost factors.",
+    "strength": "weak",
+    "interpretation": "A statistically significant positive correlation was found. Fundraising expenses are slightly higher in high-cost log property ZIP codes, indicating that local real estate prices scale up event production overhead."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 186,
+  "iv": "log_zhvi_2022",
+  "dv": "log_fundraising_efficiency",
+  "n": 116587,
+  "beta": -0.07508103797928803,
+  "pvalue": 3.923735443720732e-14,
+  "rsquared": 0.2015591653208334,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Operating in high-cost ZIP codes increases overhead costs like rent and payroll, which reduces the amount of net contributions per dollar spent on fundraising.",
+    "prior_art_notes": "Harrison & Wolch (1998) examined spatial mismatches and operating overhead constraints for urban non-profits.",
+    "strength": "weak",
+    "interpretation": "A statistically significant negative correlation was found. Higher local real estate prices are slightly associated with lower log fundraising efficiency."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 56,
+  "iv": "professional_fundraising_fees",
+  "dv": "fundraising_efficiency_w",
+  "n": 117510,
+  "beta": -1.3439271330987254e-05,
+  "pvalue": 0.0006071749763748578,
+  "rsquared": 0.17919274800558516,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Paying professional fundraising fees is a direct expense that might slightly lower overall winsorized fundraising efficiency compared to organic fundraising channels.",
+    "prior_art_notes": "Thornton (2006) discusses structural determinants of professional fundraising returns.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible negative correlation was found. Professional fundraising fees are associated with a very slight decrease in winsorized fundraising efficiency."
+  }
+}

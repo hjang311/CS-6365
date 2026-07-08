@@ -1,0 +1,16 @@
+{
+  "id": 115,
+  "iv": "zhvi_2022",
+  "dv": "professional_fundraising_fees",
+  "n": 116587,
+  "beta": -0.007747679406163222,
+  "pvalue": 0.022303490228030402,
+  "rsquared": 0.020930425458303148,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Nonprofits located in higher-cost ZIP codes might allocate less budget to professional fundraising fees due to higher fixed overhead costs like rent.",
+    "prior_art_notes": "Harrison & Wolch (1998) discuss spatial constraints and cost factors.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically weak negative correlation was found. Higher local real estate prices are slightly associated with lower professional fundraising fees, suggesting geographic overhead constraints may displace professional service spending."
+  }
+}

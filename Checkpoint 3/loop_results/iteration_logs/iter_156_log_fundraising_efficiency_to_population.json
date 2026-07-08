@@ -1,0 +1,16 @@
+{
+  "id": 156,
+  "iv": "log_fundraising_efficiency",
+  "dv": "population",
+  "n": 117510,
+  "beta": -184.3504126293994,
+  "pvalue": 1.372721176748585e-06,
+  "rsquared": 0.03229862762734381,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "More populous ZIP codes have more charities, increasing competition and slightly reducing fundraising efficiency.",
+    "prior_art_notes": "Rose-Ackerman (1982) outlines donor competition in populous/urban areas.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically weak negative correlation was found. Nonprofits in high population ZIP codes face a very slight drop in log fundraising efficiency, likely due to localized solicitation crowding."
+  }
+}

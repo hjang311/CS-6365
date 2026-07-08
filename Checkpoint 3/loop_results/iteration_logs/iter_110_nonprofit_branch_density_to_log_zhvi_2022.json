@@ -1,0 +1,16 @@
+{
+  "id": 110,
+  "iv": "nonprofit_branch_density",
+  "dv": "log_zhvi_2022",
+  "n": 116587,
+  "beta": 0.012078715911726802,
+  "pvalue": 5.045534744960051e-56,
+  "rsquared": 0.6944267010280308,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "ZIP codes with higher nonprofit branch density are located in wealthier metro areas with higher log real estate values (ZHVI) due to urban concentration and resource availability.",
+    "prior_art_notes": "Wolch (1990) and Bielefeld (2000) show nonprofit branch density is highly correlated with property wealth.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant positive correlation was found. Higher branch density is associated with higher log real estate values, reflecting standard urban dynamics where dense metro regions support higher concentrations of services and drive up housing costs."
+  }
+}

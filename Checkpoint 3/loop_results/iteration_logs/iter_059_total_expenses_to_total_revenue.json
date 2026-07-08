@@ -1,0 +1,16 @@
+{
+  "id": 59,
+  "iv": "total_expenses",
+  "dv": "total_revenue",
+  "n": 117510,
+  "beta": 1.0320684431112663,
+  "pvalue": 0.0,
+  "rsquared": 0.9874750567187912,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Total revenue and total expenses track each other very closely due to the non-distribution constraint and operating budget matching.",
+    "prior_art_notes": "Hansmann (1980) defines the non-distribution constraint.",
+    "strength": "strong",
+    "interpretation": "A very strong and mathematically expected positive correlation was found. Nonprofits spend approximately 1:1 of their total expenses back into revenue generation/operational flow, indicating tight budget balancing."
+  }
+}

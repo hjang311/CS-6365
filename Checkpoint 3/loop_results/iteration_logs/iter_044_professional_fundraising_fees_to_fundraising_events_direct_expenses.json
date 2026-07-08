@@ -1,0 +1,16 @@
+{
+  "id": 44,
+  "iv": "professional_fundraising_fees",
+  "dv": "fundraising_events_direct_expenses",
+  "n": 117510,
+  "beta": 0.0526491684723568,
+  "pvalue": 0.03274957559929833,
+  "rsquared": 0.042543730460694484,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Paying professional fundraising fees often coordinates special events, which increases direct event expenses.",
+    "prior_art_notes": "Thornton (2006) discusses structural determinants of fundraising inputs.",
+    "strength": "weak",
+    "interpretation": "A statistically significant positive correlation was found. Professional fundraising fees are slightly associated with direct event expenses, indicating that consultants are often hired to help orchestrate special events."
+  }
+}

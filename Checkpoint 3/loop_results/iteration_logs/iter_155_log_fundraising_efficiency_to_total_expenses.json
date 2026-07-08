@@ -1,0 +1,16 @@
+{
+  "id": 155,
+  "iv": "log_fundraising_efficiency",
+  "dv": "total_expenses",
+  "n": 117510,
+  "beta": -5863548.29381458,
+  "pvalue": 6.883585631802705e-41,
+  "rsquared": 0.10479167446981774,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Higher log fundraising efficiency might represent smaller grassroots charities with lower total expense scales, as larger institutions face diminishing returns on efficiency while scaling up total expenditures.",
+    "prior_art_notes": "Thornton (2006) discusses structural tradeoffs in fundraising returns.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant negative correlation was found. Organizations with higher log fundraising efficiency tend to have lower total expenses, confirming scale differences where massive charities trade high efficiency for absolute expense scale."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 48,
+  "iv": "professional_fundraising_fees",
+  "dv": "social_service_count",
+  "n": 117510,
+  "beta": -2.482103271497072e-08,
+  "pvalue": 0.02159938303557565,
+  "rsquared": 0.0186365519194156,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Higher local social service density might increase competition and slightly depress professional fundraising activity or reflect localized non-professional structures.",
+    "prior_art_notes": "Bielefeld (2000) outlines structural clustering of non-profits.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible negative correlation was found. Individual nonprofit professional fundraising fees are not practically affected by the local count of other social service organizations."
+  }
+}

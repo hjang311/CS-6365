@@ -1,0 +1,16 @@
+{
+  "id": 3,
+  "iv": "total_contributions",
+  "dv": "professional_fundraising_fees",
+  "n": 117510,
+  "beta": 0.003758956768976879,
+  "pvalue": 8.44453076652693e-06,
+  "rsquared": 0.0903339714597623,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Nonprofits that receive larger amounts of total contributions are likely to contract professional fundraisers to manage campaigns and sustain donor relationships, increasing professional fundraising fees.",
+    "prior_art_notes": "Thornton (2006) discusses the return on fundraising expenditures, showing that professional fundraising fees increase with contribution size as campaigns scale.",
+    "strength": "moderate",
+    "interpretation": "A statistically significant positive correlation was found. Larger donations are associated with higher professional fundraising fees, showing that organizations rely on external professionals to manage large campaigns."
+  }
+}

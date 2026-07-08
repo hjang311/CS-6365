@@ -1,0 +1,16 @@
+{
+  "id": 149,
+  "iv": "fundraising_efficiency",
+  "dv": "log_nonprofit_branch_density",
+  "n": 117510,
+  "beta": 3.624005974757087e-05,
+  "pvalue": 0.0034230352090419197,
+  "rsquared": 0.07395589483255272,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Higher fundraising efficiency reflects productive local donor markets or agglomeration dynamics, which correlate with higher log nonprofit branch density.",
+    "prior_art_notes": "Okten & Weisbrod (2000) study fundraising returns and demand-side variables.",
+    "strength": "weak",
+    "interpretation": "A statistically significant positive correlation was found, though extremely weak. Areas with higher nonprofit fundraising efficiency have a tiny increase in log nonprofit branch density."
+  }
+}

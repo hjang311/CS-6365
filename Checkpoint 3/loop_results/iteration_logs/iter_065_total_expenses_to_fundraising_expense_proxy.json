@@ -1,0 +1,16 @@
+{
+  "id": 65,
+  "iv": "total_expenses",
+  "dv": "fundraising_expense_proxy",
+  "n": 117510,
+  "beta": 0.0003832660182213351,
+  "pvalue": 5.247821472285261e-25,
+  "rsquared": 0.061370782304430826,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Nonprofits with higher total expenses have higher overall budgets, allowing them to allocate more funds to fundraising activities (professional fees + event expenses).",
+    "prior_art_notes": "Weisbrod (1998) outlines scale effects on fundraising expenses.",
+    "strength": "weak",
+    "interpretation": "A highly statistically significant but weak positive correlation was found. Larger nonprofits spend more on fundraising, but fundraising expenses make up a very small fraction of overall organizational spending."
+  }
+}

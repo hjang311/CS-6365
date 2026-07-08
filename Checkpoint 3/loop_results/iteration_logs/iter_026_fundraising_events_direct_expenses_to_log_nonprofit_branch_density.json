@@ -1,0 +1,16 @@
+{
+  "id": 26,
+  "iv": "fundraising_events_direct_expenses",
+  "dv": "log_nonprofit_branch_density",
+  "n": 117510,
+  "beta": 8.15622350724923e-09,
+  "pvalue": 0.0018311152420363952,
+  "rsquared": 0.0739611941264704,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Holding fundraising events requires localized presence, and organizations in areas with higher log nonprofit branch density conduct more event-based fundraising.",
+    "prior_art_notes": "Bielefeld (2000) shows clustering of non-profit operations is associated with higher local fundraising activity.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible positive correlation was found. Nonprofits running special events are slightly located in ZIPs with higher social service densities, but the relationship has an effect size of zero."
+  }
+}

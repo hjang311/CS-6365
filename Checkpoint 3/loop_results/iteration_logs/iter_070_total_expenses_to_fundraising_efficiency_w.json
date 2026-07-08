@@ -1,0 +1,16 @@
+{
+  "id": 70,
+  "iv": "total_expenses",
+  "dv": "fundraising_efficiency_w",
+  "n": 117510,
+  "beta": -7.908980809462015e-09,
+  "pvalue": 0.046770006751244875,
+  "rsquared": 0.17566870574007565,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "As nonprofits grow very large, bureaucratic inefficiencies and more diverse funding sources might slightly lower the winsorized fundraising efficiency.",
+    "prior_art_notes": "Thornton (2006) discusses scale inefficiencies in large nonprofit administration.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible negative correlation was found. Winsorized fundraising efficiency is practically unaffected by overall expense size."
+  }
+}

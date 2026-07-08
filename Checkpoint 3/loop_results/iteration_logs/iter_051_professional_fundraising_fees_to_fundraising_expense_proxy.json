@@ -1,0 +1,16 @@
+{
+  "id": 51,
+  "iv": "professional_fundraising_fees",
+  "dv": "fundraising_expense_proxy",
+  "n": 117510,
+  "beta": 1.0526491684724757,
+  "pvalue": 0.0,
+  "rsquared": 0.5538155034469443,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Professional fundraising fees are a direct component of the fundraising expense proxy, ensuring a mathematically positive correlation.",
+    "prior_art_notes": "This is an accounting definition correlation.",
+    "strength": "strong",
+    "interpretation": "A very strong and mathematically guaranteed positive correlation was found. Professional fundraising fees directly contribute to the total fundraising expense proxy."
+  }
+}

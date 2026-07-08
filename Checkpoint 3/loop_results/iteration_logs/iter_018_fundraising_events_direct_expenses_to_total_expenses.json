@@ -1,0 +1,16 @@
+{
+  "id": 18,
+  "iv": "fundraising_events_direct_expenses",
+  "dv": "total_expenses",
+  "n": 117510,
+  "beta": 29.77375631624971,
+  "pvalue": 1.9561076469969613e-05,
+  "rsquared": 0.109442000929585,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Higher event costs are correlated with larger operations overall, leading to higher total organizational expenses.",
+    "prior_art_notes": "Bielefeld (1992) analyzes the structural scale of nonprofits and the relationship between administrative/fundraising efforts and overall expenditure.",
+    "strength": "moderate",
+    "interpretation": "A statistically significant positive correlation was found. Event direct expenses are associated with an increase in total expenses, suggesting fundraising event spending scales alongside the overall operational footprint of the nonprofit."
+  }
+}

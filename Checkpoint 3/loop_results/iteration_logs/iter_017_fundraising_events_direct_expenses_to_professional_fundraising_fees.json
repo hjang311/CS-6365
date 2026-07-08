@@ -1,0 +1,16 @@
+{
+  "id": 17,
+  "iv": "fundraising_events_direct_expenses",
+  "dv": "professional_fundraising_fees",
+  "n": 117510,
+  "beta": 0.05319665626894987,
+  "pvalue": 5.0118277588827135e-06,
+  "rsquared": 0.024596493703401334,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Holding fundraising events requires coordination and execution, which is often contracted to professional fundraising consulting firms, leading to concurrent increases in both direct expenses and professional fees.",
+    "prior_art_notes": "Thornton (2006) discusses the complementary nature of different fundraising inputs.",
+    "strength": "weak",
+    "interpretation": "A statistically significant positive correlation was found. Event expenses are slightly associated with professional fees, showing that nonprofits often use professional consultants when scaling up direct events."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 11,
+  "iv": "total_contributions",
+  "dv": "log_fundraising_efficiency",
+  "n": 117510,
+  "beta": 4.1884234530940197e-10,
+  "pvalue": 0.0005461724451021876,
+  "rsquared": 0.20098903264734636,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Nonprofits with higher total contributions benefit from organizational scale, leading to a log-proportional increase in fundraising efficiency.",
+    "prior_art_notes": "Thornton (2006) outlines log-linear returns on fundraising scale.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible positive correlation was found. The log transformation of efficiency confirms that the scale effect of total contributions on fundraising returns is extremely minute."
+  }
+}

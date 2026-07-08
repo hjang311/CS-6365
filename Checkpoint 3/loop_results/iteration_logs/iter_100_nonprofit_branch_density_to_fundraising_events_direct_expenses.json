@@ -1,0 +1,16 @@
+{
+  "id": 100,
+  "iv": "nonprofit_branch_density",
+  "dv": "fundraising_events_direct_expenses",
+  "n": 117510,
+  "beta": 1273.9931182356054,
+  "pvalue": 0.0223185657327592,
+  "rsquared": 0.03987146998903979,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Areas with higher nonprofit branch density are denser charity hubs, where organizations are larger and conduct more event-based fundraising, thus spending more on event expenses.",
+    "prior_art_notes": "Bielefeld (2000) discusses clustering effects and geographic agglomeration of non-profit operations.",
+    "strength": "moderate",
+    "interpretation": "A statistically significant positive correlation was found. An increase of one unit in nonprofit branch density is associated with an average increase of $1,274 in direct event expenses, indicating that local nonprofit density scales alongside the size and event-spending of localized organizations."
+  }
+}

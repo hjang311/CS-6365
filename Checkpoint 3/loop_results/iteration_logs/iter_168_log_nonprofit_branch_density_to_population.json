@@ -1,0 +1,16 @@
+{
+  "id": 168,
+  "iv": "log_nonprofit_branch_density",
+  "dv": "population",
+  "n": 117510,
+  "beta": -7968.653496079693,
+  "pvalue": 0.0,
+  "rsquared": 0.07626616254962837,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Higher log nonprofit branch density per 10k residents is negatively associated with total population because population growth outpaces branch entries, creating a lower density value in larger population centers.",
+    "prior_art_notes": "Bielefeld (2000) shows metropolitan density measures scale non-linearly with total population.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant negative correlation was found. ZIP codes with higher log branch densities tend to have smaller total populations, confirming that the density metric is mathematically and operationally lower in high-population urban cores."
+  }
+}

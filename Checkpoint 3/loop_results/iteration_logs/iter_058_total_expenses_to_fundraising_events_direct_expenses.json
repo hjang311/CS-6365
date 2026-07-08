@@ -1,0 +1,16 @@
+{
+  "id": 58,
+  "iv": "total_expenses",
+  "dv": "fundraising_events_direct_expenses",
+  "n": 117510,
+  "beta": 0.00023013340518553753,
+  "pvalue": 2.858557188560159e-16,
+  "rsquared": 0.04643344854993836,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Larger organizations (higher total expenses) have more capacity and budget to allocate to special events, which increases their direct expenses for fundraising events.",
+    "prior_art_notes": "Andreoni (1989) discuss scale dynamics in fundraising overhead.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically weak positive correlation was found. Nonprofits with higher total expenses spend more on special events, showing that event-based fundraising scaling is a function of overall organizational size."
+  }
+}

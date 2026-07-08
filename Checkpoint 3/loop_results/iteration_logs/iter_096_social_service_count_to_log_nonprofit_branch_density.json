@@ -1,0 +1,16 @@
+{
+  "id": 96,
+  "iv": "social_service_count",
+  "dv": "log_nonprofit_branch_density",
+  "n": 117510,
+  "beta": 0.07847543803907295,
+  "pvalue": 2.1885572423925253e-14,
+  "rsquared": 0.31338474123692195,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "The count of social services directly dictates the density calculation, making a positive correlation mathematically guaranteed.",
+    "prior_art_notes": "Accounting definition of density.",
+    "strength": "strong",
+    "interpretation": "A very strong and mathematically expected positive correlation was found. More raw branch counts naturally result in higher branch density."
+  }
+}

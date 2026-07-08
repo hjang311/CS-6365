@@ -1,0 +1,16 @@
+{
+  "id": 31,
+  "iv": "total_revenue",
+  "dv": "professional_fundraising_fees",
+  "n": 117510,
+  "beta": 0.0001635070785130656,
+  "pvalue": 3.6733190629451404e-09,
+  "rsquared": 0.0254743394715361,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Larger organizations (higher total revenue) have more capacity to hire professional fundraising firms to sustain and expand their operations.",
+    "prior_art_notes": "Thornton (2006) discusses the structural determinants of professional fundraising fees.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically weak positive correlation was found. Nonprofits with higher total revenues spend more on professional fundraising fees, reflecting the institutionalization of fundraising as organizations grow."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 191,
+  "iv": "fundraising_efficiency_w",
+  "dv": "total_revenue",
+  "n": 117510,
+  "beta": -24056.600248316423,
+  "pvalue": 0.0456788643082583,
+  "rsquared": 0.10819253681622687,
+  "agent_analysis": {
+    "hypothesis_direction": "negative",
+    "hypothesis_rationale": "Higher winsorized fundraising efficiency might represent smaller grassroots charities with lower total revenue scales, as larger institutions face diminishing returns on efficiency while scaling up total revenues.",
+    "prior_art_notes": "Thornton (2006) discusses structural tradeoffs in fundraising returns.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but weak negative correlation was found. Organizations with higher winsorized fundraising efficiency tend to have lower total revenue, confirming scale differences where massive charities trade high efficiency for absolute revenue volume."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 76,
+  "iv": "population",
+  "dv": "social_service_count",
+  "n": 117510,
+  "beta": 3.080497151158704e-05,
+  "pvalue": 1.344614907157735e-287,
+  "rsquared": 0.04948275316646722,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Higher population in a ZIP code naturally results in a higher count of social service organizations to meet the demands of a larger resident population.",
+    "prior_art_notes": "Bielefeld (2000) and Wolch (1990) show that public service and nonprofit density correlates strongly with local demographic populations.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant positive correlation was was found. ZIP codes with larger populations contain a higher raw count of social service organizations, reflecting local market demand scaling."
+  }
+}

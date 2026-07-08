@@ -1,0 +1,16 @@
+{
+  "id": 181,
+  "iv": "log_zhvi_2022",
+  "dv": "population",
+  "n": 116587,
+  "beta": 6005.208846994407,
+  "pvalue": 0.0,
+  "rsquared": 0.04800970699571394,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "ZIP codes with higher housing costs reflect larger population centers in high-density urban areas.",
+    "prior_art_notes": "Kain (1968) outlines urban concentration and property values.",
+    "strength": "moderate",
+    "interpretation": "A highly statistically significant positive correlation was found. More populous ZIP codes are associated with higher log real estate values, reflecting standard urban economic dynamics."
+  }
+}

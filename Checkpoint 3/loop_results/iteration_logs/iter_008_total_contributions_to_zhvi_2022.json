@@ -1,0 +1,16 @@
+{
+  "id": 8,
+  "iv": "total_contributions",
+  "dv": "zhvi_2022",
+  "n": 116587,
+  "beta": 5.219791888970211e-05,
+  "pvalue": 0.019540243618120942,
+  "rsquared": 0.5879762365019752,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Nonprofits receiving larger contributions are more likely to be located in wealthier ZIP codes with higher home values (ZHVI).",
+    "prior_art_notes": "Wolch (1990) and Bielefeld (2000) show that nonprofit funding resources and headquarters locations are highly correlated with localized regional wealth and property values.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically very weak positive correlation (beta = 0.00005) was found. While larger nonprofits tend to be located in higher-cost ZIP codes, the effect size is extremely tiny, indicating local real estate prices are primarily driven by broader housing market dynamics rather than nonprofit contributions."
+  }
+}

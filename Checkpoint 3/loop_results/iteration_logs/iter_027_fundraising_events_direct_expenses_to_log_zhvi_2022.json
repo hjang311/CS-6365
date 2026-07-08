@@ -1,0 +1,16 @@
+{
+  "id": 27,
+  "iv": "fundraising_events_direct_expenses",
+  "dv": "log_zhvi_2022",
+  "n": 116587,
+  "beta": 2.279260102220573e-08,
+  "pvalue": 2.2992005639616654e-09,
+  "rsquared": 0.6938920860331361,
+  "agent_analysis": {
+    "hypothesis_direction": "positive",
+    "hypothesis_rationale": "Nonprofits conducting larger fundraising events scale up and locate headquarters in ZIP codes with higher log real estate values (ZHVI).",
+    "prior_art_notes": "Bielefeld (2000) shows headquarters selection correlates with regional wealth indicators.",
+    "strength": "weak",
+    "interpretation": "A statistically significant but practically negligible positive correlation was found. Event-running nonprofits are slightly associated with higher log real estate values, but the effect is practically zero."
+  }
+}
