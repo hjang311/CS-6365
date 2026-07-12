@@ -1,9 +1,18 @@
 # H5 Verification Run — Social-Service Provider Density & Fundraising Efficiency
 
 ## Objective
-Following the architectural constraint to eliminate external API dependencies for iterative hypothesis testing, we built a **Deterministic Agentic Loop** (implemented in `07_deterministic_loop.py`). This verification run (H5) serves two purposes:
-1. **Architectural Verification:** Ensure the orchestrator-processor hybrid loop works correctly, reliably reproducing OLS regression metrics on the modeling frame.
-2. **Sociological Validation:** Validate the social-service provider density hypothesis using the robust outlier-capped DV across multiple organization size segments.
+H5 is a **Phase 1 manual hypothesis test** built after the team used IRS BMF
+NTEE codes and ACS population to construct ZIP-level social-service provider
+density. This run serves two purposes:
+
+1. **Manual Pipeline Verification:** Confirm that the Phase 1 merge, IV
+   construction, specialization, and cleaning choices produce a usable model.
+2. **Sociological Validation:** Test the provider-competition hypothesis with
+   the robust outlier-capped DV across organization-size segments.
+
+Phase 2 later uses H5 as a known calibration row in the fixed-list unrolled
+loop. The loop reproduces the coefficient while preserving the substantive
+result: the hypothesized negative direction was rejected.
 
 ## Formal Hypothesis
 
@@ -38,17 +47,29 @@ The analysis is performed on:
 **Interpretation:**
 The hypothesis is **rejected**. The data reveals a highly statistically significant ($p < 0.01$) **positive** association between social-service provider density and fundraising efficiency across all size segments. Rather than intense competition depressing efficiency, a higher density of mission-critical nonprofits in a ZIP code is correlated with *better* fundraising efficiency. This may suggest an agglomeration effect or a clustering around high-donor capital that offsets the competition. Furthermore, contrary to expectations, the positive effect is stronger for large organizations ($\beta = +3.06$) than mid-sized ones ($\beta = +1.11$).
 
-## Deterministic Loop & Hybrid Architecture Details
+## Phase 1 Execution and Phase 2 Replay
 
-To address the limitations of network API calls and rate-limiting issues (e.g., `429 RESOURCE_EXHAUSTED` errors):
-1. **Orchestrator (Python):** `07_deterministic_loop.py` handles dataset subsetting, OLS regression execution, and result recording deterministically, ensuring mathematical precision and full reproducibility.
-2. **Agentic Processor (LLM via stdin):** The Antigravity Agent acts as the sociological researcher. When prompted via standard output, the agent evaluates the variables and results, supplying hypotheses rationales and interpretations in a structured JSON payload fed back to standard input.
-3. **Interactive vs. Batch Mode:**
-   - `--interactive`: Evaluates the validation pairs (H4 & H5) step-by-step.
-   - `--batch`: Systematically loops through all 215 combinatorial variable pairs, filtering out redundancy and prompting the agent to interpret only the statistically significant results ($p < 0.05$).
+1. `02_merge_pipeline.py` counts the selected social-service NTEE categories,
+   normalizes them by ACS population, and builds `cp3_modeling_frame.csv`.
+2. The same script applies the fixed financial and geographic cleaning recipe.
+3. `06_run_h4_h5_split.py` runs the manually specified H5 model for the full,
+   mid-sized, and large samples.
+4. `08_unrolled_loop.py` replays H5 as a pre-registered List A item and checks
+   that its full-sample coefficient matches this accepted reference.
 
-## Artifacts
-- `07_deterministic_loop.py` — The core orchestrator-agent hybrid loop script.
-- `loop_results/loop_summary.md` — Complete summary table of all tested combinatorial pairs.
-- `loop_results/significant_findings.md` — Detailed write-up of the agent's interpretations and citations for all significant correlations.
-- `loop_results/validation_check.md` — Automatic verification log confirming loop output matches these baseline results.
+The earlier `07_deterministic_loop.py` combinatorial/LLM experiment is retained
+only as historical context; it is not the primary H5 workflow.
+
+## Sample Size Note
+H5's full-sample n (117,510) exceeds H4's (116,587) because H5's IV
+(`log_nonprofit_branch_density`) has no ZHVI dependency — the ~12K rows lacking
+Zillow coverage are only dropped when `log_zhvi_2022` enters the model.
+
+## Artifacts (current — Phase 2 unrolled loop)
+- `08_unrolled_loop.py` — Phase 2 pre-registered loop; List A row `H5` asserts this baseline β. Note: `08`'s validation PASS means the β was **reproduced**; the hypothesis itself is rejected (positive sign) as documented above.
+- `loop_results_v2/validation_check.md` — H4/H5 β reproduction check.
+- `loop_results_v2/list_a_results.md` — theory outcome per hypothesis.
+- `06_run_h4_h5_split.py` — regenerates the size-split tables above (`H5/H5_results.md`).
+
+## Artifacts (historical — first loop iteration)
+- `07_deterministic_loop.py` and `loop_results/` — the original 215-pair combinatorial batch. Superseded by `08`; kept for provenance.

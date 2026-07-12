@@ -1,0 +1,66 @@
+{
+  "provenance": {
+    "generated_at": "2026-07-12 10:37:47 UTC",
+    "frame": "Checkpoint 3/data/cp3_modeling_frame.csv",
+    "frame_shape": "158,323 rows x 30 cols",
+    "script": "08_unrolled_loop.py v2.1 (2026-07-12)"
+  },
+  "pairs": [
+    {
+      "id": "B01",
+      "iv": "log_zhvi_2022",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "label": "Limitation harness: log_zhvi_2022 \u2192 fundraising_efficiency_w",
+      "role": "limitation_harness"
+    },
+    {
+      "id": "B02",
+      "iv": "log_nonprofit_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "label": "Limitation harness: log_nonprofit_branch_density \u2192 fundraising_efficiency_w",
+      "role": "limitation_harness"
+    },
+    {
+      "id": "B03",
+      "iv": "log_bank_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "label": "Limitation harness: log_bank_branch_density \u2192 fundraising_efficiency_w",
+      "role": "limitation_harness"
+    },
+    {
+      "id": "B04",
+      "iv": "social_service_count",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "label": "Limitation harness: social_service_count \u2192 fundraising_efficiency_w",
+      "role": "limitation_harness"
+    },
+    {
+      "id": "B05",
+      "iv": "population",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "label": "Limitation harness: population \u2192 fundraising_efficiency_w",
+      "role": "limitation_harness"
+    },
+    {
+      "id": "B06",
+      "iv": "total_revenue",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "label": "Limitation harness: total_revenue \u2192 fundraising_efficiency_w",
+      "role": "limitation_harness"
+    },
+    {
+      "id": "B07",
+      "iv": "total_expenses",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "label": "Limitation harness: total_expenses \u2192 fundraising_efficiency_w",
+      "role": "limitation_harness"
+    }
+  ]
+}

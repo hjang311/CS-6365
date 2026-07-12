@@ -1,9 +1,17 @@
 # H4 Verification Run — Spatial Mismatch & Fundraising Efficiency
 
 ## Objective
-Following the architectural constraint to eliminate external API dependencies for iterative hypothesis testing, we built a **Deterministic Agentic Loop** (implemented in `07_deterministic_loop.py`). This verification run (H4) serves two purposes:
-1. **Architectural Verification:** Ensure the orchestrator-processor hybrid loop works correctly, reliably reproducing OLS regression metrics on the modeling frame.
-2. **Sociological Validation:** Validate the nonprofit spatial mismatch hypothesis using the robust outlier-capped DV across multiple organization size segments.
+H4 is a **Phase 1 manual hypothesis test** built after the team acquired Zillow
+ZHVI, merged it with the NCCS/BMF/ACS frame, and specified the cleaning and
+control recipe. This run serves two purposes:
+
+1. **Manual Pipeline Verification:** Confirm that the Phase 1 acquisition,
+   merge, specialization, and cleaning choices produce a usable modeling frame.
+2. **Sociological Validation:** Test the nonprofit spatial-mismatch hypothesis
+   with the robust outlier-capped DV across organization-size segments.
+
+Phase 2 later uses H4 as a known calibration row in the fixed-list unrolled
+loop. The loop reproduces this manual test; it did not originate the hypothesis.
 
 ## Formal Hypothesis
 
@@ -38,17 +46,30 @@ The analysis is performed on:
 **Interpretation:**
 There is a highly statistically significant ($p < 0.001$) negative association between local real estate prices and fundraising efficiency across all size segments. For the full sample, a 1-unit increase in the log of ZHVI decreases the winsorized fundraising efficiency by approximately 7.92 units. Notably, the penalty of operating in high-cost ZIP codes is much more severe for large organizations ($\beta = -11.53$) than for mid-sized organizations ($\beta = -3.00$). This provides strong evidence supporting the nonprofit spatial mismatch hypothesis.
 
-## Deterministic Loop & Hybrid Architecture Details
+## Phase 1 Execution and Phase 2 Replay
 
-To address the limitations of network API calls and rate-limiting issues (e.g., `429 RESOURCE_EXHAUSTED` errors):
-1. **Orchestrator (Python):** `07_deterministic_loop.py` handles dataset subsetting, OLS regression execution, and result recording deterministically, ensuring mathematical precision and full reproducibility.
-2. **Agentic Processor (LLM via stdin):** The Antigravity Agent acts as the sociological researcher. When prompted via standard output, the agent evaluates the variables and results, supplying hypotheses rationales and interpretations in a structured JSON payload fed back to standard input.
-3. **Interactive vs. Batch Mode:**
-   - `--interactive`: Evaluates the validation pairs (H4 & H5) step-by-step.
-   - `--batch`: Systematically loops through all 215 combinatorial variable pairs, filtering out redundancy and prompting the agent to interpret only the statistically significant results ($p < 0.05$).
+1. `01_acquire_data.py` acquires the exact December 2022 Zillow snapshot and
+   creates the specialized NCCS subset.
+2. `02_merge_pipeline.py` builds `cp3_modeling_frame.csv` and applies the fixed
+   cleaning recipe.
+3. `06_run_h4_h5_split.py` runs the manually specified H4 model for the full,
+   mid-sized, and large samples.
+4. `08_unrolled_loop.py` replays H4 as a pre-registered List A item and checks
+   that its full-sample coefficient matches this accepted reference.
 
-## Artifacts
-- `07_deterministic_loop.py` — The core orchestrator-agent hybrid loop script.
-- `loop_results/loop_summary.md` — Complete summary table of all tested combinatorial pairs.
-- `loop_results/significant_findings.md` — Detailed write-up of the agent's interpretations and citations for all significant correlations.
-- `loop_results/validation_check.md` — Automatic verification log confirming loop output matches these baseline results.
+The earlier `07_deterministic_loop.py` combinatorial/LLM experiment is retained
+only as historical context; it is not the primary H4 workflow.
+
+## Sample Size Note
+H4's full-sample n (116,587) is smaller than H5's (117,510) because ~12K organizations
+are in ZIP codes without Zillow ZHVI coverage; those rows are listwise-deleted when
+`log_zhvi_2022` enters the model.
+
+## Artifacts (current — Phase 2 unrolled loop)
+- `08_unrolled_loop.py` — Phase 2 pre-registered loop; List A row `H4` asserts this baseline β.
+- `loop_results_v2/validation_check.md` — H4/H5 β reproduction check (β match = reproducibility, not theory verdict).
+- `loop_results_v2/list_a_results.md` — theory outcome per hypothesis.
+- `06_run_h4_h5_split.py` — regenerates the size-split tables above (`H4/H4_results.md`).
+
+## Artifacts (historical — first loop iteration)
+- `07_deterministic_loop.py` and `loop_results/` — the original 215-pair combinatorial batch. Superseded by `08`; kept for provenance.

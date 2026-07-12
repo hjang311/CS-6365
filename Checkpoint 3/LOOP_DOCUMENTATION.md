@@ -1,6 +1,8 @@
-# Phase 7: Deterministic Agentic Loop — Student Guide & Documentation
+# Deterministic Agentic Loop (`07`) — Historical Artifact Documentation
 
 This documentation covers the design, execution, and extension of the **Deterministic Agentic Loop** (`07_deterministic_loop.py`).
+
+> **HISTORICAL ARTIFACT.** `07` was the first loop iteration (215-pair combinatorial batch with per-hit agent prompts). It is **superseded** for all current work by the Phase 2 unrolled loop — see **[`PHASE2_UNROLLED_LOOP.md`](PHASE2_UNROLLED_LOOP.md)** and run `08_unrolled_loop.py`. Trust `loop_results_v2/` (from `08`), not `loop_results/` (from `07`). The "Phase 7" label previously used here referred to internal script numbering, not the professor's 3-phase model (where `08` is Phase 2).
 
 ---
 
@@ -10,7 +12,7 @@ A purely programmatic loop (like a standard Python `for` loop) executes statisti
 
 The **Deterministic Agentic Loop** implements a **hybrid architecture**:
 1. **Deterministic Orchestrator (Python):** Handles the data processing, listwise deletion, subsetting, and robust OLS regression math. This guarantees 100% mathematical reproducibility and zero hallucinations in the statistical metrics.
-2. **Agentic Processor (LLM):** Acts as the active sociological researcher. In each iteration, it receives the variable names, reasons about the relationship, proposes a hypothesis direction and rationale *before* seeing the data, and then interprets the OLS results *after* they are generated.
+2. **Agentic Processor (LLM):** Acts as the active sociological researcher. In `--interactive` mode it proposes a hypothesis direction and rationale *before* seeing the data, then interprets the OLS results *after* they are generated. **In `--batch` mode this ordering does not hold:** the agent is only prompted *after* a pair is already significant (p < 0.05), so batch-mode "hypotheses" are post-hoc rationales — one reason `08_unrolled_loop.py` (pre-registered lists) superseded this script.
 
 ---
 
@@ -102,3 +104,8 @@ To add new variables to the modeling loop:
     python "Checkpoint 3/02_merge_pipeline.py"
     python "Checkpoint 3/07_deterministic_loop.py" --batch
     ```
+    For Phase 2 unrolled execution (preferred for new work), also update `LIST_A` / `build_list_b()` in `08_unrolled_loop.py` and run:
+    ```bash
+    python "Checkpoint 3/08_unrolled_loop.py" --run
+    ```
+    See [`PHASE2_UNROLLED_LOOP.md`](PHASE2_UNROLLED_LOOP.md).

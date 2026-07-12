@@ -1,17 +1,18 @@
 """
-01_acquire_data.py  —  Phase 1: Data Acquisition & Subsetting
+01_acquire_data.py  —  Phase 1: Data Acquisition & Subsetting (manual pipeline)
 
-Pulls core data sources, enforces enterprise filtering (>= $500K revenue), 
+Pulls core data sources, enforces enterprise filtering (>= $500K revenue),
 and aggressively subsets columns to preserve LLM context windows.
 Downloads Zillow ZHVI Zip-level housing cost data.
+
+COLD START NOTE: This script does NOT download NCCS CORE, IRS BMF, Census ACS,
+or FDIC data. Those are acquired by `Checkpoint 2/H2_Pipeline/01_acquire_data.py`
+(CENSUS_API_KEY needed for ACS) and then copied into `Checkpoint 3/data/`.
+See Checkpoint 3/README.md for the full cold-start runbook.
 """
 import os
 import ssl
 import pandas as pd
-import requests
-
-# Bypassing SSL verification for macOS environments if certificate store is unconfigured
-ssl._create_default_https_context = ssl._create_unverified_context
 
 DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 os.makedirs(DATA, exist_ok=True)
@@ -38,7 +39,14 @@ def get_core_subset():
             parts.append(df)
             
     if not parts:
-        raise SystemExit("No core_*_filtered.csv found in data/ directory. Run CP2 acquire first or copy files.")
+        raise SystemExit(
+            "No core_*_filtered.csv found in Checkpoint 3/data/.\n"
+            "Cold start: run `Checkpoint 2/H2_Pipeline/01_acquire_data.py` "
+            "(downloads NCCS CORE 2018-2022, IRS BMF, FDIC, Census ACS; "
+            "needs CENSUS_API_KEY for ACS), then copy the resulting CSVs from "
+            "`Checkpoint 2/H2_Pipeline/data/` into `Checkpoint 3/data/`.\n"
+            "See Checkpoint 3/README.md."
+        )
         
     df_core = pd.concat(parts, ignore_index=True)
     df_core["ein"] = df_core["ein"].astype(str).str.replace(r"\D", "", regex=True).str.zfill(9)
@@ -53,22 +61,41 @@ def get_core_subset():
     print(f"[Ingestion] Saved {len(df_core):,} rows to {subset_path}")
 
 def acquire_zillow_data():
-    """Download Zillow ZHVI data, keep only the latest 2022 value, and subset columns."""
+    """Download Zillow ZHVI data, keep the fixed 2022-12-31 snapshot, and subset columns."""
     print(f"[Zillow] Fetching ZHVI from: {ZILLOW_ZHVI_URL}")
     try:
         # Download in chunks or load directly (file is ~50MB, read_csv handles url directly)
-        df = pd.read_csv(ZILLOW_ZHVI_URL)
+        try:
+            df = pd.read_csv(ZILLOW_ZHVI_URL)
+        except Exception as ssl_err:
+            # macOS Python installs sometimes lack a configured certificate store.
+            # Retry once with verification disabled, warning loudly — do NOT make
+            # this the default for every HTTPS request in the process.
+            print(f"[Zillow] WARNING: first attempt failed ({ssl_err}); "
+                  "retrying with SSL verification disabled for this download only.")
+            _prev = ssl._create_default_https_context
+            ssl._create_default_https_context = ssl._create_unverified_context
+            try:
+                df = pd.read_csv(ZILLOW_ZHVI_URL)
+            finally:
+                ssl._create_default_https_context = _prev
         
-        # Keep RegionName (ZIP) and 2022-12-31 value
+        # Freeze the analysis to the documented December 2022 snapshot.
         target_col = "2022-12-31"
         if target_col not in df.columns:
-            # Fallback to the last column if 2022-12-31 doesn't exist
-            target_col = df.columns[-1]
-            
+            raise ValueError(
+                "Required Zillow snapshot column '2022-12-31' is missing. "
+                "Refusing to substitute a newer date because that would change H4."
+            )
+        if "RegionName" not in df.columns:
+            raise ValueError("Zillow file is missing required ZIP column 'RegionName'.")
+
         print(f"  keeping ZIP code and column: {target_col}")
         sub = df[["RegionName", target_col]].rename(
             columns={"RegionName": "ZIP5", target_col: "zhvi_2022"}
         )
+        if sub.empty or sub["zhvi_2022"].notna().sum() == 0:
+            raise ValueError("Zillow snapshot parsed but contains no usable ZHVI values.")
         
         # Ensure ZIP5 is string padded to 5 digits
         sub["ZIP5"] = sub["ZIP5"].astype(str).str.replace(r"\.0$", "", regex=True).str.zfill(5)
@@ -77,7 +104,9 @@ def acquire_zillow_data():
         sub.to_csv(out_path, index=False)
         print(f"[Zillow] Saved {len(sub):,} ZIP codes to {out_path}")
     except Exception as e:
-        print(f"[Zillow Error] Failed to download or parse: {e}")
+        raise SystemExit(
+            f"[Zillow Error] Failed to acquire the required 2022 snapshot: {e}"
+        ) from e
 
 def main():
     get_core_subset()

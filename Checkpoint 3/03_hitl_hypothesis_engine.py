@@ -1,5 +1,9 @@
 """
-03_hitl_hypothesis_engine.py  —  Phase 3: HITL Hypothesis Engine
+03_hitl_hypothesis_engine.py  —  Interactive HITL Hypothesis Prototype
+
+NOTE: This is an interactive single-hypothesis prototype, NOT "Phase 3" of the
+professor's 3-phase model (Phase 1 = manual pipeline, Phase 2 = unrolled loop in
+08_unrolled_loop.py, Phase 3 = future agentic loop). It predates that framing.
 
 Reads CP3 modeling frame, uses the Antigravity Agent interactive prompt to brainstorm hypotheses,
 pauses for human-in-the-loop (HITL) approval, and runs a deterministic log-log OLS regression.

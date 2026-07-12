@@ -1,9 +1,15 @@
 """
-02_merge_pipeline.py  —  Phase 2: Modular Data Merging
+02_merge_pipeline.py  —  Phase 1: Modular Data Merging (manual pipeline)
 
-Joins NCCS Core subset with IRS BMF, FDIC branch count, Census controls, 
+Phase 1 in the professor's 3-phase model = manual acquisition + merging + hand-run
+hypothesis tests. (Phase 2 = the unrolled loop in 08_unrolled_loop.py; Phase 3 = the
+future agentic loop.)
+
+Joins NCCS Core subset with IRS BMF, FDIC branch counts, Census controls,
 and Zillow housing cost data at the ZIP level.
-Calculates the key IV: nonprofit_branch_density (social service nonprofits per 10k residents).
+Calculates key IVs:
+  - nonprofit_branch_density (social service nonprofits per 10k residents)
+  - bank_branch_density (FDIC bank branches per 10k residents — CP2 H2 replay)
 Outputs: data/cp3_modeling_frame.csv
 """
 import os
@@ -30,7 +36,10 @@ def load_data():
     
     # Inner merge to attach ZIP5, STATE, NTEE_CD to NCCS financials
     df = core.merge(bmf[["EIN", "ZIP5", "STATE", "NTEE_CD"]], on="EIN", how="inner")
-    print(f"[Merge] Joined Core with BMF: {len(df):,} organizations")
+    print(
+        f"[Merge] Joined Core with BMF: {len(df):,} pre-clean "
+        "organization-year rows (2018-2022 pooled)"
+    )
     return df, bmf
 
 def calculate_nonprofit_density(bmf, acs):
@@ -79,6 +88,28 @@ def main():
     # --- Calculate and merge nonprofit branch density ---
     density_df = calculate_nonprofit_density(bmf, acs)
     df = df.merge(density_df, on="ZIP5", how="left")
+
+    # --- Merge FDIC bank branch counts (enables CP2 H2 replay in Phase 2 loop) ---
+    fdic_path = os.path.join(DATA, "fdic_branches_by_zip.csv")
+    if os.path.exists(fdic_path):
+        fdic = pd.read_csv(fdic_path, dtype={"ZIP5": str})
+        # One row per ZIP; left join preserves row count and existing columns.
+        df = df.merge(fdic[["ZIP5", "bank_branches"]], on="ZIP5", how="left")
+        df["bank_branches"] = df["bank_branches"].fillna(0)
+        # Same recipe as CP2: branches per 10k residents (NaN where population unknown)
+        df["bank_branch_density"] = np.where(
+            df["population"] > 0,
+            df["bank_branches"] / df["population"] * 10_000,
+            np.nan,
+        )
+        print(
+            "[Merge] Merged FDIC bank branches; density computed for "
+            f"{df['bank_branch_density'].notna().sum():,} pre-clean rows"
+        )
+    else:
+        print("[Merge] WARNING: fdic_branches_by_zip.csv not found — "
+              "bank_branch_density will be absent (H2 replay will skip in Phase 2 loop)")
+
     
     # --- Merge Zillow Housing Cost Data ---
     zillow_path = os.path.join(DATA, "zillow_zhvi_2022.csv")
@@ -86,10 +117,18 @@ def main():
         zillow = pd.read_csv(zillow_path, dtype={"ZIP5": str})
         zillow["zhvi_2022"] = pd.to_numeric(zillow["zhvi_2022"], errors="coerce")
         df = df.merge(zillow[["ZIP5", "zhvi_2022"]], on="ZIP5", how="left")
-        print(f"[Merge] Merged Zillow housing value index to {df['zhvi_2022'].notna().sum():,} rows")
+        print(
+            "[Merge] Merged Zillow housing value index to "
+            f"{df['zhvi_2022'].notna().sum():,} pre-clean rows"
+        )
     else:
         print("[Merge] WARNING: zillow_zhvi_2022.csv not found!")
         df["zhvi_2022"] = np.nan
+
+    print(
+        f"[Clean] Starting financial/geographic cleaning with {len(df):,} "
+        "pre-clean organization-year rows; the final analysis frame will be smaller."
+    )
 
     # --- Financial Data Clean & DV Calculation ---
     for c in ["total_revenue", "total_contributions",
@@ -131,6 +170,8 @@ def main():
     df["log_fundraising_efficiency"] = np.log(df["fundraising_efficiency"].clip(lower=1e-9))
     df["log_nonprofit_branch_density"] = np.log1p(df["nonprofit_branch_density"].fillna(0).clip(lower=0))
     df["log_zhvi_2022"] = np.log(df["zhvi_2022"].clip(lower=1))
+    if "bank_branch_density" in df.columns:
+        df["log_bank_branch_density"] = np.log1p(df["bank_branch_density"].clip(lower=0))
 
     # Winsorized Level DV for OLS robustness
     cap = df["fundraising_efficiency"].quantile(0.99)
