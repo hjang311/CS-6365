@@ -1,0 +1,53 @@
+{
+  "provenance": {
+    "built_by": "Grok_4.5",
+    "round": 91,
+    "generated_at": "2026-07-12 22:30:00 UTC",
+    "source": "hybrid",
+    "script": "09_phase3_agentic_loop.py v1.0 (Grok_4.5 / 2026-07-12)",
+    "pre_registered_before_ols": true
+  },
+  "proposals": [
+    {
+      "id": "H01",
+      "spec_type": "two_var",
+      "iv": "log_zhvi_2022",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Phase 2 H4 confirmed negative ZHVI → efficiency (β ≈ -7.92); re-test under full controls as the anchor confirmatory spec for Phase 3."
+    },
+    {
+      "id": "H02",
+      "spec_type": "two_var",
+      "iv": "log_bank_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Phase 2 H2_replay confirmed negative bank-branch density → efficiency; external financial-infrastructure IV not in CONTROLS."
+    },
+    {
+      "id": "H03",
+      "spec_type": "two_var",
+      "iv": "log_nonprofit_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Phase 2 H5 was significant but theory rejected (observed positive β); re-test with controls to see whether competition story holds once socioeconomic confounders are partialled out."
+    },
+    {
+      "id": "H04",
+      "spec_type": "interaction",
+      "iv1": "log_zhvi_2022",
+      "iv2": "log_nonprofit_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Affluence clustering (H4) may moderate the provider-density link that failed H5 in bare 2-var OLS; interaction tests whether high-ZHVI areas dampen the density–efficiency slope."
+    },
+    {
+      "id": "H05",
+      "spec_type": "two_var",
+      "iv": "social_service_count",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "List B B04 lit up at large n (positive β, p < 0.01) with weak prior; exploratory external indicator to stress-test the 2-var limitation thesis under controls."
+    }
+  ]
+}

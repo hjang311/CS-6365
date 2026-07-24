@@ -1,0 +1,9 @@
+# Checkpoint 4 / Grok_4.5 Phase 3 (Python >= 3.10)
+pandas>=2.0
+numpy>=1.24
+statsmodels>=0.14
+scipy>=1.10
+python-dotenv>=1.0
+requests>=2.31
+# Optional for --api mode (Gemini). Not required for stdin/hybrid/fixture.
+# google-generativeai>=0.8

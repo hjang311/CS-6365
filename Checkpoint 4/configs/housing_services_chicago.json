@@ -1,0 +1,11 @@
+{
+  "enrichments": [
+    {
+      "topic": "housing_services",
+      "geography": "Chicago",
+      "source": "ntee",
+      "label": "housing_services",
+      "ntee_prefixes": ["L20", "L21", "L22", "L25", "L40", "L41"]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "provenance": {
+    "built_by": "Grok_4.5",
+    "round": 81,
+    "generated_at": "2026-07-12 22:45:00 UTC",
+    "source": "hybrid",
+    "script": "09_phase3_agentic_loop.py v1.0 (Grok_4.5 / 2026-07-12)",
+    "pre_registered_before_ols": true,
+    "frame_note": "Atlanta / ACFB-area tax_year=2022 cross-section; soup/meal density is ~2026 stock (see DATA_GRANULARITY_AUDIT.md)"
+  },
+  "proposals": [
+    {
+      "id": "AX01",
+      "spec_type": "two_var",
+      "iv": "log_soup_kitchen_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "July 10 alignment retest: finer-granularity soup-kitchen density per ZIP should capture local food-assistance presence better than HQ NTEE proxy; competition / crowding story predicts lower fundraising efficiency where density is higher."
+    },
+    {
+      "id": "AX02",
+      "spec_type": "interaction",
+      "iv1": "poverty_rate",
+      "iv2": "log_soup_kitchen_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order July 10 spec: poverty may intensify the soup-kitchen density–efficiency link in ACFB-area ZIPs where need and site stock co-locate."
+    },
+    {
+      "id": "AX03",
+      "spec_type": "two_var",
+      "iv": "soup_kitchen_local_count",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Big vs local stretch: keyword-heuristic local site count (not official ACFB chain census) tests whether smaller operators associate differently with efficiency than aggregate density."
+    },
+    {
+      "id": "AX04",
+      "spec_type": "two_var",
+      "iv": "log_meal_site_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Soup/meal/CFC-only density (excludes pantry-heavy stock) as a mission-narrower July 10 indicator; crowding story predicts negative association."
+    },
+    {
+      "id": "AX05",
+      "spec_type": "two_var",
+      "iv": "open_days_mean",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Effectiveness-lite probe: mean open days per site (hours coverage proxy) may signal operational intensity without a strong directional prior on efficiency."
+    }
+  ]
+}

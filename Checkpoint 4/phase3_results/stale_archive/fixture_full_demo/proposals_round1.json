@@ -1,0 +1,37 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "round": 1,
+    "generated_at": "2026-07-20 09:12:44 UTC",
+    "source": "fixture",
+    "script": "09_phase3_agentic_loop.py v2.0 (Phase3 Multi-Agent / 2026-07-20)",
+    "pre_registered_before_ols": true
+  },
+  "proposals": [
+    {
+      "id": "P01",
+      "spec_type": "two_var",
+      "iv": "log_bank_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Phase 2 H2_replay confirmed negative bank density \u2192 efficiency; re-test as a Phase 3 agenda item with explicit prior."
+    },
+    {
+      "id": "P02",
+      "spec_type": "interaction",
+      "iv1": "poverty_rate",
+      "iv2": "log_nonprofit_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may moderate the provider-density link that rejected H5's competition story in Phase 2."
+    },
+    {
+      "id": "P03",
+      "spec_type": "two_var",
+      "iv": "population",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Phase 2 weak_population case: large-n makes tiny \u03b2 look significant; re-run as exploratory to keep the limitation thesis visible in Phase 3."
+    }
+  ]
+}

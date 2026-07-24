@@ -1,30 +1,54 @@
-# CS 6365: Introduction to Enterprise Computing
+# CS 6365 — NORP Agentic Data Exploration Pipeline
 
-Welcome to the project repository for **CS 6365: Introduction to Enterprise Computing** (Summer 2026). This repository contains our team's semester-long project related to **NORP (Non-profit Organizations)**.
+**Team 1** · Summer 2026 · Prof. Calton Pu  
 
----
+Open-source **educational** package: Manual → Unrolled → Rolled workflow for
+nonprofit (NORP) data exploration. The goal is to teach **loop engineering and
+reproducibility**, not only to hunt significant correlations.
 
-## 👥 Course & Team Directory
+## Start here (next cohort)
 
-### **Instructor Information**
-* **Professor:** Dr. Calton Pu ([calton.pu@cc.gatech.edu](mailto:calton.pu@cc.gatech.edu))
-* **TAs:** Murali Rao, Satvik Agrawal
+1. Read [`docs/CURRICULUM.md`](docs/CURRICULUM.md)  
+2. Skim [`Checkpoint 4/BENCHMARK.md`](Checkpoint%204/BENCHMARK.md)  
+3. Run:
 
-### **Team Members**
-* 🎓 **Hwando Jang**
-* 🎓 **Carla Du Plessis**
+```bash
+bash "Checkpoint 4/reproduce.sh"
+```
 
----
+4. Follow [`Checkpoint 4/STUDENT_QUICKSTART.md`](Checkpoint%204/STUDENT_QUICKSTART.md)
 
-## 🚀 Project Focus: NORP Agentic Data Exploration Pipeline
+## Curriculum map
 
-Our semester project focuses on building an **Agentic Data Exploration Layer** for Non-Profit Organizations (NORP). Rather than building a traditional web portal, we are leveraging the **Google Antigravity SDK** and large language models (LLMs) to autonomously triage, clean, and analyze complex non-profit datasets.
+| Stage | Meaning | Path |
+|-------|---------|------|
+| **Manual (Phase 1)** | H2, H4, H5 — human adjusts the pipeline per hypothesis | [`Checkpoint 2/H2_Pipeline/`](Checkpoint%202/H2_Pipeline/), [`Checkpoint 3/PHASE1_MANUAL_PIPELINE.md`](Checkpoint%203/PHASE1_MANUAL_PIPELINE.md) |
+| **Unrolled (Phase 2)** | Pre-registered List A/B + deterministic OLS | [`Checkpoint 3/08_unrolled_loop.py`](Checkpoint%203/08_unrolled_loop.py) |
+| **Rolled (Phase 3)** | Multi-agent discover → acquire → propose → gated OLS | [`Checkpoint 4/`](Checkpoint%204/) |
 
-This pipeline automates the discovery of sociological correlations (e.g., how geographic archetypes like the Rust Belt or Sun Belt affect non-profit performance).
+## Repository layout
 
-### **Repository Structure**
-* `agentic_pipeline/`: Contains the core multi-agent Python system (Orchestrator Agent, Code Agent, foundational scripts).
-* `Project Checkpoint Report 0 - Reproducibility Exercise/`: Our initial reproducibility checkpoint submission.
-* `NORP_PROJECT.md`: Detailed architectural design of our new Agentic Pipeline.
+```
+Checkpoint 0/     Reproducibility exercise (exemplar clones archived locally)
+Checkpoint 1/     Early agentic experiments
+Checkpoint 2/     Manual H2 / RQ2 pipeline
+Checkpoint 3/     Manual H4/H5 + unrolled loop
+Checkpoint 4/     Rolled multi-agent package (primary handoff)
+docs/             Curriculum + archive notes
+.agent/skills/    Phase 3 agent skills
+archive/          Local historical clutter (bulky contents gitignored)
+agentic_pipeline/ Legacy SDK scaffolding (not the Phase 3 entrypoint)
+```
 
-👉 **View our detailed [NORP Project Document](NORP_PROJECT.md) to see our architecture, heuristic rules, and milestone timeline.**
+Personal office-hour notes (`Project Research & Initial Plan/`) are **local only**
+and are not part of the public package.
+
+## Course info
+
+- **Instructor:** Dr. Calton Pu  
+- **Team:** Hwando Jang, Carla Du Plessis  
+
+## License / data ethics
+
+Respect source licenses (e.g. Feed America CC BY). Do not scrape login-walled
+partner directories. Named adapters + Critic ToS gates are intentional.

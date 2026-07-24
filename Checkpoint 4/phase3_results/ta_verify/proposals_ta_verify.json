@@ -1,0 +1,57 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "source": "ta_ai_suggestions_cp4",
+    "generated_at": "2026-07-24 03:24:42 UTC",
+    "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
+    "pre_registered_before_ols": true,
+    "gate_alpha": 0.05,
+    "gate_min_delta_r2": 0.0005
+  },
+  "proposals": [
+    {
+      "id": "I1",
+      "spec_type": "interaction",
+      "iv1": "log_zhvi_2022",
+      "iv2": "log_nonprofit_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Does the H4 housing-cost penalty depend on provider-field density (H5)?"
+    },
+    {
+      "id": "I2",
+      "spec_type": "interaction",
+      "iv1": "log_zhvi_2022",
+      "iv2": "log_bank_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Whether bank sparsity moderates the real-estate overhead effect."
+    },
+    {
+      "id": "I3",
+      "spec_type": "interaction",
+      "iv1": "log_zhvi_2022",
+      "iv2": "size_segment",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "CP3 size split: large orgs more ZHVI-sensitive than mid."
+    },
+    {
+      "id": "I4",
+      "spec_type": "interaction",
+      "iv1": "log_nonprofit_branch_density",
+      "iv2": "size_segment",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Whether agglomeration (H5) strengthens with org size."
+    },
+    {
+      "id": "Q1",
+      "spec_type": "quadratic",
+      "iv": "log_zhvi_2022",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Whether the housing-cost penalty accelerates (non-linear)."
+    }
+  ]
+}

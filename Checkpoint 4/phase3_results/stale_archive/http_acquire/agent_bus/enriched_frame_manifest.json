@@ -1,0 +1,26 @@
+{
+  "label": "food_assistance",
+  "adapter": "http_open_api",
+  "entity_meta": {
+    "adapter": "http_open_api",
+    "n_records": 2250,
+    "raw_path": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/acquisitions/food_assistance/food_assistance_http_raw.jsonl",
+    "csv_path": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/acquisitions/food_assistance/food_assistance_http_entities.csv",
+    "attribution_path": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/acquisitions/food_assistance/food_assistance_ATTRIBUTION.txt",
+    "base_url": "https://feedam.org/api/resources/bulk"
+  },
+  "density_path": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/food_assistance_density_by_zip.csv",
+  "enriched_frame": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/cp4_frame_with_food_assistance_density.csv",
+  "active_frame": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv",
+  "slice_meta": {
+    "min_n": 100,
+    "degraded": false,
+    "warnings": [],
+    "tax_year": 2022,
+    "n_zips_allow": 305,
+    "prefer_state": "GA",
+    "n_rows": 583,
+    "n_zips": 159
+  },
+  "generated_at": "2026-07-20 09:15:17 UTC"
+}

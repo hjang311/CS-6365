@@ -1,0 +1,56 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "script": "09_phase3_agentic_loop.py v2.0 (Phase3 Multi-Agent / 2026-07-20)",
+    "generated_at": "2026-07-20 09:51:42 UTC",
+    "frame": "Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv",
+    "frame_shape": "583 rows x 33 cols"
+  },
+  "proposals_path": "Checkpoint 4/phase3_results/proposals_round1.json",
+  "proposals_mtime": 1784541102.3520346,
+  "round": 1,
+  "rows": [
+    {
+      "id": "F01",
+      "spec_type": "two_var",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Finer-granularity food-assistance density (NTEE or Feed America) vs fundraising efficiency on Atlanta cross-section.",
+      "status": "ok",
+      "error": "",
+      "nobs": 444,
+      "rsquared": "0.2246",
+      "beta": "-21.46836",
+      "pvalue": "0.117555",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "log_food_assistance_density",
+      "iv1": "",
+      "iv2": "",
+      "formula": "fundraising_efficiency_w ~ log_food_assistance_density + CONTROLS"
+    },
+    {
+      "id": "F02",
+      "spec_type": "interaction",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may intensify food-assistance density association.",
+      "status": "ok",
+      "error": "",
+      "nobs": 444,
+      "rsquared": "0.2247",
+      "beta": "0.39393",
+      "pvalue": "0.852988",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "",
+      "iv1": "poverty_rate",
+      "iv2": "log_food_assistance_density",
+      "formula": "fundraising_efficiency_w ~ poverty_rate + log_food_assistance_density + poverty_rate:log_food_assistance_density + log_total_revenue + median_hh_income + C(ntee_major) + C(region)",
+      "beta_iv1": 0.9411537250599064,
+      "beta_iv2": -27.231028093950417
+    }
+  ]
+}

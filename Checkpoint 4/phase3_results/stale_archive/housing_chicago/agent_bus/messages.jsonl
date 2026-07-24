@@ -1,0 +1,3 @@
+{"ts": "2026-07-20 09:12:46 UTC", "from": "acquisition", "to": "critic", "type": "acquire_start", "round": null, "payload_path": "Checkpoint 4/phase3_results/housing_chicago/agent_bus/acquire_start.json", "note": ""}
+{"ts": "2026-07-20 09:12:52 UTC", "from": "acquisition", "to": "researcher", "type": "enriched_frame_manifest", "round": null, "payload_path": "Checkpoint 4/phase3_results/housing_chicago/agent_bus/enriched_frame_manifest.json", "note": "active_frame=/Users/hdj/Documents/CS-6365/Checkpoint 4/data/cp4_chicago_housing_services_xsection.csv"}
+{"ts": "2026-07-20 09:12:52 UTC", "from": "researcher", "to": "stats_engine", "type": "proposals", "round": 1, "payload_path": "Checkpoint 4/phase3_results/housing_chicago/proposals_round1.json", "note": ""}

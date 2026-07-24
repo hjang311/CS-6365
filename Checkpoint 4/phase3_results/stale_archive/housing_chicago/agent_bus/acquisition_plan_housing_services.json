@@ -1,0 +1,18 @@
+{
+  "adapter": "ntee_density",
+  "topic": "housing_services",
+  "geography": "Chicago",
+  "label": "housing_services",
+  "ntee_prefixes": [
+    "L20",
+    "L21",
+    "L22",
+    "L25",
+    "L40",
+    "L41"
+  ],
+  "http": null,
+  "url": null,
+  "manual_csv": null,
+  "attribution_text": null
+}

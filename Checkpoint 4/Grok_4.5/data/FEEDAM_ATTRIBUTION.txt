@@ -1,0 +1,2 @@
+Feed America. (2026). Feed America Food-Assistance Directory [Dataset]. https://feedam.org/research. License: CC BY 4.0. Adapted/filtered to Georgia food_pantry/soup_kitchen/food_bank/mobile_pantry for NORP Checkpoint 4.
+retrieved_at=2026-07-12

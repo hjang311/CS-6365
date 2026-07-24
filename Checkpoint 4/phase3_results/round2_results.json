@@ -1,0 +1,81 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
+    "generated_at": "2026-07-24 03:25:06 UTC",
+    "frame": "Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv",
+    "frame_shape": "583 rows x 33 cols"
+  },
+  "proposals_path": "Checkpoint 4/phase3_results/proposals_round2.json",
+  "proposals_mtime": 1784863506.163132,
+  "round": 2,
+  "gate": {
+    "alpha": 0.05,
+    "min_delta_r2": 0.0005
+  },
+  "rows": [
+    {
+      "id": "F2P01",
+      "spec_type": "two_var",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Round 1 food-density nulls \u2192 adapt: re-test H4 housing-cost signal on the Atlanta \u00d7 latest-year slice.",
+      "status": "ok",
+      "error": "",
+      "nobs": 444,
+      "rsquared": "0.2241",
+      "beta": "-30.60634",
+      "pvalue": "0.156028",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "log_zhvi_2022",
+      "iv1": "",
+      "iv2": "",
+      "formula": "fundraising_efficiency_w ~ log_zhvi_2022 + CONTROLS",
+      "wald_f": "",
+      "wald_p": "",
+      "r2_full": "",
+      "r2_main": "",
+      "r2_controls": "",
+      "delta_r2_higherorder": "",
+      "delta_r2_over_naive": "",
+      "gate_decision": "",
+      "gate_reason": ""
+    },
+    {
+      "id": "F2P02",
+      "spec_type": "interaction",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Higher-order adaptation: does bank sparsity moderate the ZHVI overhead effect on the Atlanta cross-section?",
+      "status": "ok",
+      "error": "",
+      "nobs": 444,
+      "rsquared": "0.2369",
+      "beta": "61.80136",
+      "pvalue": "0.0781141",
+      "observed_direction": "none",
+      "direction_outcome": "exploratory (no prior)",
+      "significant": false,
+      "iv": "",
+      "iv1": "log_zhvi_2022",
+      "iv2": "log_bank_branch_density",
+      "formula": "fundraising_efficiency_w ~ log_zhvi_2022 + log_bank_branch_density + log_zhvi_2022:log_bank_branch_density + log_total_revenue + poverty_rate + median_hh_income + C(ntee_major) + C(region)",
+      "wald_f": 3.103709643602143,
+      "wald_p": 0.07885213688679045,
+      "r2_full": 0.2369484295616634,
+      "r2_main": 0.2289302165541417,
+      "r2_controls": 0.22117624629820465,
+      "delta_r2_higherorder": 0.008018213007521702,
+      "delta_r2_over_naive": 0.01577218326345875,
+      "gate_decision": "REJECT",
+      "gate_reason": "Added terms not jointly significant (robust F p=0.0789).",
+      "beta_iv1": -109.42274978291891,
+      "beta_iv2": -817.4089383542688,
+      "added_terms": [
+        "log_zhvi_2022:log_bank_branch_density"
+      ]
+    }
+  ]
+}

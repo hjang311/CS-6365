@@ -1,0 +1,37 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "round": 2,
+    "generated_at": "2026-07-20 09:12:18 UTC",
+    "source": "fixture",
+    "script": "09_phase3_agentic_loop.py v2.0 (Phase3 Multi-Agent / 2026-07-20)",
+    "pre_registered_before_ols": true
+  },
+  "proposals": [
+    {
+      "id": "R2P01",
+      "spec_type": "two_var",
+      "iv": "log_soup_kitchen_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Phase 3 finer-granularity track: Feed America\u2013scaled / ACFB-area food-assistance density per 10k (not IRS HQ NTEE proxy)."
+    },
+    {
+      "id": "R2P02",
+      "spec_type": "interaction",
+      "iv1": "poverty_rate",
+      "iv2": "log_soup_kitchen_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may intensify the soup-kitchen / pantry density association on the expanded ZIP coverage."
+    },
+    {
+      "id": "R2P03",
+      "spec_type": "two_var",
+      "iv": "soup_kitchen_local_count",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Exploratory big-vs-local stretch: count of local-classified sites per ZIP from merged soup_kitchens.csv."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "provenance": {
+    "built_by": "Grok_4.5",
+    "script": "09_phase3_agentic_loop.py v1.0 (Grok_4.5 / 2026-07-12)",
+    "generated_at": "2026-07-12 13:32:27 UTC",
+    "frame": "Checkpoint 4/Grok_4.5/data/cp4_acfb_area_subsample.csv",
+    "frame_shape": "2,593 rows x 35 cols"
+  },
+  "proposals_path": "Checkpoint 4/Grok_4.5/phase3_results/proposals_soup_demo.json",
+  "proposals_mtime": 1783862575.4511871,
+  "round": 97,
+  "rows": [
+    {
+      "id": "S01",
+      "spec_type": "two_var",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Finer-granularity ACFB pilot density should capture local food assistance presence better than IRS HQ NTEE proxy; competition story predicts negative association with fundraising efficiency.",
+      "status": "ok",
+      "error": "",
+      "nobs": 1965,
+      "rsquared": "0.2055",
+      "beta": "10.71396",
+      "pvalue": "0.0982879",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "log_soup_kitchen_density",
+      "iv1": "",
+      "iv2": "",
+      "formula": "fundraising_efficiency_w ~ log_soup_kitchen_density + CONTROLS"
+    },
+    {
+      "id": "S02",
+      "spec_type": "interaction",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may intensify the soup-kitchen density link on the Atlanta-aware frame.",
+      "status": "ok",
+      "error": "",
+      "nobs": 1965,
+      "rsquared": "0.2055",
+      "beta": "-0.06267",
+      "pvalue": "0.912762",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "",
+      "iv1": "poverty_rate",
+      "iv2": "log_soup_kitchen_density",
+      "formula": "fundraising_efficiency_w ~ poverty_rate + log_soup_kitchen_density + poverty_rate:log_soup_kitchen_density + log_total_revenue + median_hh_income + C(ntee_major) + C(region)",
+      "beta_iv1": -0.5606297677370478,
+      "beta_iv2": 11.48521050036069
+    }
+  ]
+}

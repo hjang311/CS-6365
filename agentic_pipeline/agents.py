@@ -24,7 +24,7 @@ def create_orchestrator():
     )
 
 def create_code_agent():
-    """Creates the Code Agent responsible for Python REPL execution."""
+    """Creates the Code Agent (Phase 3 Stats Engine operator)."""
     code_agent_prompt = get_prompt_from_file(os.path.join(".agent", "skills", "norp-code-agent", "SKILL.md"))
     return Agent(
         config=get_config(),
@@ -32,9 +32,35 @@ def create_code_agent():
     )
 
 def create_validator_agent():
-    """Creates the Validator Agent responsible for Programmatic Verification."""
+    """Creates the Critic / Validator Agent."""
     validator_prompt = get_prompt_from_file(os.path.join(".agent", "skills", "norp-validator-agent", "SKILL.md"))
     return Agent(
         config=get_config(),
         system_instruction=validator_prompt
     )
+
+def create_scout_agent():
+    """Creates the Scout Agent (source discovery / routing)."""
+    prompt = get_prompt_from_file(os.path.join(".agent", "skills", "norp-scout", "SKILL.md"))
+    return Agent(config=get_config(), system_instruction=prompt)
+
+def create_acquisition_agent():
+    """Creates the Acquisition Agent (named adapters only)."""
+    prompt = get_prompt_from_file(os.path.join(".agent", "skills", "norp-acquisition", "SKILL.md"))
+    return Agent(config=get_config(), system_instruction=prompt)
+
+def create_researcher_agent():
+    """Creates the Researcher Agent (propose + interpret; never OLS)."""
+    prompt = get_prompt_from_file(os.path.join(".agent", "skills", "norp-researcher", "SKILL.md"))
+    return Agent(config=get_config(), system_instruction=prompt)
+
+def create_phase3_agents():
+    """Return the five Phase 3 cognitive agents (Stats Engine remains the 09 CLI)."""
+    return {
+        "orchestrator": create_orchestrator(),
+        "scout": create_scout_agent(),
+        "acquisition": create_acquisition_agent(),
+        "researcher": create_researcher_agent(),
+        "critic": create_validator_agent(),
+        "code": create_code_agent(),
+    }

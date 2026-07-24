@@ -1,0 +1,29 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "round": 1,
+    "generated_at": "2026-07-20 09:12:52 UTC",
+    "source": "fixture_housing",
+    "script": "09_phase3_agentic_loop.py v2.0 (Phase3 Multi-Agent / 2026-07-20)",
+    "pre_registered_before_ols": true
+  },
+  "proposals": [
+    {
+      "id": "H01",
+      "spec_type": "two_var",
+      "iv": "log_housing_services_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Universality demo: Chicago-area housing-services NTEE density vs fundraising efficiency (exploratory)."
+    },
+    {
+      "id": "H02",
+      "spec_type": "interaction",
+      "iv1": "poverty_rate",
+      "iv2": "log_housing_services_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Higher-order: poverty may moderate housing-provider density."
+    }
+  ]
+}

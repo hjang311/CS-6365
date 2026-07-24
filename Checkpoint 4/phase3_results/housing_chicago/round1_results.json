@@ -1,0 +1,81 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
+    "generated_at": "2026-07-24 03:25:13 UTC",
+    "frame": "Checkpoint 4/data/cp4_chicago_housing_services_xsection.csv",
+    "frame_shape": "503 rows x 33 cols"
+  },
+  "proposals_path": "Checkpoint 4/phase3_results/housing_chicago/proposals_round1.json",
+  "proposals_mtime": 1784863513.9922771,
+  "round": 1,
+  "gate": {
+    "alpha": 0.05,
+    "min_delta_r2": 0.0005
+  },
+  "rows": [
+    {
+      "id": "H01",
+      "spec_type": "two_var",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Universality demo: Chicago-area housing-services NTEE density vs fundraising efficiency (exploratory).",
+      "status": "ok",
+      "error": "",
+      "nobs": 403,
+      "rsquared": "0.2822",
+      "beta": "5.04243",
+      "pvalue": "0.447483",
+      "observed_direction": "none",
+      "direction_outcome": "exploratory (no prior)",
+      "significant": false,
+      "iv": "log_housing_services_density",
+      "iv1": "",
+      "iv2": "",
+      "formula": "fundraising_efficiency_w ~ log_housing_services_density + CONTROLS",
+      "wald_f": "",
+      "wald_p": "",
+      "r2_full": "",
+      "r2_main": "",
+      "r2_controls": "",
+      "delta_r2_higherorder": "",
+      "delta_r2_over_naive": "",
+      "gate_decision": "",
+      "gate_reason": ""
+    },
+    {
+      "id": "H02",
+      "spec_type": "interaction",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Higher-order: poverty may moderate housing-provider density.",
+      "status": "ok",
+      "error": "",
+      "nobs": 403,
+      "rsquared": "0.2823",
+      "beta": "0.42692",
+      "pvalue": "0.766121",
+      "observed_direction": "none",
+      "direction_outcome": "exploratory (no prior)",
+      "significant": false,
+      "iv": "",
+      "iv1": "poverty_rate",
+      "iv2": "log_housing_services_density",
+      "formula": "fundraising_efficiency_w ~ poverty_rate + log_housing_services_density + poverty_rate:log_housing_services_density + log_total_revenue + median_hh_income + C(ntee_major) + C(region)",
+      "wald_f": 0.08847788223962343,
+      "wald_p": 0.7662859142322856,
+      "r2_full": 0.28229021603882265,
+      "r2_main": 0.28216821387914337,
+      "r2_controls": 0.27422094613474046,
+      "delta_r2_higherorder": 0.00012200215967927974,
+      "delta_r2_over_naive": 0.008069269904082188,
+      "gate_decision": "REJECT",
+      "gate_reason": "Added terms not jointly significant (robust F p=0.766).",
+      "beta_iv1": -3.6084144277383903,
+      "beta_iv2": 1.0806050570766441,
+      "added_terms": [
+        "poverty_rate:log_housing_services_density"
+      ]
+    }
+  ]
+}

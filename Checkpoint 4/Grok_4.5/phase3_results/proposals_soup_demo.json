@@ -1,0 +1,29 @@
+{
+  "provenance": {
+    "built_by": "Grok_4.5",
+    "round": "soup_demo",
+    "generated_at": "2026-07-12",
+    "source": "acfb_pilot_demo",
+    "pre_registered_before_ols": true,
+    "frame_note": "Run with --frame cp4_frame_with_soup_density.csv or Atlanta subsample"
+  },
+  "proposals": [
+    {
+      "id": "S01",
+      "spec_type": "two_var",
+      "iv": "log_soup_kitchen_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Finer-granularity ACFB pilot density should capture local food assistance presence better than IRS HQ NTEE proxy; competition story predicts negative association with fundraising efficiency."
+    },
+    {
+      "id": "S02",
+      "spec_type": "interaction",
+      "iv1": "poverty_rate",
+      "iv2": "log_soup_kitchen_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may intensify the soup-kitchen density link on the Atlanta-aware frame."
+    }
+  ]
+}

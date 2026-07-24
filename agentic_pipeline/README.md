@@ -1,3 +1,12 @@
+# Agentic Data Exploration Pipeline (legacy SDK scaffolding)
+
+> **Phase 3 (rolled loop) lives in [`Checkpoint 4/`](../Checkpoint%204/).**  
+> This folder retains early Antigravity SDK factories (`agents.py`, hybrid prompts).
+> Prefer `.agent/skills/norp-*` + `Checkpoint 4/09_phase3_agentic_loop.py` for the
+> educational curriculum. See [`docs/CURRICULUM.md`](../docs/CURRICULUM.md).
+
+---
+
 # Agentic Data Exploration Pipeline (CS 6365)
 
 This repository contains the Phase 1 implementation of the Agentic Data Exploration Layer. 

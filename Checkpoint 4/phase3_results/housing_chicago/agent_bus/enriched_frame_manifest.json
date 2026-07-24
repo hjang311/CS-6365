@@ -1,0 +1,29 @@
+{
+  "label": "housing_services",
+  "adapter": "ntee_density",
+  "entity_meta": {
+    "adapter": "ntee_density",
+    "ntee_prefixes": [
+      "L20",
+      "L21",
+      "L22",
+      "L25",
+      "L40",
+      "L41"
+    ]
+  },
+  "density_path": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/housing_services_density_by_zip.csv",
+  "enriched_frame": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/cp4_frame_with_housing_services_density.csv",
+  "active_frame": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/cp4_chicago_housing_services_xsection.csv",
+  "slice_meta": {
+    "min_n": 100,
+    "degraded": false,
+    "warnings": [],
+    "tax_year": 2022,
+    "n_zips_allow": 64,
+    "prefer_state": "IL",
+    "n_rows": 503,
+    "n_zips": 55
+  },
+  "generated_at": "2026-07-24 03:25:13 UTC"
+}

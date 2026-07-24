@@ -1,0 +1,29 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "round": 2,
+    "generated_at": "2026-07-24 03:25:06 UTC",
+    "source": "fixture_food_r2",
+    "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
+    "pre_registered_before_ols": true
+  },
+  "proposals": [
+    {
+      "id": "F2P01",
+      "spec_type": "two_var",
+      "iv": "log_zhvi_2022",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Round 1 food-density nulls \u2192 adapt: re-test H4 housing-cost signal on the Atlanta \u00d7 latest-year slice."
+    },
+    {
+      "id": "F2P02",
+      "spec_type": "interaction",
+      "iv1": "log_zhvi_2022",
+      "iv2": "log_bank_branch_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "unspecified",
+      "rationale": "Higher-order adaptation: does bank sparsity moderate the ZHVI overhead effect on the Atlanta cross-section?"
+    }
+  ]
+}

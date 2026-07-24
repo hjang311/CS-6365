@@ -1,0 +1,36 @@
+{
+  "adapter": "http_open_api",
+  "topic": "food_assistance",
+  "geography": "Atlanta",
+  "label": "food_assistance",
+  "ntee_prefixes": [
+    "K30",
+    "K31",
+    "K34",
+    "K35",
+    "K36"
+  ],
+  "http": {
+    "base_url": "https://feedam.org/api/resources/bulk",
+    "query_params": {
+      "state": "GA",
+      "format": "json"
+    },
+    "type_param": "type",
+    "type_values": [
+      "food_pantry",
+      "soup_kitchen",
+      "food_bank",
+      "mobile_pantry"
+    ],
+    "zip_field": "zip",
+    "resource_key": "resources",
+    "host_allowlist": [
+      "feedam.org"
+    ],
+    "attribution_text": "Feed America (feedam.org) resource data, CC BY 4.0."
+  },
+  "url": null,
+  "manual_csv": null,
+  "attribution_text": null
+}

@@ -1,0 +1,56 @@
+{
+  "provenance": {
+    "built_by": "Grok_4.5",
+    "script": "09_phase3_agentic_loop.py v1.0 (Grok_4.5 / 2026-07-12)",
+    "generated_at": "2026-07-12 13:23:36 UTC",
+    "frame": "Checkpoint 4/Grok_4.5/data/cp4_atlanta_subsample.csv",
+    "frame_shape": "1,264 rows x 35 cols"
+  },
+  "proposals_path": "Checkpoint 4/Grok_4.5/phase3_results/proposals_soup_demo.json",
+  "proposals_mtime": 1783862575.4511871,
+  "round": 98,
+  "rows": [
+    {
+      "id": "S01",
+      "spec_type": "two_var",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Finer-granularity ACFB pilot density should capture local food assistance presence better than IRS HQ NTEE proxy; competition story predicts negative association with fundraising efficiency.",
+      "status": "ok",
+      "error": "",
+      "nobs": 949,
+      "rsquared": "0.1869",
+      "beta": "19.35194",
+      "pvalue": "0.293383",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "log_soup_kitchen_density",
+      "iv1": "",
+      "iv2": "",
+      "formula": "fundraising_efficiency_w ~ log_soup_kitchen_density + CONTROLS"
+    },
+    {
+      "id": "S02",
+      "spec_type": "interaction",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may intensify the soup-kitchen density link on the Atlanta-aware frame.",
+      "status": "ok",
+      "error": "",
+      "nobs": 949,
+      "rsquared": "0.1869",
+      "beta": "-0.54618",
+      "pvalue": "0.869803",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "",
+      "iv1": "poverty_rate",
+      "iv2": "log_soup_kitchen_density",
+      "formula": "fundraising_efficiency_w ~ poverty_rate + log_soup_kitchen_density + poverty_rate:log_soup_kitchen_density + log_total_revenue + median_hh_income + C(ntee_major) + C(region)",
+      "beta_iv1": -0.9255186678455334,
+      "beta_iv2": 28.19690274324968
+    }
+  ]
+}

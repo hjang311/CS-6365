@@ -1,0 +1,29 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "round": 1,
+    "generated_at": "2026-07-24 03:25:06 UTC",
+    "source": "fixture_food",
+    "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
+    "pre_registered_before_ols": true
+  },
+  "proposals": [
+    {
+      "id": "F01",
+      "spec_type": "two_var",
+      "iv": "log_food_assistance_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Finer-granularity food-assistance density (NTEE or Feed America) vs fundraising efficiency on Atlanta cross-section."
+    },
+    {
+      "id": "F02",
+      "spec_type": "interaction",
+      "iv1": "poverty_rate",
+      "iv2": "log_food_assistance_density",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may intensify food-assistance density association."
+    }
+  ]
+}

@@ -166,14 +166,29 @@ CS 6365/obj/
 NORP_Spring26_G5/
 venv_*/
 
-# Data files, documents, and personal research notes
+# Personal OH notes / planning — LOCAL ONLY, never push
 Project Research & Initial Plan/
+
+# Data files, documents (curriculum markdown stays tracked)
 dataverse_files/
 *.csv
 *.xlsx
 *.docx
 *.pdf
 .DS_Store
+
+# Antigravity / Cursor local session junk
+.antigravitycli/
+.cursor/
+
+# Archive: keep thin README/docs tracked; ignore bulky local history
+archive/submissions/616954-*/
+archive/submissions/*.zip
+archive/submissions/*.pdf
+archive/cp0_exemplars/
+archive/scratch/
+archive/cp1_iterations/
+archive/cp3_loop_v1/
 
 # Ignore project data directories
 Checkpoint 1/Broadband Access x Fundraising Efficiency/Data/
@@ -183,3 +198,12 @@ Checkpoint 2/H2_Pipeline/data/
 
 # H3 probe data (re-downloadable)
 Checkpoint 2/H3_Testing/data/
+
+# Checkpoint 3/4 large modeling frames (regenerate via scripts)
+Checkpoint 3/data/*.csv
+Checkpoint 4/data/*.csv
+!Checkpoint 4/data/**/.gitignore
+!Checkpoint 4/data/**/*ATTRIBUTION*
+!Checkpoint 4/data/**/*.md
+!Checkpoint 4/data/acquisitions/**/README.md
+

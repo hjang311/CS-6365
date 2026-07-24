@@ -1,0 +1,7 @@
+# Large generated frames (keep small pilot CSVs)
+cp4_frame_with_soup_density.csv
+cp4_atlanta_subsample.csv
+cp4_acfb_area_subsample.csv
+cp4_atlanta_xsection.csv
+cp4_atlanta_pilot_xsection.csv
+feedam_ga_raw.jsonl

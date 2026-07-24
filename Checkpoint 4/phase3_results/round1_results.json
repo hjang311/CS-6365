@@ -1,0 +1,81 @@
+{
+  "provenance": {
+    "built_by": "Phase3_MultiAgent",
+    "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
+    "generated_at": "2026-07-24 03:25:06 UTC",
+    "frame": "Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv",
+    "frame_shape": "583 rows x 33 cols"
+  },
+  "proposals_path": "Checkpoint 4/phase3_results/proposals_round1.json",
+  "proposals_mtime": 1784863506.1056712,
+  "round": 1,
+  "gate": {
+    "alpha": 0.05,
+    "min_delta_r2": 0.0005
+  },
+  "rows": [
+    {
+      "id": "F01",
+      "spec_type": "two_var",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Finer-granularity food-assistance density (NTEE or Feed America) vs fundraising efficiency on Atlanta cross-section.",
+      "status": "ok",
+      "error": "",
+      "nobs": 444,
+      "rsquared": "0.2246",
+      "beta": "-21.46836",
+      "pvalue": "0.117555",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "log_food_assistance_density",
+      "iv1": "",
+      "iv2": "",
+      "formula": "fundraising_efficiency_w ~ log_food_assistance_density + CONTROLS",
+      "wald_f": "",
+      "wald_p": "",
+      "r2_full": "",
+      "r2_main": "",
+      "r2_controls": "",
+      "delta_r2_higherorder": "",
+      "delta_r2_over_naive": "",
+      "gate_decision": "",
+      "gate_reason": ""
+    },
+    {
+      "id": "F02",
+      "spec_type": "interaction",
+      "dv": "fundraising_efficiency_w",
+      "expected_direction": "negative",
+      "rationale": "Higher-order: poverty may intensify food-assistance density association.",
+      "status": "ok",
+      "error": "",
+      "nobs": 444,
+      "rsquared": "0.2247",
+      "beta": "0.39393",
+      "pvalue": "0.852988",
+      "observed_direction": "none",
+      "direction_outcome": "not significant",
+      "significant": false,
+      "iv": "",
+      "iv1": "poverty_rate",
+      "iv2": "log_food_assistance_density",
+      "formula": "fundraising_efficiency_w ~ poverty_rate + log_food_assistance_density + poverty_rate:log_food_assistance_density + log_total_revenue + median_hh_income + C(ntee_major) + C(region)",
+      "wald_f": 0.03433898191908121,
+      "wald_p": 0.8530781490132895,
+      "r2_full": 0.22470654397836076,
+      "r2_main": 0.2246257318298972,
+      "r2_controls": 0.21937666530077737,
+      "delta_r2_higherorder": 8.081214846356044e-05,
+      "delta_r2_over_naive": 0.005329878677583388,
+      "gate_decision": "REJECT",
+      "gate_reason": "Added terms not jointly significant (robust F p=0.853).",
+      "beta_iv1": 0.9411537250599064,
+      "beta_iv2": -27.231028093950417,
+      "added_terms": [
+        "poverty_rate:log_food_assistance_density"
+      ]
+    }
+  ]
+}

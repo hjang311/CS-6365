@@ -1,0 +1,30 @@
+{
+  "approved": false,
+  "reason": "tos_risk=high",
+  "chosen": {
+    "rank": 1,
+    "name": "AccessFood login-walled partner census",
+    "url": "https://accessfood.example/partners",
+    "license": "unknown / ToS-restricted",
+    "format": "html_widget",
+    "join_key": "zip",
+    "recommended_adapter": "manual_hybrid",
+    "tos_risk": "high",
+    "notes": "Login-walled bulk scrape; Critic must block (fixture ToS demo)."
+  },
+  "topic": "food_assistance",
+  "geography": "atlanta",
+  "blocked": [
+    {
+      "rank": 1,
+      "name": "AccessFood login-walled partner census",
+      "url": "https://accessfood.example/partners",
+      "license": "unknown / ToS-restricted",
+      "format": "html_widget",
+      "join_key": "zip",
+      "recommended_adapter": "manual_hybrid",
+      "tos_risk": "high",
+      "notes": "Login-walled bulk scrape; Critic must block (fixture ToS demo)."
+    }
+  ]
+}

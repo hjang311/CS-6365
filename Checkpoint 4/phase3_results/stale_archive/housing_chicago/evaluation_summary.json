@@ -1,0 +1,16 @@
+{
+  "built_by": "Phase3_MultiAgent",
+  "generated_at": "2026-07-20 09:12:46 UTC",
+  "phase2_dir": "Checkpoint 3/loop_results_v2",
+  "highlights": {
+    "H4": "confirmed (negative ZHVI \u2192 efficiency); \u03b2 \u2248 -7.92",
+    "H5": "significant but theory rejected (positive density \u2192 efficiency)",
+    "limitation": "2-var OLS easy to light up / hard to trust; near-identical R\u00b2; mechanical hits; coarse ZIP granularity \u2192 Phase 3",
+    "phase3_tracks": [
+      "propose new socioeconomic indicators and test via shared OLS",
+      "higher-order interaction specs (3+ variables)",
+      "finer-granularity ACFB soup-kitchen density by ZIP"
+    ]
+  },
+  "available_frame_hint": "Prefer external/structural IVs already on frame (log_zhvi_2022, log_bank_branch_density, poverty_rate, median_hh_income, population, soup_kitchen_density if merged). Avoid mechanical DV components."
+}
