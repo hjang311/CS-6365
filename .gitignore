@@ -181,14 +181,15 @@ dataverse_files/
 .antigravitycli/
 .cursor/
 
-# Archive: keep thin README/docs tracked; ignore bulky local history
-archive/submissions/616954-*/
-archive/submissions/*.zip
-archive/submissions/*.pdf
-archive/cp0_exemplars/
-archive/scratch/
-archive/cp1_iterations/
-archive/cp3_loop_v1/
+# Archive: entire directory is local-only (see docs/ARCHIVE.md)
+archive/
+
+# Removed from public GitHub — keep locally
+NORP_PROJECT.md
+CS6365_Checkpoint_Template.txt
+
+# Old iteration dumps inside CP4 (provenance only, not for GitHub)
+Checkpoint 4/phase3_results/stale_archive/
 
 # Ignore project data directories
 Checkpoint 1/Broadband Access x Fundraising Efficiency/Data/
