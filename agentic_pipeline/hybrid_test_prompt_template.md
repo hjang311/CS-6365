@@ -1,5 +1,10 @@
 # NORP Hybrid Pipeline — Autonomous Execution Prompt
 
+> **Historical CP1 hybrid template — superseded.**  
+> This text targets early Antigravity hybrid runs and is not the Phase 3 student entrypoint.  
+> **Students:** use [`Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md`](../Checkpoint%204/prompts/PHASE3_MULTI_AGENT_LOOP.md) or [`PHASE3_HYBRID_PROMPT.md`](../Checkpoint%204/prompts/PHASE3_HYBRID_PROMPT.md). Role contracts: [`.agent/skills/norp-*`](../.agent/skills/).  
+> Body below is retained only for Checkpoint 1 provenance / citation.
+
 *To run the NORP Agentic Pipeline on a new dataset seamlessly without back-and-forth guidance, copy and paste the prompt below into a new Antigravity chat. Replace the placeholder brackets `[ ]` with your specific dataset and variables before sending.*
 
 ---

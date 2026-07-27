@@ -1,6 +1,10 @@
-# Phase 3 Hybrid Prompt — Antigravity / Cursor
+# Phase 3 Hybrid Prompt — Grok_4.5 provenance build trail
 
-*Copy and paste the prompt below into a new Antigravity or Cursor chat. No API key required. The IDE agent drives one Phase 3 round by writing files and invoking the deterministic runner.*
+> **Provenance only — not the student entrypoint.**  
+> This prompt targets `Checkpoint 4/Grok_4.5/` (earlier Phase 3 build trail).  
+> **Students / next cohort:** use [`../prompts/PHASE3_HYBRID_PROMPT.md`](../prompts/PHASE3_HYBRID_PROMPT.md) or [`PHASE3_MULTI_AGENT_LOOP.md`](../prompts/PHASE3_MULTI_AGENT_LOOP.md) with canonical `Checkpoint 4/09_phase3_agentic_loop.py`.
+
+*Copy and paste the prompt below into an IDE / agent-host chat if you intentionally need to re-run the Grok_4.5 provenance tree. The host agent drives one Phase 3 round by writing files and invoking the deterministic runner under this folder.*
 
 **Paths assume repo root:** `$REPO_ROOT` (adjust if your clone differs).
 

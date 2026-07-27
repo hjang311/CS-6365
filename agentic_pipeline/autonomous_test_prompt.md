@@ -1,5 +1,10 @@
 # NORP Autonomous Pipeline — Execution Prompt
 
+> **Historical CP1 discovery prompt — superseded.**  
+> This text asks for autonomous correlation sweeps and conflicts with Phase 3 scientific rules (LLM never fits OLS; pre-register before `--run`).  
+> **Students:** use [`Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md`](../Checkpoint%204/prompts/PHASE3_MULTI_AGENT_LOOP.md) or [`PHASE3_HYBRID_PROMPT.md`](../Checkpoint%204/prompts/PHASE3_HYBRID_PROMPT.md).  
+> Body below is retained only for Checkpoint 1 provenance / citation.
+
 *To run the NORP Agentic Pipeline autonomously without manual variable selection, copy and paste the prompt below into a new Antigravity chat. Replace the placeholder bracket `[ ]` with your dataset's absolute path.*
 
 ---

@@ -21,6 +21,17 @@ You are the **Orchestrator Agent** for the CS 6365 NORP project (Checkpoint 4 Ph
 7. **Interpret** — Researcher writes interpretation from OLS artifacts only.
 8. **Degrade gracefully** — If Scout/Acquire/Critic fails, continue proposing on existing columns and log a `degrade` bus event.
 
+## Hybrid IDE mode (host agent + sub-agents)
+
+When running inside an IDE or agent host (examples: Cursor, Claude Code, Codex, Antigravity 2.0):
+
+1. **You** (the main chat) are the Orchestrator — plan, dispatch, synthesize.
+2. Spawn **Scout / Critic / Acquisition / Researcher** as **sub-agents** via whatever the host provides (Task, subagent, `define_subagent`, etc.). Give each the matching `.agent/skills/norp-*/SKILL.md` and the file-bus paths under `phase3_results/agent_bus/`.
+3. Keep **Code / Stats** as shell invocations of `09_phase3_agentic_loop.py` — do not ask a sub-agent to invent coefficients in-chat.
+4. Prefer this hybrid path over the legacy Antigravity SDK factories in `agentic_pipeline/` (optional future wiring only).
+
+Paste-ready prompts: `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` and `PHASE3_HYBRID_PROMPT.md`.
+
 ## Invariants
 - Proposals JSON must exist before `--run`.
 - Named adapters only (ntee_density, http_open_api, web_download, manual_hybrid) — no arbitrary DOM scrapers.

@@ -140,15 +140,18 @@ Checkpoint 1/     Early broadband × fundraising experiments
 Checkpoint 2/     Manual H2 pipeline (bank-branch density)
 Checkpoint 3/     Manual H4/H5 + unrolled loop (Phases 1 & 2)
 Checkpoint 4/     Rolled multi-agent package — primary student handoff
+  prompts/        Hybrid IDE orchestrator paste prompts (canonical)
+  Grok_4.5/       Provenance build trail only
 docs/             CURRICULUM, ARCHIVE, HYPOTHESIS_REGISTRY, DATA_DICTIONARY
 AGENTS.md         LLM / collaborator project-state handoff
 LICENSE           MIT (code/docs)
-.agent/skills/    Phase 3 agent skill definitions
-agentic_pipeline/ Legacy SDK scaffolding (not Phase 3 entrypoint)
+.agent/skills/    Phase 3 agent skill / role contracts (hybrid or SDK)
+agentic_pipeline/ Legacy Antigravity SDK scaffolding (not Phase 3 entry)
 ```
 
-Canonical Phase 3 entry: `Checkpoint 4/09_phase3_agentic_loop.py`.  
-Provenance only: `Checkpoint 4/Grok_4.5/` (earlier build trail).
+Canonical Phase 3 entry: `Checkpoint 4/09_phase3_agentic_loop.py` (+ `prompts/` for live hybrid orchestration).  
+Provenance only: `Checkpoint 4/Grok_4.5/` (earlier build trail).  
+Legacy SDK: `agentic_pipeline/` — see its README; students use hybrid prompts + skills + `09` instead.
 
 ## Current Progress
 

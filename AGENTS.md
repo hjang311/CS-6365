@@ -10,14 +10,26 @@ Education-first **Manual → Unrolled → Rolled** NORP pipeline (CS 4365/6365 S
 
 | Path | Status |
 |------|--------|
-| `Checkpoint 4/09_phase3_agentic_loop.py`, `enrichment_tools/`, `configs/`, `reproduce.sh` | **Canonical** Phase 3 |
-| `.agent/skills/norp-*` | Canonical agent skill definitions |
+| `Checkpoint 4/09_phase3_agentic_loop.py`, `enrichment_tools/`, `configs/`, `reproduce.sh` | **Canonical** Phase 3 Stats Engine |
+| `Checkpoint 4/prompts/` | **Canonical** paste-ready hybrid orchestrator prompts |
+| `.agent/skills/norp-*` | Canonical agent skill / role contracts |
 | `Checkpoint 2/H2_Pipeline/`, `Checkpoint 3/H4/`, `H5/`, `08_unrolled_loop.py` | Canonical Manual / Unrolled |
 | `Checkpoint 4/Grok_4.5/` | **Provenance only** — earlier build trail; not the student entrypoint |
 | `archive/` (local) | Local-only semester clutter — gitignored |
 | `Checkpoint 0/` | **Prior-semester case study only** — shows what earlier cohorts had to do. **Not** Phase 1 of this curriculum |
 | `Checkpoint 4/PRESENTATION_OUTLINE.md` | Team presentation workspace — **gitignored**; not a student deliverable |
-| `agentic_pipeline/` | Legacy SDK scaffolding — not Phase 3 entry |
+| `agentic_pipeline/` | **Legacy** Antigravity SDK scaffolding — documented; not Phase 3 entry |
+
+## Hybrid IDE orchestration
+
+Preferred live Phase 3 path (IDE-agnostic): **host agent as Orchestrator** → spawn Scout / Critic / Acquisition / Researcher as **sub-agents** → file bus under `phase3_results/agent_bus/` → **only** `09 --run` fits OLS.
+
+- Prompts: `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` (full) or `PHASE3_HYBRID_PROMPT.md` (short)
+- Skills: `.agent/skills/norp-*`
+- Hosts (examples, not requirements): Cursor, Claude Code, Codex, Antigravity 2.0
+- Offline demos without live sub-agents: `bash "Checkpoint 4/reproduce.sh"`
+
+`agentic_pipeline/agents.py` remains optional SDK wiring for a future Antigravity process — see that folder’s README.
 
 ## Complete / do not rebuild unless asked
 

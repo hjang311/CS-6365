@@ -25,9 +25,10 @@ The following items exist **locally only** (not on GitHub) under an `archive/` d
 
 ## Canonical vs provenance
 
-- **Canonical Phase 3:** `Checkpoint 4/09_phase3_agentic_loop.py`, `enrichment_tools/`, `configs/`
+- **Canonical Phase 3:** `Checkpoint 4/09_phase3_agentic_loop.py`, `enrichment_tools/`, `configs/`, `prompts/`
+- **Canonical skills:** `.agent/skills/norp-*` (role contracts for hybrid IDE orchestration or SDK)
 - **Provenance only:** `Checkpoint 4/Grok_4.5/` (earlier build trail; not the student entrypoint)
-- **Legacy SDK factories:** `agentic_pipeline/` (see its README); skills live in `.agent/skills/`
+- **Legacy SDK factories:** `agentic_pipeline/` — early Antigravity SDK + CP1 triage demo; README explains the folder; **not** the Phase 3 entry (use `Checkpoint 4/prompts/` + skills + `09`)
 
 ## Superseded loop results
 

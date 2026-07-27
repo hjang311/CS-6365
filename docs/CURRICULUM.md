@@ -55,9 +55,12 @@ Pre-register an agenda (List A / List B), then run deterministic OLS in batch. T
 
 Agents scout sources, critic-gate ToS, acquire via named adapters, propose hypotheses, and interpret — while **only** `09 --run` fits OLS (HC1 + Verifier gate for higher-order specs).
 
+Live hybrid path (optional): paste `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` into any capable IDE / agent host; the host agent orchestrates and may spawn Scout / Critic / Acquisition / Researcher as sub-agents. Offline demos need no live sub-agents.
+
 - Package: [`Checkpoint 4/`](../Checkpoint%204/)
 - One command: [`Checkpoint 4/reproduce.sh`](../Checkpoint%204/reproduce.sh)
 - Student entry: [`Checkpoint 4/STUDENT_QUICKSTART.md`](../Checkpoint%204/STUDENT_QUICKSTART.md)
+- Hybrid prompts: [`Checkpoint 4/prompts/`](../Checkpoint%204/prompts/) · skills: [`.agent/skills/`](../.agent/skills/)
 
 **Effort:** offline demos in minutes once `cp3_modeling_frame.csv` exists.
 
