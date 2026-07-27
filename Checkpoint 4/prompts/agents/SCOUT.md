@@ -1,5 +1,7 @@
-# Scout (Phase 3)
+# SCOUT
 
-See also: `.agent/skills/norp-scout/SKILL.md`
+Rank open sources → source_candidates.json; no scraping behind login.
 
-Discover and rank open ZIP-joinable sources for `topic` + `geography`. Write `source_candidates.json`. Do not scrape.
+**Full contract:** [`.agent/skills/norp-scout/`](../../../.agent/skills/norp-scout/)
+
+**I/O:** read/write under `Checkpoint 4/phase3_results/agent_bus/` and the active `--out` directory. Coefficients come only from `09_phase3_agentic_loop.py`.

@@ -14,4 +14,4 @@ Negative / null / REJECT outcomes are first-class Phase 3 results — not pipeli
 
 
 ---
-*Generated: 2026-07-24 03:25:06 UTC · Frame: `Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv` (583 rows x 33 cols) · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21) · built_by: Phase3_MultiAgent*
+*Generated: 2026-07-27 03:41:52 UTC · Frame: `Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv` (583 rows x 33 cols) · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21) · built_by: Phase3_MultiAgent*

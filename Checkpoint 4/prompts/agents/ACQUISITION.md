@@ -1,5 +1,7 @@
-# Acquisition (Phase 3)
+# ACQUISITION
 
-See also: `.agent/skills/norp-acquisition/SKILL.md`
+Run named adapters; HTTP fail → ntee_density; log degrade.
 
-Execute Critic-approved plans via named adapters only (`ntee_density`, `http_open_api`, `web_download`, `manual_hybrid`). Prefer `09 --acquire-plan` / `--enrich-config`.
+**Full contract:** [`.agent/skills/norp-acquisition/`](../../../.agent/skills/norp-acquisition/)
+
+**I/O:** read/write under `Checkpoint 4/phase3_results/agent_bus/` and the active `--out` directory. Coefficients come only from `09_phase3_agentic_loop.py`.

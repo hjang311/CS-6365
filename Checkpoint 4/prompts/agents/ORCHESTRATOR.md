@@ -1,5 +1,7 @@
-# Orchestrator (Phase 3)
+# ORCHESTRATOR
 
-See also: `.agent/skills/norp-orchestrator/SKILL.md`
+Plan rounds; delegate scout/critic/acquire/research; never fit OLS.
 
-You plan rounds, write `round_plan.json`, dispatch Scout → Critic → Acquisition → Researcher → Stats (`09 --run`), and synthesize. Never invent β.
+**Full contract:** [`.agent/skills/norp-orchestrator/`](../../../.agent/skills/norp-orchestrator/)
+
+**I/O:** read/write under `Checkpoint 4/phase3_results/agent_bus/` and the active `--out` directory. Coefficients come only from `09_phase3_agentic_loop.py`.

@@ -1,4 +1,4 @@
-# Evaluation Scoring Summary — NORP_Spring26_G5
+# Evaluation Scoring Summary — Prior Cohort NORP Package
 
 ## CS 6365: Checkpoint 0 — Reproducibility Exercise
 **Evaluator:** Hwando Jang
@@ -10,7 +10,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    NORP_Spring26_G5 Evaluation                  │
+│                    Prior Cohort NORP Package Evaluation                  │
 ├────────────┬──────────────┬──────────────┬──────────────────────┤
 │  Metric    │  Score       │  Max         │  Status              │
 ├────────────┼──────────────┼──────────────┼──────────────────────┤

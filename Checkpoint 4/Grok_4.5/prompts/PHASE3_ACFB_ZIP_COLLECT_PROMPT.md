@@ -3,7 +3,7 @@
 *July 10 OH demo shape: “Give me all ZIPs of the Atlanta area → talk to the ACFB website → bring soup kitchens in these ZIPs.”*  
 ToS-safe: **do not** scrape undocumented AccessFood JSON APIs. Use the public food-map UI, published CFC pages, and already-licensed Feed America rows as enrichment only.
 
-**Repo root:** `/Users/hdj/Documents/CS-6365`
+**Repo root:** `$REPO_ROOT`
 
 ---
 

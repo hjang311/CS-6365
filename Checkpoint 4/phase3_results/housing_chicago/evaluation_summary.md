@@ -148,4 +148,4 @@ for per-hypothesis theory outcomes.
 ```
 
 ---
-*Generated: 2026-07-24 03:25:07 UTC · Phase2: `Checkpoint 3/loop_results_v2` · built_by: Phase3_MultiAgent · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)*
+*Generated: 2026-07-27 03:41:54 UTC · Phase2: `Checkpoint 3/loop_results_v2` · built_by: Phase3_MultiAgent · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)*

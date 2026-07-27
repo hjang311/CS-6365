@@ -1,4 +1,4 @@
-# Inconsistencies Log — NORP_Spring26_G5 Reproduction
+# Inconsistencies Log — Prior Cohort NORP Package Reproduction
 
 ## Date: May 2026
 
@@ -6,7 +6,7 @@
 
 ## Purpose
 
-This document tracks all inconsistencies, discrepancies, and issues found during the reproduction of the NORP_Spring26_G5 project. Each inconsistency is documented with its severity, location, and impact on the overall evaluation.
+This document tracks all inconsistencies, discrepancies, and issues found during the reproduction of the Prior Cohort NORP Package project. Each inconsistency is documented with its severity, location, and impact on the overall evaluation.
 
 ---
 
@@ -28,7 +28,7 @@ This document tracks all inconsistencies, discrepancies, and issues found during
 - **Location:** `main.py` (line referencing `docs_dir = "data"`), `ingest.py` (loads CSV/Excel from `data/`)
 - **Description:** The RAG pipeline's knowledge base file `data/combined_dataset.csv` is not included in the repository. This file contains natural language → SoQL query example pairs that are essential for the retrieval step.
 - **Expected:** The file should be present in a `data/` directory for the RAG pipeline to function.
-- **Actual:** No `data/` directory exists in the repository. Verified absent from both the GT fork (`github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5`) AND the original repository (`github.com/KhalidBargoti/NORP`) via GitHub API on May 25, 2026.
+- **Actual:** No `data/` directory exists in the repository. Verified absent from both the GT fork (`<redacted course-org fork>`) AND the original repository (`<redacted upstream repository>`) via GitHub API on May 25, 2026.
 - **TA Confirmation:** Per discussion with TA Satvik Agrawal on May 25, 2026, the missing dataset is **intentional** and is part of the original team's submission. This should be noted and penalized in the evaluation.
 - **Impact on Scoring:** Directly reduces **Factual** score for Component A (RAG pipeline). The headline feature of the project cannot be independently verified.
 

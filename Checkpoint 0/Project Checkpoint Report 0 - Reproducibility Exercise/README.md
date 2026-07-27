@@ -8,7 +8,7 @@
 
 ## 📋 Overview
 
-This checkpoint evaluates the reproducibility of the **NORP_Spring26_G5** project package from the [IEC-Summer-26 GitHub organization](https://github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5). The NORP project focuses on Non-Profit Organization data analysis, involving crime data extraction, geospatial analysis, and a RAG (Retrieval-Augmented Generation) pipeline.
+This checkpoint evaluates the reproducibility of the **Prior Cohort NORP Package** project package from a redacted course-organization fork. The NORP project focuses on Non-Profit Organization data analysis, involving crime data extraction, geospatial analysis, and a RAG (Retrieval-Augmented Generation) pipeline.
 
 ## 📂 Report Structure
 
@@ -45,8 +45,8 @@ Project Checkpoint Report 0 - Reproducibility Exercise/
 
 ## 🔗 Target Repository
 
-- **Repository:** [NORP_Spring26_G5](https://github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5)
-- **Author:** sagraval391
+- **Repository:** Prior Cohort NORP Package
+- **Author:** <redacted uploader>
 - **Language:** Python (100%)
 - **Branch:** main
 - **Commits:** 1 ("Adding Project Files")

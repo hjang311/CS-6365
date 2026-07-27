@@ -3,7 +3,9 @@
 ### Summer 2026
 **Project Checkpoint 3 Report**
 
-**Group:** 1 / G5  
+> **Working draft / paste source.** The graded submission PDF is the Checkpoint 3 Final Final under local `archive/submissions/` (not required for the teaching path). Prefer RQ labels; see `docs/HYPOTHESIS_REGISTRY.md`.
+
+**Group:** 1  
 **Name(s):** Hwando Jang & Carla du Plessis  
 **Project Name:** NORP Agentic Data Exploration Pipeline  
 

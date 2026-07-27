@@ -1,8 +1,8 @@
-# Project Execution Analysis — NORP_Spring26_G5
+# Project Execution Analysis — Prior Cohort NORP Package
 
 ## Overview
 
-This document details the **Project Execution** component of the NORP_Spring26_G5 project, examining their actual implementation, the codebase quality, and the results achieved during our reproduction.
+This document details the **Project Execution** component of the Prior Cohort NORP Package project, examining their actual implementation, the codebase quality, and the results achieved during our reproduction.
 
 ---
 
@@ -48,7 +48,7 @@ The project codebase consists of 1,788 lines of Python code across 10 modules. T
 ## 3. Results Analysis
 
 ### 3.1 Claimed Results
-The Group 5 team claimed the following key findings in their documentation:
+The prior-cohort team claimed the following key findings in their documentation:
 1. **Crime Extraction:** Successful API pull yielding exactly 220 rows of crime statistics (22 districts × 10 years).
 2. **Socioeconomic panel:** An inner-joined panel dataset containing exactly 140 rows (14 matched districts × 10 years).
 3. **Correlation Shifts:** A weakening of the relationship between socioeconomic indicators and violent crime rates after 2020:

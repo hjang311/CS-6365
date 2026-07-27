@@ -1,4 +1,4 @@
-# Project Plan Analysis — NORP_Spring26_G5
+# Project Plan Analysis — Prior Cohort NORP Package
 
 ## CS 6365: Checkpoint 0 — Reproducibility Exercise
 **Evaluator:** Hwando Jang
@@ -11,10 +11,10 @@
 | Field | Details |
 |:---|:---|
 | **Title** | Analysis of Socioeconomic Determinants of Violent Crime Using Retrieval-Augmented Query Generation |
-| **Course** | CS 4365/6365: Intro to Enterprise Computing — Spring 2026, Georgia Tech |
+| **Course** | CS 4365/6365: Intro to Enterprise Computing — prior cohort, Georgia Tech |
 | **Group** | 5 |
-| **Members** | Khoa Bui, Khalid A Bargoti |
-| **Repository** | [NORP_Spring26_G5](https://github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5) (forked from [KhalidBargoti/NORP](https://github.com/KhalidBargoti/NORP)) |
+| **Members** | prior-cohort authors |
+| **Repository** | Prior Cohort NORP Package (forked from a redacted upstream repository) |
 
 ---
 
@@ -37,7 +37,7 @@ The project proposes two distinct but connected systems:
 - Execute the generated query against the Chicago Crimes API
 - Display results to the user
 
-**Component B — Group 5 Extension: Longitudinal Crime Analysis**
+**Component B — Prior-cohort extension: Longitudinal Crime Analysis**
 A multi-checkpoint statistical analysis pipeline:
 - **CP2:** Systematic extraction of violent crime counts by district and year (2015–2024)
 - **CP2 EDA:** Exploratory data analysis with visualizations
@@ -192,7 +192,7 @@ The project does not quite reach "exceptional" territory because:
 
 ### Reasoning:
 
-The NORP_Spring26_G5 project presents a **substantial and well-structured plan** with a genuine research question, multi-stage analytical pipeline, and dual-system architecture. The research question is socially relevant and empirically testable. The documentation is thorough, with clear execution instructions and stated findings.
+The Prior Cohort NORP Package project presents a **substantial and well-structured plan** with a genuine research question, multi-stage analytical pipeline, and dual-system architecture. The research question is socially relevant and empirically testable. The documentation is thorough, with clear execution instructions and stated findings.
 
 However, the plan falls short of the maximum for several reasons:
 

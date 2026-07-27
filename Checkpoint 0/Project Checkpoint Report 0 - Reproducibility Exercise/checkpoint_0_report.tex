@@ -19,7 +19,7 @@
 
 \section{Run and Reproduce}
 \subsection{Documentation and Execution}
-The target project is \textbf{NORP\_Spring26\_G5}. The environment was set up on macOS with Python 3.9.6. A virtual environment was created, and all dependencies from \texttt{requirements.txt} were installed.
+The target project is \textbf{Prior Cohort NORP Package}. The environment was set up on macOS with Python 3.9.6. A virtual environment was created, and all dependencies from \texttt{requirements.txt} were installed.
 
 The reproduction involved running six core scripts sequentially. A critical setup issue was discovered: \texttt{cp2\_extraction.py} and \texttt{cp4\_analysis.py} use Python 3.10+ type hint syntax, which caused a \texttt{TypeError} on older interpreters. This was fixed by adding \texttt{from \_\_future\_\_ import annotations}.
 

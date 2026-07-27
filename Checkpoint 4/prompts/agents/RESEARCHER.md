@@ -1,5 +1,7 @@
-# Researcher (Phase 3)
+# RESEARCHER
 
-See also: `.agent/skills/norp-researcher/SKILL.md`
+Propose/interpret; pre-register JSON before 09 --run.
 
-Pre-register proposals JSON before OLS. Interpret results artifacts only. Never fit models or invent coefficients.
+**Full contract:** [`.agent/skills/norp-researcher/`](../../../.agent/skills/norp-researcher/)
+
+**I/O:** read/write under `Checkpoint 4/phase3_results/agent_bus/` and the active `--out` directory. Coefficients come only from `09_phase3_agentic_loop.py`.

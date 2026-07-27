@@ -2,12 +2,12 @@
   "provenance": {
     "built_by": "Phase3_MultiAgent",
     "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
-    "generated_at": "2026-07-24 03:25:13 UTC",
+    "generated_at": "2026-07-27 03:42:00 UTC",
     "frame": "Checkpoint 4/data/cp4_chicago_housing_services_xsection.csv",
     "frame_shape": "503 rows x 33 cols"
   },
   "proposals_path": "Checkpoint 4/phase3_results/housing_chicago/proposals_round1.json",
-  "proposals_mtime": 1784863513.9922771,
+  "proposals_mtime": 1785123720.906349,
   "round": 1,
   "gate": {
     "alpha": 0.05,

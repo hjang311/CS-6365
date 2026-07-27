@@ -8,7 +8,7 @@ Single index for the Checkpoint 3 deliverable: what each script does, how the da
 |-------|---------|--------|-----------|
 | **1 — Manual** | Hand-run data acquisition, merging, and hypothesis tests (H4/H5, plus H2 from Checkpoint 2) | Done | `01`, `02`, `04`, `06`, `H4/`, `H5/` |
 | **2 — Unrolled loop** | Explicit pre-registered hypothesis list executed by deterministic Python OLS. The LLM never picks the next test | Done | `08_unrolled_loop.py`, `loop_results_v2/`, `PHASE2_UNROLLED_LOOP.md` |
-| **3 — Agentic loop** | Agent evaluates results, proposes new indicators, pursues finer-granularity data (e.g. soup-kitchen density) | **Not built** (intentional) | design notes in `PHASE2_UNROLLED_LOOP.md` §6 |
+| **3 — Agentic loop** | Agent evaluates results, proposes new indicators, pursues finer-granularity data (e.g. soup-kitchen density) | **Done in Checkpoint 4** | [`Checkpoint 4/`](../Checkpoint%204/) (`09_phase3_agentic_loop.py`, `reproduce.sh`) |
 
 ## Script map
 
@@ -67,7 +67,7 @@ This mode proves deterministic reconstruction from handed-off source CSVs. It do
 
 ## Reproduction mode B — fresh clone (no CSV inputs)
 
-This path has not yet been independently exercised end-to-end. All commands below are run from the **repo root**.
+Mode B is a **separate** live reacquisition path from the handoff-frame PASS checks above. Drift vs the committed frame is documented in [`MODE_B_DRIFT.md`](MODE_B_DRIFT.md) (contract pass rate and β deltas). All commands below are run from the **repo root**.
 
 1. **Create the environment and export the Census key.** The CP2 acquisition script reads the shell environment; it does not automatically load `.env`.
 
@@ -129,4 +129,8 @@ Then continue with validation and analysis commands from mode A, starting at `04
 - `PHASE2_UNROLLED_LOOP.md` — Phase 2 student guide (unrolled-loop metaphor, List A vs B)
 - `LOOP_DOCUMENTATION.md` — historical guide for `07`
 - `H4/H4_VERIFICATION_RUN.md`, `H5/H5_VERIFICATION_RUN.md` — formal hypothesis write-ups
+- `RQ2/RQ2_VERIFICATION_RUN.md` — standalone RQ2 verification carry-forward
+- `MODE_B_DRIFT.md` — Mode B vs handoff-frame drift note
 - `TEST_EXECUTION_PLAN.md` — ordered test/ship checklist with acceptance criteria
+
+**Phase 3 (rolled)** lives in [`Checkpoint 4/`](../Checkpoint%204/) — start with `STUDENT_QUICKSTART.md` / `reproduce.sh`.

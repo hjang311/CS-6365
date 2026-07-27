@@ -1,8 +1,8 @@
-# Supporting Evidence Analysis — NORP_Spring26_G5
+# Supporting Evidence Analysis — Prior Cohort NORP Package
 
 ## Overview
 
-This document evaluates the **Supporting Evidence** provided by the NORP_Spring26_G5 team to substantiate their claimed project execution and results. It examines what artifacts were committed to the repository to prove their claims, what we generated during our reproduction, and identifies key evidence gaps.
+This document evaluates the **Supporting Evidence** provided by the Prior Cohort NORP Package team to substantiate their claimed project execution and results. It examines what artifacts were committed to the repository to prove their claims, what we generated during our reproduction, and identifies key evidence gaps.
 
 ---
 

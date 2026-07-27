@@ -7,36 +7,48 @@ Phases 1–2 locked manual and pre-registered tests. Phase 3 is a **rolled multi
 **Orchestrator → Scout → Critic → Acquisition → Researcher → Stats Engine (`09 --run`) → Interpret**
 
 Agents talk through `phase3_results/agent_bus/` (file “Slack”). The LLM never fits OLS.
-Higher-order specs are gated by HC1 Wald F + ΔR² ≥ 5e-4 (TA Verifier absorbed from `ai-suggestions/cp4`).
+Higher-order specs are gated by HC1 Wald F + ΔR² ≥ 5e-4 (TA Verifier absorbed into `09 --verify-ta-specs` / `--run`).
+
+## Prerequisites
+
+- Repo `.venv` with [`requirements.txt`](requirements.txt) installed
+- `Checkpoint 3/data/cp3_modeling_frame.csv` present (or regenerate — CP3 README)
+- Prefer `.venv/bin/python` over bare `python3`
 
 ## Quick start
 
 ```bash
 cd /path/to/CS-6365
-source .venv/bin/activate   # or .venv/bin/python …
+source .venv/bin/activate   # or call .venv/bin/python directly
 
-# 1. H4/H5 calibration
-python "Checkpoint 4/09_phase3_agentic_loop.py" --validate
+# 0. One command (recommended)
+bash "Checkpoint 4/reproduce.sh"
+# Expected: validation PASS lines; ta_verify gates; food/housing result tables
+# Elapsed seconds printed at end
+
+# 1. H4/H5 calibration only
+.venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" --validate
+# → phase3_results/validation_check.md
+
+# 2. TA higher-order Verifier demo (I1–I4 / Q1)
+.venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" --verify-ta-specs \
+  --out "Checkpoint 4/phase3_results/ta_verify"
+# → ta_verify/round99_results.md
 
 # 3. Full multi-agent bus offline (scout→critic→NTEE→OLS; 2 rounds)
-python "Checkpoint 4/09_phase3_agentic_loop.py" --all --fixture-full --rounds 2
+.venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" --all --fixture-full --rounds 2
+# → round1_results.md, round2_results.md, agent_bus/
 
-# Or one command:
-# bash "Checkpoint 4/reproduce.sh"
-
-# 3. TA higher-order Verifier demo (I1–I4 / Q1)
-python "Checkpoint 4/09_phase3_agentic_loop.py" --verify-ta-specs \
-  --out "Checkpoint 4/phase3_results/ta_verify"
-
-# 4. Live web acquisition (Feed America) + Atlanta slice
-python "Checkpoint 4/09_phase3_agentic_loop.py" \
+# 4. Live web acquisition (Feed America) + Atlanta slice (network)
+.venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" \
   --enrich-config "Checkpoint 4/configs/food_assistance_atlanta_http.json"
 
 # 5. Second topic (universality — NTEE-only housing)
-python "Checkpoint 4/09_phase3_agentic_loop.py" \
+.venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" \
   --enrich-config "Checkpoint 4/configs/housing_services_chicago.json" \
   --all --fixture --rounds 1 \
   --out "Checkpoint 4/phase3_results/housing_chicago"
+# → housing_chicago/round1_results.md
 ```
 
 ## Scout vs Acquisition
@@ -69,9 +81,9 @@ Housing is NTEE-only by design (`data/acquisitions/housing_services/README.md`).
 3. Run `--enrich-config` then `--all --fixture`, or paste `prompts/PHASE3_MULTI_AGENT_LOOP.md` into Cursor/Antigravity.
 4. Read `agent_bus/messages.jsonl` and `NEGATIVE_FINDINGS.md` patterns for nulls / gate REJECTs.
 
-## Soup kitchen worked example
+## Soup kitchen / food worked example
 
-See `NEGATIVE_FINDINGS.md`. Live HTTP path writes `data/acquisitions/food_assistance/` (~2,250 GA rows).
+See `NEGATIVE_FINDINGS.md`. Live HTTP path writes `data/acquisitions/food_assistance/` (~2,250 GA rows, CC BY).
 
 ## Layout
 
@@ -81,13 +93,13 @@ Checkpoint 4/
   phase3_enrichment_cmds.py
   enrichment_tools/          # adapters + agent_bus
   configs/                   # topic/geo plans
-  prompts/                   # hybrid + per-agent
-  data/                      # enriched frames + acquisitions
+  prompts/                   # hybrid + per-agent pointers
+  data/                      # enriched frames + acquisitions (mostly gitignored)
   phase3_results/            # OLS + bus
   Grok_4.5/                  # provenance archive
 ```
 
 ## Skills (CP1 → CP4)
 
-`.agent/skills/norp-{orchestrator,code-agent,validator-agent,scout,acquisition,researcher}/`
-Factories: `agentic_pipeline/agents.py` → `create_phase3_agents()`.
+`.agent/skills/norp-{orchestrator,code-agent,validator-agent,scout,acquisition,researcher}/`  
+See root [`AGENTS.md`](../AGENTS.md). Factories: `agentic_pipeline/agents.py` → `create_phase3_agents()` (legacy).

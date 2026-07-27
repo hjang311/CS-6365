@@ -1,4 +1,4 @@
-# Environment Setup Log — NORP_Spring26_G5 Reproduction
+# Environment Setup Log — Prior Cohort NORP Package Reproduction
 
 ## Date: May 25, 2026
 
@@ -9,7 +9,7 @@
 ### 1.1 System Information
 - **OS:** macOS (Apple Silicon / ARM64)
 - **Python Version:** 3.9.6 (system Python via `/Library/Developer/CommandLineTools`)
-- **Virtual Environment:** Created at `NORP_Spring26_G5/venv/` using `python3 -m venv venv`
+- **Virtual Environment:** Created at `prior_cohort_norp/venv/` using `python3 -m venv venv`
 
 ### 1.2 Required Accounts / API Keys
 - [x] `SOCRATA_APP_TOKEN` — Chicago Data Portal app token
@@ -20,7 +20,7 @@
 ## 2. Repository Clone
 
 ```bash
-git clone https://github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5.git
+git clone <redacted course-org fork>
 ```
 
 - **14:23 CDT** — Clone initiated. Required GT enterprise GitHub authentication (interactive username + password prompt).
@@ -38,7 +38,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-- **14:30 CDT** — Virtual environment created at `NORP_Spring26_G5/venv/` using system Python 3.9.6.
+- **14:30 CDT** — Virtual environment created at `prior_cohort_norp/venv/` using system Python 3.9.6.
 
 ---
 

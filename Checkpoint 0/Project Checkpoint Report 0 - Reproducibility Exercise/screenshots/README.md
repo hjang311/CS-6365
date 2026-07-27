@@ -1,6 +1,6 @@
 # Screenshots — Checkpoint 0 Reproducibility Exercise
 
-Evidence screenshots captured during the reproduction of the NORP_Spring26_G5 project.
+Evidence screenshots captured during the reproduction of the Prior Cohort NORP Package project.
 
 ## Naming Convention
 Screenshots follow the format: `<checkpoint>_<description>.png`

@@ -2,7 +2,7 @@
 
 *Copy and paste the prompt below into a new Antigravity or Cursor chat. No API key required. The IDE agent drives one Phase 3 round by writing files and invoking the deterministic runner.*
 
-**Paths assume repo root:** `/Users/hdj/Documents/CS-6365` (adjust if your clone differs).
+**Paths assume repo root:** `$REPO_ROOT` (adjust if your clone differs).
 
 ---
 

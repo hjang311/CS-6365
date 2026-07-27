@@ -1,15 +1,9 @@
-# Checkpoint 0 — Reproducibility Exercise
+# Checkpoint 0 — Prior-Semester Case Study
 
-Reproduction of the NORP Spring 2026 Group 5 project (Chicago crime × socioeconomic analysis using RAG-generated SoQL queries).
+Optional historical context only. This folder documents our reproduction of a **prior semester’s** NORP package — what earlier cohorts had to do by hand (raw data → clean → SQL → validate → prompt-engineer).
 
-## What we did
-
-Cloned the original repository, set up the environment, and reproduced their full pipeline (CP2 extraction → CP3 analysis → CP4 robustness checks) to verify their findings on the relationship between socioeconomic factors and violent crime rates pre/post-2020.
+It is **not** Phase 1 of *this* curriculum. For Manual → Unrolled → Rolled teaching, start at [`Checkpoint 4/`](../Checkpoint%204/) or read [`docs/CURRICULUM.md`](../docs/CURRICULUM.md).
 
 ## Report
 
-See [`Project Checkpoint Report 0 - Reproducibility Exercise/`](Project%20Checkpoint%20Report%200%20-%20Reproducibility%20Exercise/) for the full report, reproduction logs, and screenshots.
-
-## Context in this project
-
-This is the starting point of the curriculum — understanding what a prior cohort built manually before we automated it. See [`docs/CURRICULUM.md`](../docs/CURRICULUM.md).
+See [`Project Checkpoint Report 0 - Reproducibility Exercise/`](Project%20Checkpoint%20Report%200%20-%20Reproducibility%20Exercise/) for the reproduction write-up, logs, and screenshots. Upstream author names and repo URLs are redacted for public presentation.

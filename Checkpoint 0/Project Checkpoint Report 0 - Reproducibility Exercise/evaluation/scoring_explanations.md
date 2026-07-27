@@ -1,4 +1,4 @@
-# Scoring Explanations — NORP_Spring26_G5
+# Scoring Explanations — Prior Cohort NORP Package
 
 ## CS 6365: Checkpoint 0 — Reproducibility Exercise
 **Evaluator:** Hwando Jang

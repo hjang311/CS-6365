@@ -3,13 +3,13 @@
 ## CS 6365: Introduction to Enterprise Computing | Summer 2026
 **Author:** Hwando Jang
 **Date:** May 2026
-**Target Project:** [NORP_Spring26_G5](https://github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5)
+**Target Project:** Prior Cohort NORP Package
 
 ---
 
 ## 1. Introduction
 
-This report documents my reproducibility exercise of the **NORP_Spring26_G5** project package, originally created by Khalid A Bargoti and Khoa K Bui (CS 4365/6365, Spring 2026, Group 5). The project is formally titled *"Analysis of Socioeconomic Determinants of Violent Crime Using Retrieval-Augmented Query Generation"* and consists of two components: an interactive RAG pipeline for generating Socrata Query Language (SoQL) queries against the Chicago Crimes API, and a longitudinal statistical analysis of violent crime vs. socioeconomic factors across Chicago police districts (2015–2024).
+This report documents my reproducibility exercise of the **Prior Cohort NORP Package** project package, originally created by prior-cohort authors (CS 4365/6365, prior cohort). The project is formally titled *"Analysis of Socioeconomic Determinants of Violent Crime Using Retrieval-Augmented Query Generation"* and consists of two components: an interactive RAG pipeline for generating Socrata Query Language (SoQL) queries against the Chicago Crimes API, and a longitudinal statistical analysis of violent crime vs. socioeconomic factors across Chicago police districts (2015–2024).
 
 ### 1.1 Purpose
 The purpose of this exercise is to:
@@ -21,10 +21,10 @@ The purpose of this exercise is to:
 
 | Attribute | Value |
 |:---|:---|
-| **Repository URL** | `github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5` |
-| **Original Repo** | [github.com/KhalidBargoti/NORP](https://github.com/KhalidBargoti/NORP) |
-| **Uploader** | sagraval391 (minor changes) |
-| **Original Authors** | Khalid A Bargoti, Khoa K Bui |
+| **Repository URL** | `<redacted course-org fork>` |
+| **Original Repo** | <redacted upstream repository> |
+| **Uploader** | <redacted uploader> (minor changes) |
+| **Original Authors** | prior-cohort authors |
 | **Language** | Python (100%) |
 | **Commits** | 1 ("Adding Project Files") |
 | **Branches** | 1 (main) |
@@ -117,7 +117,7 @@ Combined = Plan × Match × Factual
 
 ## 5. Conclusion
 
-The reproducibility exercise of the **NORP_Spring26_G5** repository presents a stark contrast between its two components. 
+The reproducibility exercise of the **Prior Cohort NORP Package** repository presents a stark contrast between its two components. 
 
 Component B (the statistical analysis extension) is highly reproducible, mathematically rigorous, and structurally sound. By applying minor type-hint compatibility patches, we successfully executed the entire pipeline and verified their headline findings (including post-2020 correlation flips and the high-leverage influence of District 12) with near-perfect numerical precision.
 
@@ -216,7 +216,7 @@ To transform this codebase into a robust, enterprise-grade application, we recom
 
 ### C. Critical Finding: Missing RAG Knowledge Base
 The file `data/combined_dataset.csv` is referenced by `main.py` and `ingest.py` as the RAG knowledge base (NL→SoQL example pairs). This file does not exist in:
-- The GT fork: `github.gatech.edu/IEC-Summer-26/NORP_Spring26_G5`
-- The original repository: `github.com/KhalidBargoti/NORP`
+- The GT fork: `<redacted course-org fork>`
+- The original repository: `<redacted upstream repository>`
 
 Verified via GitHub API listing on May 25, 2026 — the original repo contains exactly 15 root-level files with no `data/` directory.

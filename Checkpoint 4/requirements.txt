@@ -1,4 +1,11 @@
-# Checkpoint 4 / Grok_4.5 Phase 3 (Python >= 3.10)
+# Checkpoint 4 / Phase 3 (Python >= 3.10; see root .python-version)
+# Teaching constraints use minimum versions. For bit-for-bit env matching,
+# regenerate a lock from a working .venv:
+#   .venv/bin/pip freeze > Checkpoint 4/requirements-lock.txt
+#
+# Verified teaching stack (this team, Jul 2026): Python 3.10+ on macOS;
+# pandas/statsmodels/scipy/requests as below. Offline reproduce.sh does not
+# need google-generativeai.
 pandas>=2.0
 numpy>=1.24
 statsmodels>=0.14

@@ -3,7 +3,7 @@
 ### Summer 2026
 **Project Checkpoint 1 Report**
 
-**Group:** G5  
+**Group:** 1  
 **Name(s):** HDJ, Carla  
 **Project Name:** NORP Agentic Data Exploration Pipeline  
 

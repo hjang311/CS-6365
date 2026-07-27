@@ -1,4 +1,4 @@
-# Code Execution Log — NORP_Spring26_G5 Reproduction
+# Code Execution Log — Prior Cohort NORP Package Reproduction
 
 ## Reproduction Date: May 25, 2026 (Day 3 of 3 — Final)
 ## Reproducer Environment: macOS, Python 3.9, venv

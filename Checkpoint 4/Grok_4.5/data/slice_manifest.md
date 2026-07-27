@@ -1,8 +1,8 @@
 # Analysis slice manifest
 
 - built_by: Grok_4.5
-- source_frame: `/Users/hdj/Documents/CS-6365/Checkpoint 4/Grok_4.5/data/cp4_frame_with_soup_density.csv`
-- zip_allow_list: `/Users/hdj/Documents/CS-6365/Checkpoint 4/Grok_4.5/data/acfb_29_county_zips.csv` (305 ZIPs)
+- source_frame: `$REPO_ROOT/Checkpoint 4/Grok_4.5/data/cp4_frame_with_soup_density.csv`
+- zip_allow_list: `$REPO_ROOT/Checkpoint 4/Grok_4.5/data/acfb_29_county_zips.csv` (305 ZIPs)
 - tax_year: **2022** (cross-section; soup density is a ~2026 stock)
 - rows: **583**
 - distinct ZIP5: **159**
