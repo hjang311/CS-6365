@@ -20,4 +20,4 @@ All List A hypotheses + List B limitation-harness rows executed by `08_unrolled_
 | B | B07 | `total_expenses` | `fundraising_efficiency_w` | -0.00000 | 0.04677 | 0.1757 | 117,510 | True | ok |
 
 ---
-*Generated: 2026-07-29 10:20:07 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
+*Generated: 2026-07-29 11:11:44 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*

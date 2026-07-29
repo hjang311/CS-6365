@@ -111,7 +111,7 @@ If preflight fails on a missing frame, follow the script’s regenerate hint —
 | Missing `cp3_modeling_frame.csv` | [Build from scratch (Mode B)](#if-the-modeling-frame-is-missing--build-from-scratch-mode-b) above, or Mode A handoff merge in [`Checkpoint 3/README.md`](../Checkpoint%203/README.md) |
 | `ModuleNotFoundError: statsmodels` | `pip install -r "Checkpoint 4/requirements.txt"` in `.venv` |
 | Want live Feed America | Use `--enrich-config` HTTP config + network; respect CC BY attribution |
-| Confused by IDs (H4 vs RQ4 vs F01) | [`docs/HYPOTHESIS_REGISTRY.md`](../docs/HYPOTHESIS_REGISTRY.md) |
+| Confused by IDs (H4 vs RQ4 vs F01) | [`docs/HYPOTHESIS_REGISTRY.md`](../../docs/HYPOTHESIS_REGISTRY.md) |
 
 ## Step 2 — Read the curriculum map
 
