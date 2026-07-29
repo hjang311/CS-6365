@@ -584,7 +584,8 @@ def cmd_validate(frame_path: Path, out_dir: Path) -> int:
         "",
         "**PASS = beta REPRODUCTION** within tolerance (not theory confirmation).",
         "",
-        "| Hypothesis | IV | Expected β | Loop β | |Δ| | Status |",
+        # Use "Δ" not "|Δ|" — inner pipes break GitHub-flavored Markdown tables.
+        "| Hypothesis | IV | Expected β | Loop β | Δ | Status |",
         "|---|---|---|---|---|---|",
     ]
     all_pass = True

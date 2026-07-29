@@ -23,4 +23,4 @@ Theory-first hypotheses wrapping Phase 1 (H4/H5) plus labeled control cases.
 - **weak_population**: Expected weak after controls; 2-var limitation case
 
 ---
-*Generated: 2026-07-29 11:50:21 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
+*Generated: 2026-07-29 12:51:30 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*

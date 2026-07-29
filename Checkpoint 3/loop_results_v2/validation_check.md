@@ -7,10 +7,10 @@ It does NOT mean the theory was confirmed — H5 passes validation while its
 competition theory is rejected (observed positive beta). See `list_a_results.md`
 for per-hypothesis theory outcomes.
 
-| Hypothesis | IV | Expected β | Loop β | |Δ| | Status |
+| Hypothesis | IV | Expected β | Loop β | Δ | Status |
 |---|---|---|---|---|---|
 | H4 | `log_zhvi_2022` | `-7.91647` | `-7.91647` | `0.000004` | **PASS** |
 | H5 | `log_nonprofit_branch_density` | `2.11963` | `2.11963` | `0.000003` | **PASS** |
 
 ---
-*Generated: 2026-07-29 11:50:21 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
+*Generated: 2026-07-29 12:51:30 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*

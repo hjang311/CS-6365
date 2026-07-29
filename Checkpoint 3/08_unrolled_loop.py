@@ -556,7 +556,8 @@ def write_validation(path: str, list_a_rows: list[dict[str, Any]]) -> dict[str, 
         "competition theory is rejected (observed positive beta). See `list_a_results.md`",
         "for per-hypothesis theory outcomes.",
         "",
-        "| Hypothesis | IV | Expected β | Loop β | |Δ| | Status |",
+        # Use "Δ" not "|Δ|" — inner pipes break GitHub-flavored Markdown tables.
+        "| Hypothesis | IV | Expected β | Loop β | Δ | Status |",
         "|---|---|---|---|---|---|",
     ]
     statuses: dict[str, str] = {}
