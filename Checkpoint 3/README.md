@@ -70,7 +70,7 @@ This mode proves deterministic reconstruction from handed-off source CSVs. It do
 Mode B is a **separate** live reacquisition path from the handoff-frame PASS checks above. Drift vs the committed frame is documented in [`MODE_B_DRIFT.md`](MODE_B_DRIFT.md) (contract pass rate and β deltas).
 
 > [!TIP]
-> For the complete, step-by-step canonical student guide for Mode B data build and execution, see [`docs/STUDENT_QUICKSTART.md`](../docs/STUDENT_QUICKSTART.md).
+> For the complete, step-by-step canonical student guide for Mode B data build and execution, see [`Checkpoint 4/docs/STUDENT_QUICKSTART.md`](../Checkpoint%204/docs/STUDENT_QUICKSTART.md).
 
 1. **Create the environment and export the Census key.** The acquisition script auto-loads `.env` if `python-dotenv` is installed, or reads `CENSUS_API_KEY` directly from shell environment variables.
 

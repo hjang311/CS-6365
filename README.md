@@ -54,7 +54,7 @@ cp .env.example .env   # fill CENSUS_API_KEY only if doing Mode B acquire
 
 `Checkpoint 3/data/cp3_modeling_frame.csv` (~158k rows × 30 cols) is **gitignored**.
 
-- **Fresh Clone (Mode B - Build from scratch)**: Follow [`docs/STUDENT_QUICKSTART.md`](docs/STUDENT_QUICKSTART.md) for step-by-step raw data reacquisition & merge.
+- **Fresh Clone (Mode B - Build from scratch)**: Follow [`Checkpoint 4/docs/STUDENT_QUICKSTART.md`](Checkpoint%204/docs/STUDENT_QUICKSTART.md) for step-by-step raw data reacquisition & merge.
 - **Pre-built Frame (Mode A - Fast Track)**: If `cp3_modeling_frame.csv` is present in `Checkpoint 3/data/`, run `bash "Checkpoint 4/reproduce.sh"`.
 
 ### Run everything offline (≈ minutes once the frame exists)
