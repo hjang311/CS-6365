@@ -2,7 +2,7 @@
 
 > **Provenance only — not the student entrypoint.**  
 > This prompt targets `Checkpoint 4/provenance/early_build/` (earlier Phase 3 build trail).  
-> **Students / next cohort:** use [`../../prompts/PHASE3_HYBRID_PROMPT.md`](../../prompts/PHASE3_HYBRID_PROMPT.md) or [`PHASE3_MULTI_AGENT_LOOP.md`](../../prompts/PHASE3_MULTI_AGENT_LOOP.md) with canonical `Checkpoint 4/09_phase3_agentic_loop.py`.
+> **Students / next cohort:** use [`../../../prompts/PHASE3_HYBRID_PROMPT.md`](../../../prompts/PHASE3_HYBRID_PROMPT.md) or [`PHASE3_MULTI_AGENT_LOOP.md`](../../../prompts/PHASE3_MULTI_AGENT_LOOP.md) with canonical `Checkpoint 4/09_phase3_agentic_loop.py`.
 
 *Copy and paste the prompt below into an IDE / agent-host chat if you intentionally need to re-run the early_build provenance tree. The host agent drives one Phase 3 round by writing files and invoking the deterministic runner under this folder.*
 

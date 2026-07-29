@@ -9,7 +9,7 @@ backward into Manual / Unrolled only as needed.
 - Repo root: `CS-6365`
 - Python 3.10+ with project `.venv` (recommended; see root `.python-version`)
 - Checkpoint 3 modeling frame for calibration / TA specs
-  (`Checkpoint 3/data/cp3_modeling_frame.csv` — gitignored; if missing, see **Build from scratch (Mode B)** below, or Mode A handoff merge in [`Checkpoint 3/README.md`](../Checkpoint%203/README.md))
+  (`Checkpoint 3/data/cp3_modeling_frame.csv` — gitignored; if missing, see **Build from scratch (Mode B)** below, or Mode A handoff merge in [`Checkpoint 3/README.md`](../../Checkpoint%203/README.md))
 
 ```bash
 cd /path/to/CS-6365
@@ -69,7 +69,7 @@ vs a handoff frame is **not** guaranteed — see
 PASS/REJECT demos assume a fixed handoff frame + offline `reproduce.sh`.
 
 Full Mode A (handoff CSVs already present) vs Mode B detail:
-[`Checkpoint 3/README.md`](../Checkpoint%203/README.md). Live Feed America
+[`Checkpoint 3/README.md`](../../Checkpoint%203/README.md). Live Feed America
 enrichment is a separate optional step (`--enrich-config` HTTP); housing is
 NTEE-only by design.
 
@@ -108,14 +108,14 @@ If preflight fails on a missing frame, follow the script’s regenerate hint —
 
 | Problem | Fix |
 |---------|-----|
-| Missing `cp3_modeling_frame.csv` | [Build from scratch (Mode B)](#if-the-modeling-frame-is-missing--build-from-scratch-mode-b) above, or Mode A handoff merge in [`Checkpoint 3/README.md`](../Checkpoint%203/README.md) |
+| Missing `cp3_modeling_frame.csv` | [Build from scratch (Mode B)](#if-the-modeling-frame-is-missing--build-from-scratch-mode-b) above, or Mode A handoff merge in [`Checkpoint 3/README.md`](../../Checkpoint%203/README.md) |
 | `ModuleNotFoundError: statsmodels` | `pip install -r "Checkpoint 4/requirements.txt"` in `.venv` |
 | Want live Feed America | Use `--enrich-config` HTTP config + network; respect CC BY attribution |
 | Confused by IDs (H4 vs RQ4 vs F01) | [`docs/HYPOTHESIS_REGISTRY.md`](../../docs/HYPOTHESIS_REGISTRY.md) |
 
 ## Step 2 — Read the curriculum map
 
-1. [`docs/CURRICULUM.md`](../docs/CURRICULUM.md) — Manual → Unrolled → Rolled  
+1. [`docs/CURRICULUM.md`](../../docs/CURRICULUM.md) — Manual → Unrolled → Rolled  
 2. [`BENCHMARK.md`](BENCHMARK.md) — time/effort comparison  
 3. [`HANDOFF_GUIDE.md`](HANDOFF_GUIDE.md) — CLI flags and agents  
 

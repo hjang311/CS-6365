@@ -11,7 +11,7 @@ reproducible research recipe that Phase 2 later repeats.
 ## 1. Starting point: Checkpoint 2 H2
 
 The first complete manual pipeline is
-[`Checkpoint 2/H2_Pipeline/`](../Checkpoint%202/H2_Pipeline/):
+[`Checkpoint 2/H2_Pipeline/`](../../Checkpoint%202/H2_Pipeline/):
 
 1. Download NCCS CORE 990 files for 2018–2022.
 2. Download the IRS Exempt Organizations Business Master File (BMF).
@@ -129,7 +129,7 @@ mid-sized (`$500K–$2M`), and large (`≥$2M`) samples by
 - **Expected direction:** negative
 - **Accepted reference:** β ≈ `-7.91647`
 - **Finding:** direction confirmed
-- **Full write-up:** [`H4/H4_VERIFICATION_RUN.md`](H4/H4_VERIFICATION_RUN.md)
+- **Full write-up:** [`H4/H4_VERIFICATION_RUN.md`](../H4/H4_VERIFICATION_RUN.md)
 
 ### H5 — social-service provider density
 
@@ -138,7 +138,7 @@ mid-sized (`$500K–$2M`), and large (`≥$2M`) samples by
 - **Expected direction:** negative (competition)
 - **Accepted reference:** β ≈ `+2.11963`
 - **Finding:** theory rejected; the association is positive
-- **Full write-up:** [`H5/H5_VERIFICATION_RUN.md`](H5/H5_VERIFICATION_RUN.md)
+- **Full write-up:** [`H5/H5_VERIFICATION_RUN.md`](../H5/H5_VERIFICATION_RUN.md)
 
 “PASS” in a loop validation report means that the accepted coefficient was
 reproduced. It does not mean that the hypothesis direction was confirmed.

@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-12  
 **Method:** Cursor Task subagent (`generalPurpose`) executing [`prompts/PHASE3_HYBRID_PROMPT.md`](prompts/PHASE3_HYBRID_PROMPT.md)  
-**Subagent:** [hybrid round](b5ac2df6-fbf1-4e7b-a372-d41e4ef98721)
+**Subagent:** hybrid round (b5ac2df6-fbf1-4e7b-a372-d41e4ef98721)
 
 ## Verdict: PASS
 

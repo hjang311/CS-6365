@@ -11,7 +11,7 @@ Higher-order specs are gated by HC1 Wald F + ΔR² ≥ 5e-4 (TA Verifier absorbe
 
 ## Prerequisites
 
-- Repo `.venv` with [`requirements.txt`](requirements.txt) installed
+- Repo `.venv` with [`Checkpoint 4/requirements.txt`](../requirements.txt) installed
 - `Checkpoint 3/data/cp3_modeling_frame.csv` present (or regenerate — [STUDENT_QUICKSTART Mode B](STUDENT_QUICKSTART.md#if-the-modeling-frame-is-missing--build-from-scratch-mode-b); full Mode A/B in CP3 README)
 - Prefer `.venv/bin/python` over bare `python3`
 

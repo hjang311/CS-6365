@@ -2,9 +2,9 @@
 
 Student guide for the July 10 OH direction: wrap Phase 1 manual hypothesis work in an **explicit list** executed by deterministic Python OLS. True agentic discovery is **Phase 3** (not built yet).
 
-**Script:** [`08_unrolled_loop.py`](08_unrolled_loop.py)
-**Outputs:** [`loop_results_v2/`](loop_results_v2/)
-**Historical artifact:** [`07_deterministic_loop.py`](07_deterministic_loop.py) (combinatorial 215-pair batch — not the pedagogical unrolled loop)
+**Script:** [`08_unrolled_loop.py`](../08_unrolled_loop.py)
+**Outputs:** [`loop_results_v2/`](../loop_results_v2/)
+**Historical artifact:** [`07_deterministic_loop.py`](../pipeline/07_deterministic_loop.py) (combinatorial 215-pair batch — not the pedagogical unrolled loop)
 
 ---
 
@@ -83,7 +83,7 @@ From the repo root (with the project venv):
 .venv/bin/python "Checkpoint 3/08_unrolled_loop.py" --run --frame /path/to/frame.csv --out /tmp/results
 ```
 
-Requires [`data/cp3_modeling_frame.csv`](data/cp3_modeling_frame.csv) (from `02_merge_pipeline.py`). The script guards its schema and exits with a clear message if the frame predates the current merge recipe.
+Requires [`data/cp3_modeling_frame.csv`](../data/cp3_modeling_frame.csv) (from `02_merge_pipeline.py`). The script guards its schema and exits with a clear message if the frame predates the current merge recipe.
 
 ### Outputs (`loop_results_v2/`)
 

@@ -21,4 +21,4 @@ No per-pair agent approvals. This is a deterministic unrolled execution summary.
 See `two_variable_limitation.md` for the evaluation write-up.
 
 ---
-*Generated: 2026-07-29 11:11:44 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
+*Generated: 2026-07-29 11:50:21 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*

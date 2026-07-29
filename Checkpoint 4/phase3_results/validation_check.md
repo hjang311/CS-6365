@@ -8,4 +8,4 @@
 | H5 | `log_nonprofit_branch_density` | `2.11963` | `2.11963` | `0.000003` | **PASS** |
 
 ---
-*Generated: 2026-07-29 11:11:04 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21) · built_by: Phase3_MultiAgent*
+*Generated: 2026-07-29 11:49:31 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21) · built_by: Phase3_MultiAgent*
