@@ -11,9 +11,9 @@
       "K36"
     ]
   },
-  "density_path": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/food_assistance_density_by_zip.csv",
-  "enriched_frame": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/cp4_frame_with_food_assistance_density.csv",
-  "active_frame": "/Users/hdj/Documents/CS-6365/Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv",
+  "density_path": "Checkpoint 4/data/food_assistance_density_by_zip.csv",
+  "enriched_frame": "Checkpoint 4/data/cp4_frame_with_food_assistance_density.csv",
+  "active_frame": "Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv",
   "slice_meta": {
     "min_n": 100,
     "degraded": false,
@@ -24,5 +24,5 @@
     "n_rows": 583,
     "n_zips": 159
   },
-  "generated_at": "2026-07-27 03:41:52 UTC"
+  "generated_at": "2026-07-29 07:03:51 UTC"
 }

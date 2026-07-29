@@ -4,7 +4,7 @@
 
 **Paths assume repo root:** `$REPO_ROOT` (your clone of this repository).
 
-**Provenance note:** For the earlier build trail under `Checkpoint 4/Grok_4.5/`, see [`../Grok_4.5/prompts/PHASE3_HYBRID_PROMPT.md`](../Grok_4.5/prompts/PHASE3_HYBRID_PROMPT.md). That copy is **not** the student entrypoint.
+**Provenance note:** For the earlier build trail under `Checkpoint 4/provenance/early_build/`, see [`../provenance/early_build/prompts/PHASE3_HYBRID_PROMPT.md`](../provenance/early_build/prompts/PHASE3_HYBRID_PROMPT.md). That copy is **not** the student entrypoint.
 
 ---
 

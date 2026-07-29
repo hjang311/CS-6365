@@ -1,10 +1,9 @@
 # Checkpoint 4 — Multi-Agent Phase 3 (Rolled Loop)
 
-**Canonical student package** for the rolled / agentic stage of the NORP curriculum. Education-first open source (July 22 OH Option 2).
+**Canonical student package** for the rolled / agentic stage of the NORP curriculum.  
+Goal: an outsider can **reproduce** offline demos, then **extend** beyond Phase 3 (new topic/geo, new adapter, or a later phase) without reverse-engineering the semester.
 
-> Provenance only: [`Grok_4.5/`](Grok_4.5/) is an earlier build trail — **not** the entrypoint. Use `09_phase3_agentic_loop.py` here.
-
-## 60-second start
+## 60-second start (Run)
 
 ```bash
 # From repo root — requires Checkpoint 3/data/cp3_modeling_frame.csv (gitignored)
@@ -18,32 +17,58 @@ bash "Checkpoint 4/reproduce.sh"
 | F01 null; F02 gate REJECT | `phase3_results/round1_results.md` |
 | H01 exploratory; H02 gate REJECT | `phase3_results/housing_chicago/round1_results.md` |
 
-Then read [`STUDENT_QUICKSTART.md`](STUDENT_QUICKSTART.md) and [`BENCHMARK.md`](BENCHMARK.md).
+Then: [`docs/STUDENT_QUICKSTART.md`](docs/STUDENT_QUICKSTART.md) · [`docs/STRUCTURE.md`](docs/STRUCTURE.md) · [`../docs/CURRICULUM.md`](../docs/CURRICULUM.md)
 
-## What this package does
+## Three doors
 
-Orchestrator → Scout → Critic → Acquisition → Researcher → Stats (`09 --run`) → Interpret. Agents talk through `phase3_results/agent_bus/`. The LLM never fits OLS. Higher-order specs use an HC1 Wald F + ΔR² ≥ 5e-4 Verifier gate.
+| Door | Use when | Open |
+|------|----------|------|
+| **Run** | Reproduce offline demos | `reproduce.sh` → `phase3_results/` (runs gallery) |
+| **Orchestrate** | Live hybrid IDE loop (any host) | [`prompts/`](prompts/) + [`.agent/skills/norp-*`](../.agent/skills/) |
+| **Extend** | New topic/geo or adapter beyond CP4 | [`configs/`](configs/) + [`engine/enrichment_tools/`](engine/enrichment_tools/) |
+
+Hard rule: **only** [`09_phase3_agentic_loop.py`](09_phase3_agentic_loop.py) fits OLS. LLM agents never invent coefficients.
+
+## Studio map
+
+```
+Checkpoint 4/
+  README.md                 ← you are here (front door)
+  reproduce.sh              ← one-command offline demos
+  requirements.txt
+  09_phase3_agentic_loop.py ← sole public Stats CLI
+
+  docs/                     ← teaching + science write-ups
+  prompts/                  ← paste-ready hybrid orchestration
+  configs/                  ← topic/geo enrichment JSON
+  engine/                   ← adapters + enrichment helpers (not a second CLI)
+  fixtures/                 ← pointers to offline scout fixtures
+  phase3_results/           ← runs gallery (golden demos + agent_bus)
+  data/                     ← enriched frames / acquisitions (CSVs mostly local)
+  provenance/early_build/      ← earlier build trail — do not start here
+```
+
+Full legend: [`docs/STRUCTURE.md`](docs/STRUCTURE.md).
 
 ## Key paths
 
 | Item | Path |
 |------|------|
-| Runner | [`09_phase3_agentic_loop.py`](09_phase3_agentic_loop.py) |
+| Stats CLI | [`09_phase3_agentic_loop.py`](09_phase3_agentic_loop.py) |
 | One-command demos | [`reproduce.sh`](reproduce.sh) |
-| Effort comparison | [`BENCHMARK.md`](BENCHMARK.md) |
-| Student onboarding | [`STUDENT_QUICKSTART.md`](STUDENT_QUICKSTART.md) |
-| Handoff / CLI | [`HANDOFF_GUIDE.md`](HANDOFF_GUIDE.md) |
-| Negatives | [`NEGATIVE_FINDINGS.md`](NEGATIVE_FINDINGS.md) |
-| Report | [`Checkpoint_4_Report.md`](Checkpoint_4_Report.md) |
-| Adapters | [`enrichment_tools/`](enrichment_tools/) |
+| Student onboarding | [`docs/STUDENT_QUICKSTART.md`](docs/STUDENT_QUICKSTART.md) |
+| CLI reference | [`docs/HANDOFF_GUIDE.md`](docs/HANDOFF_GUIDE.md) |
+| Effort comparison | [`docs/BENCHMARK.md`](docs/BENCHMARK.md) |
+| Negatives | [`docs/NEGATIVE_FINDINGS.md`](docs/NEGATIVE_FINDINGS.md) |
+| Report (local only) | Gitignored [`report/`](report/) — see stub [`docs/Checkpoint_4_Report.md`](docs/Checkpoint_4_Report.md) |
+| Adapters | [`engine/enrichment_tools/`](engine/enrichment_tools/) |
 | Configs | [`configs/`](configs/) |
-| Prompts index | [`prompts/README.md`](prompts/README.md) |
-| Hybrid master prompt | [`prompts/PHASE3_MULTI_AGENT_LOOP.md`](prompts/PHASE3_MULTI_AGENT_LOOP.md) |
-| Provenance only | [`Grok_4.5/`](Grok_4.5/) |
+| Hybrid prompts | [`prompts/README.md`](prompts/README.md) |
+| Provenance | [`provenance/early_build/`](provenance/early_build/) |
 
-## Config field cheat-sheet
+## Config cheat-sheet (Extend door)
 
-Working examples: `configs/food_assistance_atlanta.json`, `configs/housing_services_chicago.json` (and siblings). Typical fields:
+Working examples: `configs/food_assistance_atlanta_ntee.json`, `configs/food_assistance_atlanta_http.json`, `configs/housing_services_chicago.json`. Typical fields:
 
 | Field | Role |
 |-------|------|
@@ -52,40 +77,23 @@ Working examples: `configs/food_assistance_atlanta.json`, `configs/housing_servi
 | `ntee_prefixes` | NTEE prefix list for density adapter |
 | HTTP / URL block | Feed America–style open endpoints (Critic-gated) |
 
-Copy a config, change topic/geo/prefixes, run with `--enrich-config` (see commands below).
+Copy a config, change topic/geo/prefixes, run with `--enrich-config` (see [`docs/HANDOFF_GUIDE.md`](docs/HANDOFF_GUIDE.md)). To go **beyond Phase 3**, add a named adapter under `engine/enrichment_tools/` and teach Critic/Scout about it — keep OLS inside `09`.
 
-## Common commands + expected outputs
+## Common commands
 
 ```bash
 .venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" --validate
-# → phase3_results/validation_check.md  (H4/H5 PASS lines)
-
 .venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" --verify-ta-specs \
   --out "Checkpoint 4/phase3_results/ta_verify"
-# → ta_verify/round99_results.md  (I1–I4 / Q1 gate column)
-
 .venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" --all --fixture-full --rounds 2
-# → round1_results.md / round2_results.md + agent_bus payloads
-
 .venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" \
   --enrich-config "Checkpoint 4/configs/housing_services_chicago.json" \
   --all --fixture --rounds 1 \
   --out "Checkpoint 4/phase3_results/housing_chicago"
-# → housing_chicago/round1_results.md
 ```
 
-## Artifact index (`phase3_results/`)
+## What this package does
 
-| Artifact | Role |
-|----------|------|
-| `validation_check.md` | H4/H5 β reproduction |
-| `decision_log.jsonl` | scout / critic / acquire / degrade events |
-| `agent_bus/` | message bus + manifests |
-| `round*_results.md` | Food Atlanta OLS + gate |
-| `housing_chicago/` | NTEE universality run |
-| `ta_verify/` | TA higher-order specs |
-| `stale_archive/` | gitignored / local provenance dumps |
+Orchestrator → Scout → Critic → Acquisition → Researcher → Stats (`09 --run`) → Interpret. Agents talk through `phase3_results/agent_bus/`. Higher-order specs use an HC1 Wald F + ΔR² ≥ 5e-4 Verifier gate. Null / gate REJECT are first-class ([`docs/NEGATIVE_FINDINGS.md`](docs/NEGATIVE_FINDINGS.md)).
 
-## Curriculum context
-
-See [`docs/CURRICULUM.md`](../docs/CURRICULUM.md): Manual (H2/H4/H5) → Unrolled (CP3) → **Rolled (this folder)**. Registry: [`docs/HYPOTHESIS_REGISTRY.md`](../docs/HYPOTHESIS_REGISTRY.md).
+`agent_bus/enriched_frame_manifest.json` stores **repo-relative** frame paths (e.g. `Checkpoint 4/data/...`) so clones are portable; resolve them from the repository root when passing `--frame`.

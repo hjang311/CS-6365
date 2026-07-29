@@ -43,7 +43,7 @@ Formulas match [`Checkpoint 3/README.md`](../Checkpoint%203/README.md) Key defin
 
 ## CP4 enriched frames
 
-Built by named adapters + merge/slice utilities under `Checkpoint 4/enrichment_tools/`.
+Built by named adapters + merge/slice utilities under `Checkpoint 4/engine/enrichment_tools/`.
 
 ### National / enriched (examples)
 

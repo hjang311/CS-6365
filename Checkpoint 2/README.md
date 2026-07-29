@@ -22,8 +22,10 @@ Source: [`H2_Pipeline/findings_results.md`](H2_Pipeline/findings_results.md). Re
 | Item | Description |
 |------|-------------|
 | [`H2_Pipeline/`](H2_Pipeline/) | Full manual pipeline: acquire → merge → analyze → validate |
-| [`H3_Testing/`](H3_Testing/) | Fintech measure feasibility probes (RQ3 — not confirmatory) |
+| [`H3_Testing/`](H3_Testing/) | Fintech measure **feasibility** probes (RQ3 — not confirmatory; skip for the main teaching path) |
 | [`Checkpoint_2_Report.md`](Checkpoint_2_Report.md) | Checkpoint 2 report |
+
+> **Local-only note:** Draft `*.pdf` files (including `*NeedsEditing*`) may appear on maintainer machines; they are gitignored and not part of the curriculum. Prefer the markdown report.
 
 ## Run order
 

@@ -72,7 +72,7 @@ bash "Checkpoint 4/reproduce.sh"
 | Food Atlanta | `.../round1_results.md` | F01 not significant; F02 gate **REJECT** |
 | Housing Chicago | `.../housing_chicago/round1_results.md` | H01 exploratory; H02 gate **REJECT** |
 
-Then read [`Checkpoint 4/STUDENT_QUICKSTART.md`](Checkpoint%204/STUDENT_QUICKSTART.md) and [`docs/CURRICULUM.md`](docs/CURRICULUM.md).
+Then read [`Checkpoint 4/docs/STUDENT_QUICKSTART.md`](Checkpoint%204/docs/STUDENT_QUICKSTART.md) and [`docs/CURRICULUM.md`](docs/CURRICULUM.md).
 
 ## Curriculum Map (Manual → Unrolled → Rolled)
 
@@ -85,7 +85,7 @@ Then read [`Checkpoint 4/STUDENT_QUICKSTART.md`](Checkpoint%204/STUDENT_QUICKSTA
 Optional history: [`Checkpoint 0/`](Checkpoint%200/) = prior-semester package reproduction (what earlier cohorts had to do). **Not** Phase 1 of this repo.
 
 Full teaching narrative: [`docs/CURRICULUM.md`](docs/CURRICULUM.md)  
-Effort comparison: [`Checkpoint 4/BENCHMARK.md`](Checkpoint%204/BENCHMARK.md)  
+Effort comparison: [`Checkpoint 4/docs/BENCHMARK.md`](Checkpoint%204/docs/BENCHMARK.md)  
 Hypothesis ID map: [`docs/HYPOTHESIS_REGISTRY.md`](docs/HYPOTHESIS_REGISTRY.md)  
 Column definitions: [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md)
 
@@ -114,7 +114,7 @@ Feed America attribution: [`Checkpoint 4/data/acquisitions/food_assistance/food_
 | **CP4 F02** | Poverty × food density | Gate **REJECT** (ΔR² ≪ 5e-4) | same |
 | **CP4 H01/H02** | Housing Chicago exploratory / null | H01 p ≈ 0.45; H02 gate **REJECT** | `phase3_results/housing_chicago/round1_results.md` |
 
-Gate REJECT / nulls are **first-class** — see [`Checkpoint 4/NEGATIVE_FINDINGS.md`](Checkpoint%204/NEGATIVE_FINDINGS.md).
+Gate REJECT / nulls are **first-class** — see [`Checkpoint 4/docs/NEGATIVE_FINDINGS.md`](Checkpoint%204/docs/NEGATIVE_FINDINGS.md).
 
 ## Limitations
 
@@ -139,9 +139,11 @@ Checkpoint 0/     Prior-semester case study only (optional skim)
 Checkpoint 1/     Early broadband × fundraising experiments
 Checkpoint 2/     Manual H2 pipeline (bank-branch density)
 Checkpoint 3/     Manual H4/H5 + unrolled loop (Phases 1 & 2)
-Checkpoint 4/     Rolled multi-agent package — primary student handoff
+Checkpoint 4/     Rolled multi-agent package — primary student handoff (studio layout)
+  docs/           Teaching + science write-ups + STRUCTURE.md
   prompts/        Hybrid IDE orchestrator paste prompts (canonical)
-  Grok_4.5/       Provenance build trail only
+  engine/         Adapters + enrichment helpers (back-of-house)
+  provenance/     Earlier build trail (early_build) — not the entrypoint
 docs/             CURRICULUM, ARCHIVE, HYPOTHESIS_REGISTRY, DATA_DICTIONARY
 AGENTS.md         LLM / collaborator project-state handoff
 LICENSE           MIT (code/docs)
@@ -150,7 +152,8 @@ agentic_pipeline/ Legacy Antigravity SDK scaffolding (not Phase 3 entry)
 ```
 
 Canonical Phase 3 entry: `Checkpoint 4/09_phase3_agentic_loop.py` (+ `prompts/` for live hybrid orchestration).  
-Provenance only: `Checkpoint 4/Grok_4.5/` (earlier build trail).  
+Studio map: [`Checkpoint 4/docs/STRUCTURE.md`](Checkpoint%204/docs/STRUCTURE.md).  
+Provenance only: `Checkpoint 4/provenance/early_build/`.  
 Legacy SDK: `agentic_pipeline/` — see its README; students use hybrid prompts + skills + `09` instead.
 
 ## Current Progress

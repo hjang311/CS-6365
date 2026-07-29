@@ -30,7 +30,8 @@ When running inside an IDE or agent host (examples: Cursor, Claude Code, Codex, 
 3. Keep **Code / Stats** as shell invocations of `09_phase3_agentic_loop.py` — do not ask a sub-agent to invent coefficients in-chat.
 4. Prefer this hybrid path over the legacy Antigravity SDK factories in `agentic_pipeline/` (optional future wiring only).
 
-Paste-ready prompts: `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` and `PHASE3_HYBRID_PROMPT.md`.
+Paste-ready prompts: `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` and `PHASE3_HYBRID_PROMPT.md`.  
+Studio map (Run / Orchestrate / Extend): `Checkpoint 4/docs/STRUCTURE.md`.
 
 ## Invariants
 - Proposals JSON must exist before `--run`.

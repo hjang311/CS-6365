@@ -117,6 +117,9 @@ celerybeat.pid
 
 # Environments
 .env
+
+# Accidental credential files (never commit; rotate if one ever appeared locally)
+.git-token
 .venv
 env/
 venv/
@@ -166,8 +169,17 @@ CS 6365/obj/
 Checkpoint 0/prior_cohort_norp/
 venv_*/
 
-# Team final-presentation outline (partners only; not student curriculum)
+# Team final-presentation / audit workspace (partners only; not student curriculum)
 Checkpoint 4/PRESENTATION_OUTLINE.md
+Checkpoint 4/PRESENTATION_BRIEF_CLAUDE.md
+Checkpoint 4/REPO_AUDIT_BRIEF_CLAUDE.md
+Checkpoint 4/presentation/
+presentation/
+NORP_Presentation_Final.pptx
+NORP_Presentation_Final.pdf
+
+# Local final-report Word working copy (OneDrive original is historical; not for GitHub)
+Checkpoint 4/report/
 
 # Personal OH notes / planning — LOCAL ONLY, never push
 Project Research & Initial Plan/
@@ -178,6 +190,7 @@ dataverse_files/
 *.xlsx
 *.docx
 *.pdf
+*.mp4
 .DS_Store
 
 # Antigravity / Cursor local session junk
@@ -193,6 +206,11 @@ CS6365_Checkpoint_Template.txt
 
 # Old iteration dumps inside CP4 (provenance only, not for GitHub)
 Checkpoint 4/phase3_results/stale_archive/
+
+# Ephemeral timestamped agent_bus payloads (rewritten each run)
+Checkpoint 4/phase3_results/**/acquire_start_*.json
+Checkpoint 4/phase3_results/**/degrade_*.json
+Checkpoint 4/phase3_results/**/acquisition_plan_[0-9]*.json
 
 # Ignore project data directories
 Checkpoint 1/Broadband Access x Fundraising Efficiency/Data/

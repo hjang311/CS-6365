@@ -11,7 +11,7 @@ Paste-ready prompts for **hybrid IDE orchestration**: the host agent acts as Orc
 | [`PHASE3_ACFB_ZIP_COLLECT_PROMPT.md`](PHASE3_ACFB_ZIP_COLLECT_PROMPT.md) | ZIP collection helper (ToS-aware) |
 | [`agents/`](agents/) | One-page role pointers → skills |
 
-**Provenance:** [`../Grok_4.5/prompts/`](../Grok_4.5/prompts/) keeps earlier-build hybrid prompts (Grok_4.5 paths). Not the student entrypoint.
+**Provenance:** [`../provenance/early_build/prompts/`](../provenance/early_build/prompts/) keeps earlier-build hybrid prompts. Not the student entrypoint. Studio map: [`../docs/STRUCTURE.md`](../docs/STRUCTURE.md).
 
 ## How to run hybrid orchestration (any IDE / agent host)
 

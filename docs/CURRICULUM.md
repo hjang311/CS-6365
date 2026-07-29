@@ -22,8 +22,8 @@ After working through this package you should be able to:
 
 ## Recommended order (fear-reducing)
 
-1. [`Checkpoint 4/STUDENT_QUICKSTART.md`](../Checkpoint%204/STUDENT_QUICKSTART.md) + `bash "Checkpoint 4/reproduce.sh"`
-2. [`Checkpoint 4/BENCHMARK.md`](../Checkpoint%204/BENCHMARK.md) — Manual vs Unrolled vs Rolled effort
+1. [`Checkpoint 4/docs/STUDENT_QUICKSTART.md`](../Checkpoint%204/docs/STUDENT_QUICKSTART.md) + `bash "Checkpoint 4/reproduce.sh"`
+2. [`Checkpoint 4/docs/BENCHMARK.md`](../Checkpoint%204/docs/BENCHMARK.md) — Manual vs Unrolled vs Rolled effort
 3. Skim Manual H4/H5 or H2 only if you need the science recipe
 4. Optional: [`Checkpoint 0/`](../Checkpoint%200/) — **prior-semester case study only** (what earlier cohorts had to do by hand). **Not** Phase 1 of *this* curriculum.
 
@@ -55,11 +55,11 @@ Pre-register an agenda (List A / List B), then run deterministic OLS in batch. T
 
 Agents scout sources, critic-gate ToS, acquire via named adapters, propose hypotheses, and interpret — while **only** `09 --run` fits OLS (HC1 + Verifier gate for higher-order specs).
 
-Live hybrid path (optional): paste `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` into any capable IDE / agent host; the host agent orchestrates and may spawn Scout / Critic / Acquisition / Researcher as sub-agents. Offline demos need no live sub-agents.
+Live hybrid path (optional): paste `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` into any capable IDE / agent host; the host agent orchestrates and may spawn Scout / Critic / Acquisition / Researcher as sub-agents. Offline demos need no live sub-agents. Studio map: [`Checkpoint 4/docs/STRUCTURE.md`](../Checkpoint%204/docs/STRUCTURE.md).
 
 - Package: [`Checkpoint 4/`](../Checkpoint%204/)
 - One command: [`Checkpoint 4/reproduce.sh`](../Checkpoint%204/reproduce.sh)
-- Student entry: [`Checkpoint 4/STUDENT_QUICKSTART.md`](../Checkpoint%204/STUDENT_QUICKSTART.md)
+- Student entry: [`Checkpoint 4/docs/STUDENT_QUICKSTART.md`](../Checkpoint%204/docs/STUDENT_QUICKSTART.md)
 - Hybrid prompts: [`Checkpoint 4/prompts/`](../Checkpoint%204/prompts/) · skills: [`.agent/skills/`](../.agent/skills/)
 
 **Effort:** offline demos in minutes once `cp3_modeling_frame.csv` exists.

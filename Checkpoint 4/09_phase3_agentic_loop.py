@@ -43,6 +43,7 @@ GATE_MIN_DELTA_R2 = 5e-4
 
 HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
+ENGINE_DIR = HERE / "engine"
 CP3_DIR = REPO_ROOT / "Checkpoint 3"
 DEFAULT_FRAME = CP3_DIR / "data" / "cp3_modeling_frame.csv"
 DEFAULT_PHASE2 = CP3_DIR / "loop_results_v2"
@@ -51,8 +52,8 @@ DEFAULT_DATA = HERE / "data"
 BMF_PATH = CP3_DIR / "data" / "irs_bmf.csv"
 ACS_PATH = CP3_DIR / "data" / "census_acs_by_zip.csv"
 
-# enrichment helpers live beside this script
-sys.path.insert(0, str(HERE))
+# Back-of-house: engine/ holds enrichment_tools + phase3_enrichment_cmds
+sys.path.insert(0, str(ENGINE_DIR))
 from enrichment_tools.agent_bus import (  # noqa: E402
     append_bus_message,
     utc_now as bus_utc_now,
@@ -220,9 +221,29 @@ def append_decision(out_dir: Path, event: dict[str, Any]) -> None:
         f.write(json.dumps(record) + "\n")
 
 
+_FRAME_MISSING_HINT = """\
+ERROR: Missing modeling frame required for Phase 3 demos:
+
+  Checkpoint 3/data/cp3_modeling_frame.csv
+
+This CSV is gitignored (~large). Regenerate before re-running:
+
+  Mode A (handoff CSVs already present under Checkpoint 3/data/):
+    .venv/bin/python "Checkpoint 3/02_merge_pipeline.py"
+
+  Mode B (fresh acquire — needs CENSUS_API_KEY + network):
+    See Checkpoint 3/README.md → “Reproduction mode B”
+
+Or use the guided preflight:
+    bash "Checkpoint 4/reproduce.sh"
+"""
+
+
 def load_frame(frame_path: Path) -> pd.DataFrame:
     if not frame_path.exists():
-        raise FileNotFoundError(f"Modeling frame not found: {frame_path}")
+        raise FileNotFoundError(
+            f"Modeling frame not found: {frame_path}\n\n{_FRAME_MISSING_HINT}"
+        )
     df = pd.read_csv(frame_path, dtype={"ZIP5": str}, low_memory=False)
     return df
 
@@ -1533,4 +1554,13 @@ def main(argv: Optional[list[str]] = None) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except FileNotFoundError as exc:
+        # Prefer the guided frame-missing text over a raw traceback when students
+        # invoke 09 directly without reproduce.sh preflight.
+        msg = str(exc)
+        if "Modeling frame not found" in msg or "cp3_modeling_frame" in msg:
+            print(msg, file=__import__("sys").stderr)
+            raise SystemExit(1) from None
+        raise

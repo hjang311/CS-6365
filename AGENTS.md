@@ -10,11 +10,12 @@ Education-first **Manual → Unrolled → Rolled** NORP pipeline (CS 4365/6365 S
 
 | Path | Status |
 |------|--------|
-| `Checkpoint 4/09_phase3_agentic_loop.py`, `enrichment_tools/`, `configs/`, `reproduce.sh` | **Canonical** Phase 3 Stats Engine |
+| `Checkpoint 4/09_phase3_agentic_loop.py`, `engine/`, `configs/`, `reproduce.sh` | **Canonical** Phase 3 Stats Engine |
 | `Checkpoint 4/prompts/` | **Canonical** paste-ready hybrid orchestrator prompts |
+| `Checkpoint 4/docs/` | CP4 teaching docs + `STRUCTURE.md` studio map |
 | `.agent/skills/norp-*` | Canonical agent skill / role contracts |
 | `Checkpoint 2/H2_Pipeline/`, `Checkpoint 3/H4/`, `H5/`, `08_unrolled_loop.py` | Canonical Manual / Unrolled |
-| `Checkpoint 4/Grok_4.5/` | **Provenance only** — earlier build trail; not the student entrypoint |
+| `Checkpoint 4/provenance/early_build/` | **Provenance only** — earlier build trail; not the student entrypoint |
 | `archive/` (local) | Local-only semester clutter — gitignored |
 | `Checkpoint 0/` | **Prior-semester case study only** — shows what earlier cohorts had to do. **Not** Phase 1 of this curriculum |
 | `Checkpoint 4/PRESENTATION_OUTLINE.md` | Team presentation workspace — **gitignored**; not a student deliverable |
@@ -26,6 +27,7 @@ Preferred live Phase 3 path (IDE-agnostic): **host agent as Orchestrator** → s
 
 - Prompts: `Checkpoint 4/prompts/PHASE3_MULTI_AGENT_LOOP.md` (full) or `PHASE3_HYBRID_PROMPT.md` (short)
 - Skills: `.agent/skills/norp-*`
+- Studio map: `Checkpoint 4/docs/STRUCTURE.md` (Run / Orchestrate / Extend)
 - Hosts (examples, not requirements): Cursor, Claude Code, Codex, Antigravity 2.0
 - Offline demos without live sub-agents: `bash "Checkpoint 4/reproduce.sh"`
 
@@ -60,7 +62,9 @@ bash "Checkpoint 4/reproduce.sh"
   --out "Checkpoint 4/phase3_results/ta_verify"
 ```
 
-Student path: `Checkpoint 4/STUDENT_QUICKSTART.md` → `docs/CURRICULUM.md` → `BENCHMARK.md`.
+Prefer `reproduce.sh` first — it preflights the gitignored modeling frame and prints Mode A/B regenerate steps. Direct `09 --validate` / `--verify-ta-specs` / `--run` assume `Checkpoint 3/data/cp3_modeling_frame.csv` already exists (same cliff; see root README and `Checkpoint 3/MODE_B_DRIFT.md`).
+
+Student path: `Checkpoint 4/docs/STUDENT_QUICKSTART.md` → `docs/CURRICULUM.md` → `Checkpoint 4/docs/BENCHMARK.md`.
 
 ## Skills
 

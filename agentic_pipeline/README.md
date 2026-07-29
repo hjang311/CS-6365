@@ -19,7 +19,7 @@ Phase 3 uses **host agent + sub-agents + deterministic Stats Engine**:
 .venv/bin/python "Checkpoint 4/09_phase3_agentic_loop.py" --run ...
 ```
 
-Works in Cursor, Claude Code, Codex, Antigravity 2.0, or any host that can orchestrate, spawn sub-agents, and invoke the local CLI. Offline demos: `bash "Checkpoint 4/reproduce.sh"`. Curriculum: [`docs/CURRICULUM.md`](../docs/CURRICULUM.md). Project state: [`AGENTS.md`](../AGENTS.md).
+Works in Cursor, Claude Code, Codex, Antigravity 2.0, or any host that can orchestrate, spawn sub-agents, and invoke the local CLI. Offline demos: `bash "Checkpoint 4/reproduce.sh"`. Curriculum: [`docs/CURRICULUM.md`](../docs/CURRICULUM.md). Studio map: [`Checkpoint 4/docs/STRUCTURE.md`](../Checkpoint%204/docs/STRUCTURE.md). Project state: [`AGENTS.md`](../AGENTS.md).
 
 ## File map
 

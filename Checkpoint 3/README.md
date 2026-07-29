@@ -20,7 +20,7 @@ Single index for the Checkpoint 3 deliverable: what each script does, how the da
 | `03_hitl_hypothesis_engine.py` | prototype | Single-hypothesis HITL runner (predates phase model) | Yes (stdin) |
 | `04_validate_frame.py` | 1 | Data contracts on the modeling frame (exit 0/1) | No |
 | `06_run_h4_h5_split.py` | 1 | H4/H5 formal tables with mid/large size splits | No |
-| `07_deterministic_loop.py` | historical | 215-pair combinatorial batch with per-hit agent prompts. **Superseded by 08** | Yes (stdin) |
+| `07_deterministic_loop.py` | historical | 215-pair combinatorial batch with per-hit agent prompts. **Superseded by 08** — keep for provenance; do not present as the Phase 2 entry | Yes (stdin) |
 | `08_unrolled_loop.py` | 2 | Unrolled loop: List A (curated hypotheses) + List B (pre-registered two-variable limitation harness) | No |
 
 There is no `05` — CP2's validator role is filled by `04_validate_frame.py` here.
@@ -133,4 +133,6 @@ Then continue with validation and analysis commands from mode A, starting at `04
 - `MODE_B_DRIFT.md` — Mode B vs handoff-frame drift note
 - `TEST_EXECUTION_PLAN.md` — ordered test/ship checklist with acceptance criteria
 
-**Phase 3 (rolled)** lives in [`Checkpoint 4/`](../Checkpoint%204/) — start with `STUDENT_QUICKSTART.md` / `reproduce.sh`.
+**Phase 3 (rolled)** lives in [`Checkpoint 4/`](../Checkpoint%204/) — start with [`docs/STUDENT_QUICKSTART.md`](../Checkpoint%204/docs/STUDENT_QUICKSTART.md) / `reproduce.sh` / [`docs/STRUCTURE.md`](../Checkpoint%204/docs/STRUCTURE.md).
+
+The write-up [`Checkpoint_3_Report_DRAFT.md`](Checkpoint_3_Report_DRAFT.md) retains a DRAFT filename for historical continuity; treat it as the Checkpoint 3 narrative alongside the phase docs above.
