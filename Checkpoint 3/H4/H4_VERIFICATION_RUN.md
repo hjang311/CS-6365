@@ -48,16 +48,16 @@ There is a highly statistically significant ($p < 0.001$) negative association b
 
 ## Phase 1 Execution and Phase 2 Replay
 
-1. `01_acquire_data.py` acquires the exact December 2022 Zillow snapshot and
+1. `pipeline/01_acquire_data.py` acquires the exact December 2022 Zillow snapshot and
    creates the specialized NCCS subset.
-2. `02_merge_pipeline.py` builds `cp3_modeling_frame.csv` and applies the fixed
+2. `pipeline/02_merge_pipeline.py` builds `cp3_modeling_frame.csv` and applies the fixed
    cleaning recipe.
-3. `06_run_h4_h5_split.py` runs the manually specified H4 model for the full,
+3. `pipeline/06_run_h4_h5_split.py` runs the manually specified H4 model for the full,
    mid-sized, and large samples.
 4. `08_unrolled_loop.py` replays H4 as a pre-registered List A item and checks
    that its full-sample coefficient matches this accepted reference.
 
-The earlier `07_deterministic_loop.py` combinatorial/LLM experiment is retained
+The earlier `pipeline/07_deterministic_loop.py` combinatorial/LLM experiment is retained
 only as historical context; it is not the primary H4 workflow.
 
 ## Sample Size Note
@@ -69,7 +69,7 @@ are in ZIP codes without Zillow ZHVI coverage; those rows are listwise-deleted w
 - `08_unrolled_loop.py` — Phase 2 pre-registered loop; List A row `H4` asserts this baseline β.
 - `loop_results_v2/validation_check.md` — H4/H5 β reproduction check (β match = reproducibility, not theory verdict).
 - `loop_results_v2/list_a_results.md` — theory outcome per hypothesis.
-- `06_run_h4_h5_split.py` — regenerates the size-split tables above (`H4/H4_results.md`).
+- `pipeline/06_run_h4_h5_split.py` — regenerates the size-split tables above (`H4/H4_results.md`).
 
 ## Artifacts (historical — first loop iteration)
-- `07_deterministic_loop.py` and `loop_results/` — the original 215-pair combinatorial batch. Superseded by `08`; kept for provenance.
+- `pipeline/07_deterministic_loop.py` and `loop_results/` — the original 215-pair combinatorial batch. Superseded by `08`; kept for provenance.

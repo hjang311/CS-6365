@@ -16,8 +16,8 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
-DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DATA = os.path.join(HERE, "data")
 
 # --- Helper function for robust OLS regression ---
 def run_ols(df, iv, dv, label):

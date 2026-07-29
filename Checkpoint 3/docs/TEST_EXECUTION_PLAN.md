@@ -32,7 +32,7 @@ python3 -m venv .venv
 ## Step 1 — Rebuild the modeling frame (activates the FDIC merge)
 
 ```bash
-.venv/bin/python "Checkpoint 3/02_merge_pipeline.py"
+.venv/bin/python "Checkpoint 3/pipeline/02_merge_pipeline.py"
 ```
 
 **Accept (all of):**
@@ -59,7 +59,7 @@ print('FDIC columns present')"
 ## Step 2 — Frame data contracts
 
 ```bash
-.venv/bin/python "Checkpoint 3/04_validate_frame.py"; echo "exit=$?"
+.venv/bin/python "Checkpoint 3/pipeline/04_validate_frame.py"; echo "exit=$?"
 ```
 
 **Accept:** every line starts `[PASS]`, final line `RESULT: all contracts PASSED`, `exit=0`.
@@ -78,7 +78,7 @@ do NOT edit the baseline constants without team sign-off.
 ## Step 3 — H4/H5 formal tables (fills the missing results files)
 
 ```bash
-.venv/bin/python "Checkpoint 3/06_run_h4_h5_split.py"
+.venv/bin/python "Checkpoint 3/pipeline/06_run_h4_h5_split.py"
 ```
 
 **Accept:**
@@ -164,10 +164,10 @@ one unpushed commit (`44646b9`, the 07-loop work); this push delivers both.
 
 ```bash
 git add "Checkpoint 3/README.md" "Checkpoint 3/requirements.txt" \
-        "Checkpoint 3/TEST_EXECUTION_PLAN.md" "Checkpoint 3/PHASE2_UNROLLED_LOOP.md" \
-        "Checkpoint 3/LOOP_DOCUMENTATION.md" \
-        "Checkpoint 3/01_acquire_data.py" "Checkpoint 3/02_merge_pipeline.py" \
-        "Checkpoint 3/03_hitl_hypothesis_engine.py" "Checkpoint 3/04_validate_frame.py" \
+        "Checkpoint 3/docs/TEST_EXECUTION_PLAN.md" "Checkpoint 3/docs/PHASE2_UNROLLED_LOOP.md" \
+        "Checkpoint 3/docs/LOOP_DOCUMENTATION.md" \
+        "Checkpoint 3/pipeline/01_acquire_data.py" "Checkpoint 3/pipeline/02_merge_pipeline.py" \
+        "Checkpoint 3/pipeline/03_hitl_hypothesis_engine.py" "Checkpoint 3/pipeline/04_validate_frame.py" \
         "Checkpoint 3/08_unrolled_loop.py" \
         "Checkpoint 3/H4/" "Checkpoint 3/H5/" "Checkpoint 3/loop_results_v2/" \
         ".env.example"

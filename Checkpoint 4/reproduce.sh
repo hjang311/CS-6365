@@ -28,7 +28,7 @@ ERROR: Missing Checkpoint 3 modeling frame required for offline demos:
 This CSV is gitignored (~large). Regenerate before re-running:
 
   Mode A (handoff CSVs already present under Checkpoint 3/data/):
-    .venv/bin/python "Checkpoint 3/02_merge_pipeline.py"
+    .venv/bin/python "Checkpoint 3/pipeline/02_merge_pipeline.py"
 
   Mode B (fresh acquire — needs CENSUS_API_KEY + network):
     See Checkpoint 3/README.md → “Reproduction mode B”

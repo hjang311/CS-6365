@@ -23,7 +23,7 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 FRAME_PATH = os.path.join(HERE, "data", "cp3_modeling_frame.csv")
 
 CONTROLS = "log_total_revenue + C(ntee_major) + C(region) + poverty_rate + median_hh_income"

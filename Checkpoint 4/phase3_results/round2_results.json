@@ -2,12 +2,12 @@
   "provenance": {
     "built_by": "Phase3_MultiAgent",
     "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
-    "generated_at": "2026-07-29 07:23:05 UTC",
+    "generated_at": "2026-07-29 09:10:56 UTC",
     "frame": "Checkpoint 4/data/cp4_atlanta_food_assistance_xsection.csv",
     "frame_shape": "583 rows x 33 cols"
   },
   "proposals_path": "Checkpoint 4/phase3_results/proposals_round2.json",
-  "proposals_mtime": 1785309785.6816401,
+  "proposals_mtime": 1785316256.1702845,
   "round": 2,
   "gate": {
     "alpha": 0.05,

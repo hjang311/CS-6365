@@ -49,15 +49,15 @@ The hypothesis is **rejected**. The data reveals a highly statistically signific
 
 ## Phase 1 Execution and Phase 2 Replay
 
-1. `02_merge_pipeline.py` counts the selected social-service NTEE categories,
+1. `pipeline/02_merge_pipeline.py` counts the selected social-service NTEE categories,
    normalizes them by ACS population, and builds `cp3_modeling_frame.csv`.
 2. The same script applies the fixed financial and geographic cleaning recipe.
-3. `06_run_h4_h5_split.py` runs the manually specified H5 model for the full,
+3. `pipeline/06_run_h4_h5_split.py` runs the manually specified H5 model for the full,
    mid-sized, and large samples.
 4. `08_unrolled_loop.py` replays H5 as a pre-registered List A item and checks
    that its full-sample coefficient matches this accepted reference.
 
-The earlier `07_deterministic_loop.py` combinatorial/LLM experiment is retained
+The earlier `pipeline/07_deterministic_loop.py` combinatorial/LLM experiment is retained
 only as historical context; it is not the primary H5 workflow.
 
 ## Sample Size Note
@@ -69,7 +69,7 @@ Zillow coverage are only dropped when `log_zhvi_2022` enters the model.
 - `08_unrolled_loop.py` — Phase 2 pre-registered loop; List A row `H5` asserts this baseline β. Note: `08`'s validation PASS means the β was **reproduced**; the hypothesis itself is rejected (positive sign) as documented above.
 - `loop_results_v2/validation_check.md` — H4/H5 β reproduction check.
 - `loop_results_v2/list_a_results.md` — theory outcome per hypothesis.
-- `06_run_h4_h5_split.py` — regenerates the size-split tables above (`H5/H5_results.md`).
+- `pipeline/06_run_h4_h5_split.py` — regenerates the size-split tables above (`H5/H5_results.md`).
 
 ## Artifacts (historical — first loop iteration)
-- `07_deterministic_loop.py` and `loop_results/` — the original 215-pair combinatorial batch. Superseded by `08`; kept for provenance.
+- `pipeline/07_deterministic_loop.py` and `loop_results/` — the original 215-pair combinatorial batch. Superseded by `08`; kept for provenance.

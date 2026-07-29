@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DATA = os.path.join(HERE, "data")
 OUTPUT_DIR = os.path.join(HERE, "loop_results")
 os.makedirs(OUTPUT_DIR, exist_ok=True)

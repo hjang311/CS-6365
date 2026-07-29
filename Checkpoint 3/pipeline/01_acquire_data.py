@@ -14,7 +14,8 @@ import os
 import ssl
 import pandas as pd
 
-DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+HERE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DATA = os.path.join(HERE, "data")
 os.makedirs(DATA, exist_ok=True)
 
 REV_FILTER = 500_000  # Enterprise-level nonprofits only

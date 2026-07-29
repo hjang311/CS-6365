@@ -39,12 +39,12 @@ Checkpoint 3 extends the federal data spine rather than replacing it:
 | FDIC BankFind | ZIP | H2 bank-branch density replay |
 | Zillow ZHVI, December 2022 | ZIP | H4 local housing-cost proxy |
 
-[`01_acquire_data.py`](01_acquire_data.py) performs the CP3-specific acquisition
+[`../pipeline/01_acquire_data.py`](../pipeline/01_acquire_data.py) performs the CP3-specific acquisition
 step: it subsets the existing NCCS files and downloads the exact Zillow
 `2022-12-31` snapshot. A missing or changed snapshot is a hard failure because
 silently substituting another date would change H4.
 
-[`02_merge_pipeline.py`](02_merge_pipeline.py) then:
+[`../pipeline/02_merge_pipeline.py`](../pipeline/02_merge_pipeline.py) then:
 
 - joins NCCS to IRS BMF by EIN;
 - joins ACS, FDIC, and Zillow by five-digit ZIP;
@@ -111,7 +111,7 @@ DV ~ IV
 
 OLS uses HC1 robust standard errors. The same formula is run for the full,
 mid-sized (`$500K–$2M`), and large (`≥$2M`) samples by
-[`06_run_h4_h5_split.py`](06_run_h4_h5_split.py).
+[`../pipeline/06_run_h4_h5_split.py`](../pipeline/06_run_h4_h5_split.py).
 
 ## 5. Manual hypotheses
 

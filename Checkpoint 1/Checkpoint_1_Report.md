@@ -1,60 +1,72 @@
-# Georgia Institute of Technology
-## CS 4365/6365: Introduction to Enterprise Computing
-### Summer 2026
-**Project Checkpoint 1 Report**
+# Checkpoint 1 Report — Executive Summary
 
-**Group:** 1  
-**Name(s):** HDJ, Carla  
-**Project Name:** NORP Agentic Data Exploration Pipeline  
+## 1. Domain & Core Research Question (RQ1)
+
+* **Core Research Question (RQ1)**: Does community broadband access rate significantly impact nonprofit fundraising efficiency? Specifically, does a nonprofit organization operating within a digitally disconnected or low-internet community suffer from measurably worse fundraising returns (manifested as a higher fundraising cost ratio)?
+* **Domain Focus**: Sociological and socioeconomic analysis of U.S. nonprofit operational performance by joining external infrastructure metrics—Census ACS broadband coverage (Table B28002)—with tax-exempt financial disclosures from IRS Form 990 filings (Part IX functional expenses) and the National Center for Charitable Statistics (NCCS) CORE dataset.
 
 ---
 
-## Context and Related Work: Project Plan (Plan)
-The project aims to build an Agentic Data Exploration Layer utilizing the Google Antigravity SDK. The primary goal is to use an autonomous 3-agent pipeline (Orchestrator, Code Agent, Validator/Critic) to discover insightful sociological correlations between external socioeconomic indicators and non-profit performance. Our starting point involved migrating from a legacy portal architecture to a fully agentic framework, utilizing the *Health of the U.S. Nonprofit Sector 2025* report as our baseline "Gold Standard" to mathematically validate the pipeline's logic against a Form 990 dataset.
+## 2. Key Hypotheses & Methodology
 
-## Project Deliverables
+### Hypotheses
+* **Primary Hypothesis (H1 — Broadband Access vs. Fundraising Efficiency)**: Nonprofits located in ZIP Code Tabulation Areas (ZCTAs) with lower household broadband subscription rates experience lower fundraising efficiency (i.e., higher fundraising costs relative to total contributions collected).
+* **Secondary / Scale Hypothesis**: Explores how financial technology adoption impacts small vs. enterprise-level nonprofits, addressing structural differences in how volunteer labor vs. paid fundraising operations record costs.
 
-| Deliverable | Description | Technical Stack |
-| :--- | :--- | :--- |
-| **3-Agent Pipeline Codebase** | The Python scripts and declarative Markdown skills defining the Orchestrator, Code, and Validator agents. | Python, Google Antigravity SDK, `.agent/skills/` |
-| **Cleaned Datasets & Scripts** | The `#Factual` evidence including the cleaned sub-schemes, applied survey weights, and auto-generated REPL `.py` scripts. | Pandas, Scipy, PyArrow |
-| **Final Presentation** | A PowerPoint slide deck synthesizing the pipeline's autonomous discoveries. | PowerPoint |
+### Data Sources & Joining Logic
+1. **IRS Business Master File (BMF)**: Georgia nonprofit roster.
+2. **Census ACS API (Table B28002)**: Household broadband subscription percentages at the ZCTA level.
+3. **NCCS CORE 2022**: Form 990 financial extracts (Total Revenue, Contributions, Fundraising Expenses, NTEE codes).
+4. **Crosswalk Matching**: HUD ZIP-to-ZCTA crosswalk achieving a **99.5% row match rate**.
 
-## Project Milestones
+### Sample Characteristics & Data Filtering
+* **Initial Joined Dataset**: 11,028 Georgia nonprofit records.
+* **Final Analysis Sample ($N$)**: **457 organizations** after listwise deletion of records with zero/negative contributions, zero/negative total revenue, or missing/invalid community household counts.
+* **Winsorization**: To prevent extreme outliers from skewing OLS estimates, the fundraising cost ratio ($\text{Expenses} / \text{Contributions}$) was winsorized at the 1st (`0.0000`) and 99th (`4.3375`) percentiles.
 
-| Checkpoint | Milestone | Technical Scope & Deliverables | Work Splitup | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **Checkpoint 1** | Baseline Exploration & "Gold Standard" Validation | Build Hybrid Skills framework. Run targeted correlation test (e.g. Health Benefits vs Impact). Ensure mathematical reproducibility. | HDJ & Carla | **Complete** |
-| **Checkpoint 2** | Fully Autonomous Discovery Execution | Upgrade to Autonomous EDA. Agents autonomously scan all columns and output top 5 correlations using p-values. | HDJ & Carla | In Progress |
-| **Checkpoint 3** | External Data Integration | Source novel socioeconomic datasets (Kaggle/Data.gov). Merge with 990 anchor. Pipeline autonomously critiques and finds novel insights. | HDJ & Carla | Not Started |
-| **Checkpoint 4** | Synthesis, Presentation & Final Deliverables | Compile `#Factual` evidence. Finalize PowerPoint presentation on methodology and sociological findings. | HDJ & Carla | Not Started |
+### OLS Regression Specification & Control Framework
+$$\text{Cost\_Ratio}_i = \beta_0 + \beta_1 (\text{Broadband\_Rate}_i) + \beta_2 (\log(\text{Total\_Revenue}_i)) + \sum \gamma_k (\text{NTEE\_Dummy}_{i,k}) + \varepsilon_i$$
 
-## Current Progress Report (Match)
-* **Report on work done:** During the last two weeks, we successfully re-architected the project into a 3-agent system (Orchestrator, Code, Validator) utilizing a Hybrid Skills Model to save API costs. We successfully executed Phase 1 by running a targeted test against the `YEAR-04-DATA-PUF.csv` dataset. The pipeline reproduced the 76.4% Likert finding from the 2025 Independent Sector report.
-* **Comparison with initial plan:** We are ahead of schedule. We successfully achieved the Gold Standard validation. During this phase, we also resolved a mathematical reproducibility bug regarding survey weights (`year4wt`) and hardcoded the fix into the agents' instructions.
-* **Planned work for next 2 weeks:** For Checkpoint 2, we will deploy the `autonomous_test_prompt.md`. This drops the "leash" and allows the agents to run a massive, generalized correlation matrix across all numerical columns without human intervention, returning only statistically significant findings ($p < 0.05$).
-* **Changes to original plan:** Based on TA and Professor feedback, the pipeline itself is the primary novelty. We shifted to a "Targeted Approach" for Phase 1 to prove the tech works, and explicitly defined Phase 2 and 3 as the search for *new* external data (the "real project") rather than just cleaning the existing Metabase.
+* **Dependent Variable ($Y$)**: Winsorized Fundraising Cost Ratio ($\text{Fundraising Expenses} / \text{Contributions}$).
+* **Key Independent Variable ($X_1$)**: Community Broadband Subscription Rate (%).
+* **Controls**: $\log(\text{Total Revenue})$ to control for organizational size and financial scale, plus **NTEE Category Dummies** for sector-specific cost structures.
 
-## Supporting Evidence (Factual)
-*   **Pipeline Iteration Report:** Detailed breakdown of the test run, mathematical findings, and bug fixes: `Pipeline_Iteration_Report_Phase_1_to_2.md`
-*   **Agent Skills Framework:** The declarative instructions for the 3 agents: `.agent/skills/`
-*   **Autonomous Test Prompt:** The newly generated execution file for Ckpt 2: `agentic_pipeline/autonomous_test_prompt.md`
-*   **Pipeline Codebase:** The Python SDK execution loop: `agentic_pipeline/agents.py` & `main.py`
+---
 
-## Skill Learning Report
-*   **Google Antigravity SDK & Agent Architecture:** Learned how to decouple LLM reasoning from execution by building a 3-agent (Manager, Executor, Critic) structure using the Antigravity local sandbox environment.
-*   **Python (Pandas/Scipy):** Implementing statistical programmatic validation and enforcing the application of survey weights (`year4wt`) to ensure data accuracy.
-*   **Prompt Engineering:** Evolving from manual, targeted LLM prompts to "Autonomous Discovery" instructions where the agent initiates its own "Sweep-and-Propose" loop.
+## 3. Key Findings & Statistical Results
 
-## Self-Evaluation
-*   **Plan:** 5/5
-*   **Match:** 5/5
-*   **Factual:** 5/5
+### Correlation Analysis
+| Test Type | Coefficient ($\beta$ / $\rho$) | p-value | Significance ($p < 0.05$) |
+| :--- | :---: | :---: | :---: |
+| **Pearson Correlation ($r$)** | `+0.0650` | `0.1656` | Not Significant |
+| **Spearman Correlation ($\rho$)** | `-0.0273` | `0.5598` | Not Significant |
 
-## LLM Feedback: 
-*   **Project Plan (Plan):** 5/5 (The hybrid plan securely anchors the project's academic goals).
-*   **Progress Report (Match):** 5/5 (Achieving Gold Standard validation and catching the survey weight bug proves technical competence).
-*   **Supporting Evidence (Factual):** 5/5 (The GitHub repo cleanly separates the legacy code from the new agentic framework).
+### OLS Regression Parameter Estimates ($N = 457$)
+| Variable | Coefficient ($\beta$) | Std. Error | t-statistic | p-value | Conclusion |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Intercept ($\text{const}$)** | `-0.0433` | `0.457` | `-0.095` | `0.925` | Not Significant |
+| **Broadband Subscription Rate** | `+0.3678` | `0.407` | `+0.904` | `0.367` | **Null Result** ($p > 0.05$) |
+| **Log Total Revenue** | `-0.0016` | `0.020` | `-0.080` | `0.936` | Not Significant |
 
-## Actionable Suggestions:
-*   Ensure that the external datasets sourced for Checkpoint 3 have clear primary keys (e.g., ZIP codes, EINs) that can be easily merged with the Form 990 anchor data by the Code Agent.
+### Model Fit Summary
+* **$R^2$**: `0.0432` (Model explains ~4.3% of variance in fundraising cost ratios).
+* **Adjusted $R^2$**: `-0.0076` (Additional features do not improve fit beyond random chance).
+
+### Null Result & Sociological Interpretation
+* **Confirmed Null Result**: With $p = 0.367$, there is no statistically significant linear relationship between local community broadband coverage and nonprofit fundraising efficiency.
+* **Sociological Insights**:
+  1. **Geographic Uncoupling**: Modern nonprofit fundraising is non-local. Donors, foundation grants, and corporate sponsorships are solicited regionally or nationally rather than strictly from the nonprofit's immediate ZIP code.
+  2. **Infrastructure Access**: Local residential broadband metrics do not restrict an organization's commercial internet access or digital operations.
+  3. **Operational Heterogeneity**: Small community nonprofits often rely on uncompensated volunteer labor (resulting in zero reported fundraising expense), while enterprise nonprofits deploy dedicated paid staff.
+
+---
+
+## 4. Pedagogical & Curriculum Role
+
+* **Initial Pipeline Iteration**: Served as the exploratory stage for agentic data collection using early Google Antigravity SDK patterns.
+* **Architecture Evolution**: Pivoted from an unconstrained, fully autonomous LLM discovery concept to a robust **deterministic 4-stage programmatic engine**:
+  1. `01_acquire_data.py`: Automated retrieval from IRS BMF, Census Broadband API, and NCCS CORE.
+  2. `02_merge_pipeline.py`: ZIP-to-ZCTA crosswalk joining (99.5% match rate) and data cleaning.
+  3. `03_analysis.py`: OLS regression engine with logarithmic scale controls and NTEE category dummies.
+  4. `04_validator.py`: Programmatic data contract enforcer and statistical soundness checker.
+* **Lessons Learned**: Null results provide critical scientific direction. The need for a national, multi-state scope led directly to the nationwide ZIP-level NCCS CORE frame established in Checkpoint 2.

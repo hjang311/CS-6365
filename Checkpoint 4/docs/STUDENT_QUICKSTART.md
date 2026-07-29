@@ -44,11 +44,11 @@ cp "Checkpoint 2/H2_Pipeline/data/irs_bmf.csv" "Checkpoint 3/data/"
 cp "Checkpoint 2/H2_Pipeline/data/census_acs_by_zip.csv" "Checkpoint 3/data/"
 cp "Checkpoint 2/H2_Pipeline/data/fdic_branches_by_zip.csv" "Checkpoint 3/data/"
 
-.venv/bin/python "Checkpoint 3/01_acquire_data.py"   # core subset + Zillow ZHVI
-.venv/bin/python "Checkpoint 3/02_merge_pipeline.py" # → builds cp3_modeling_frame.csv
+.venv/bin/python "Checkpoint 3/pipeline/01_acquire_data.py"   # core subset + Zillow ZHVI
+.venv/bin/python "Checkpoint 3/pipeline/02_merge_pipeline.py" # → builds cp3_modeling_frame.csv
 
 # 1. Validate data contracts on new frame
-.venv/bin/python "Checkpoint 3/04_validate_frame.py"
+.venv/bin/python "Checkpoint 3/pipeline/04_validate_frame.py"
 
 # 2. Reproduce Phase 2 Unrolled Loop (List A & List B hypotheses)
 .venv/bin/python "Checkpoint 3/08_unrolled_loop.py" --run

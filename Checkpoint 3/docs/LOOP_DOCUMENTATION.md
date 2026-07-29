@@ -96,13 +96,13 @@ To balance speed and academic rigor, a **two-tier prior art approach** is utiliz
 ## 6. How to Extend: Adding New Variables
 
 To add new variables to the modeling loop:
-1.  Add the new raw data files or columns to `Checkpoint 3/01_acquire_data.py` and `Checkpoint 3/02_merge_pipeline.py`.
-2.  Add the column names to the testable variables pool in `Checkpoint 3/07_deterministic_loop.py`.
-3.  If the new variables are closely related to existing ones (e.g. log transforms or winsorized variants), add them to a group in `REDUNDANCY_GROUPS` in `07_deterministic_loop.py` to prevent redundant loop pairs.
+1.  Add the new raw data files or columns to `Checkpoint 3/pipeline/01_acquire_data.py` and `Checkpoint 3/pipeline/02_merge_pipeline.py`.
+2.  Add the column names to the testable variables pool in `Checkpoint 3/pipeline/07_deterministic_loop.py`.
+3.  If the new variables are closely related to existing ones (e.g. log transforms or winsorized variants), add them to a group in `REDUNDANCY_GROUPS` in `pipeline/07_deterministic_loop.py` to prevent redundant loop pairs.
 4.  Re-run the pipeline from Step 2:
     ```bash
-    python "Checkpoint 3/02_merge_pipeline.py"
-    python "Checkpoint 3/07_deterministic_loop.py" --batch
+    python "Checkpoint 3/pipeline/02_merge_pipeline.py"
+    python "Checkpoint 3/pipeline/07_deterministic_loop.py" --batch
     ```
     For Phase 2 unrolled execution (preferred for new work), also update `LIST_A` / `build_list_b()` in `08_unrolled_loop.py` and run:
     ```bash

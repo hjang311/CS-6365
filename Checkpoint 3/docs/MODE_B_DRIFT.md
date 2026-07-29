@@ -43,8 +43,8 @@ changing the OLS formula or inventing statistics in the LLM.
 
 ## How a third party should re-verify
 
-1. Follow `Checkpoint 3/TEST_EXECUTION_PLAN.md` Mode B path
-   (`01_acquire_data.py` → `02_merge_pipeline.py` → `04_validate_frame.py`).
+1. Follow `Checkpoint 3/docs/TEST_EXECUTION_PLAN.md` Mode B path
+   (`pipeline/01_acquire_data.py` → `pipeline/02_merge_pipeline.py` → `pipeline/04_validate_frame.py`).
 2. Run `08_unrolled_loop.py --validate` (or Checkpoint 4
    `09_phase3_agentic_loop.py --validate`) and compare |Δβ| to 1e−3 for H4/H5.
 3. Expect small drift if live sources moved; treat PASS/FAIL of the **recipe**
@@ -60,6 +60,5 @@ changing the OLS formula or inventing statistics in the LLM.
 
 ## Related
 
-- `Checkpoint 3/self_evaluation_rewrite.txt` — Match/Factual scoring notes
 - `Checkpoint 3/loop_results_v2/validation_check.md` — H4/H5 reproduction
-- `Checkpoint 3/04_validate_frame.py` — data-contract validator
+- `Checkpoint 3/pipeline/04_validate_frame.py` — data-contract validator

@@ -779,7 +779,7 @@ def load_frame(frame_path: str) -> pd.DataFrame:
     if not os.path.exists(frame_path):
         raise SystemExit(
             f"Missing modeling frame: {frame_path}\n"
-            "Run `Checkpoint 3/02_merge_pipeline.py` first (see Checkpoint 3/README.md)."
+            "Run `Checkpoint 3/pipeline/02_merge_pipeline.py` first (see Checkpoint 3/README.md)."
         )
     df = pd.read_csv(frame_path, low_memory=False)
     missing = [c for c in REQUIRED_COLUMNS if c not in df.columns]
@@ -787,7 +787,7 @@ def load_frame(frame_path: str) -> pd.DataFrame:
         raise SystemExit(
             f"Modeling frame is missing required columns: {missing}\n"
             "The frame likely predates the current merge recipe — re-run "
-            "`Checkpoint 3/02_merge_pipeline.py` to regenerate it."
+            "`Checkpoint 3/pipeline/02_merge_pipeline.py` to regenerate it."
         )
     return df
 

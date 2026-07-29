@@ -18,7 +18,7 @@ Education-first **Manual → Unrolled → Rolled** NORP pipeline (CS 4365/6365 S
 | `Checkpoint 4/provenance/early_build/` | **Provenance only** — earlier build trail; not the student entrypoint |
 | `archive/` (local) | Local-only semester clutter — gitignored |
 | `Checkpoint 0/` | **Prior-semester case study only** — shows what earlier cohorts had to do. **Not** Phase 1 of this curriculum |
-| `Checkpoint 4/PRESENTATION_OUTLINE.md` | Team presentation workspace — **gitignored**; not a student deliverable |
+| `Checkpoint 4/docs/internal/PRESENTATION_OUTLINE.md` | Team presentation workspace — **gitignored**; not a student deliverable |
 | `agentic_pipeline/` | **Legacy** Antigravity SDK scaffolding — documented; not Phase 3 entry |
 
 ## Hybrid IDE orchestration

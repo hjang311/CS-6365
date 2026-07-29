@@ -2,12 +2,12 @@
   "provenance": {
     "built_by": "Phase3_MultiAgent",
     "script": "09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)",
-    "generated_at": "2026-07-29 07:22:42 UTC",
+    "generated_at": "2026-07-29 09:10:32 UTC",
     "frame": "Checkpoint 3/data/cp3_modeling_frame.csv",
     "frame_shape": "158,323 rows x 30 cols"
   },
   "proposals_path": "Checkpoint 4/phase3_results/ta_verify/proposals_ta_verify.json",
-  "proposals_mtime": 1785309762.0544262,
+  "proposals_mtime": 1785316232.072743,
   "round": 99,
   "gate": {
     "alpha": 0.05,

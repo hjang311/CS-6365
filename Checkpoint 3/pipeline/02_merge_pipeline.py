@@ -16,7 +16,8 @@ import os
 import numpy as np
 import pandas as pd
 
-DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+HERE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DATA = os.path.join(HERE, "data")
 
 # Social Service NTEE Prefixes (Soup Kitchens, Food Banks, Homeless Shelters, etc.)
 SOCIAL_SERVICE_PREFIXES = ("K30", "K31", "K35", "L40", "L41", "P43")

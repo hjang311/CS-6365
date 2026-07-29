@@ -120,10 +120,10 @@ Keep `07` as history. Prefer `08` for Checkpoint 3 Phase 2 deliverables and repr
 
 | Phase 1 manual work | Where it lived | Phase 2 wrap |
 |---------------------|----------------|--------------|
-| H2 bank-branch density | `Checkpoint 2/H2_Pipeline/` | List A `H2_replay` (active after the FDIC merge in `02_merge_pipeline.py`; skips on pre-merge frames) |
-| H4 ZHVI housing cost | `Checkpoint 3/H4/` + `06_run_h4_h5_split.py` | List A `H4` + validation assert |
+| H2 bank-branch density | `Checkpoint 2/H2_Pipeline/` | List A `H2_replay` (active after the FDIC merge in `pipeline/02_merge_pipeline.py`; skips on pre-merge frames) |
+| H4 ZHVI housing cost | `Checkpoint 3/H4/` + `pipeline/06_run_h4_h5_split.py` | List A `H4` + validation assert |
 | H5 provider density | `Checkpoint 3/H5/` | List A `H5` + validation assert |
-| Acquire / merge (NCCS, BMF, Census, Zillow) | `01_acquire_data.py`, `02_merge_pipeline.py` | Shared modeling frame for the loop |
+| Acquire / merge (NCCS, BMF, Census, Zillow) | `pipeline/01_acquire_data.py`, `pipeline/02_merge_pipeline.py` | Shared modeling frame for the loop |
 
 ---
 

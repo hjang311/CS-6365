@@ -170,16 +170,18 @@ Checkpoint 0/prior_cohort_norp/
 venv_*/
 
 # Team final-presentation / audit workspace (partners only; not student curriculum)
-Checkpoint 4/PRESENTATION_OUTLINE.md
-Checkpoint 4/PRESENTATION_BRIEF_CLAUDE.md
-Checkpoint 4/REPO_AUDIT_BRIEF_CLAUDE.md
+Checkpoint 4/docs/internal/PRESENTATION_OUTLINE.md
+Checkpoint 4/docs/internal/PRESENTATION_BRIEF_CLAUDE.md
+Checkpoint 4/docs/internal/REPO_AUDIT_BRIEF_CLAUDE.md
 Checkpoint 4/presentation/
 presentation/
 NORP_Presentation_Final.pptx
 NORP_Presentation_Final.pdf
 
-# Local final-report Word working copy (OneDrive original is historical; not for GitHub)
+# Local final-report Word working copy & draft writeups (OneDrive original is historical; not for GitHub)
 Checkpoint 4/report/
+Checkpoint 3/docs/Checkpoint_3_Report_DRAFT.md
+Checkpoint 3/docs/self_evaluation_rewrite.txt
 
 # Personal OH notes / planning — LOCAL ONLY, never push
 Project Research & Initial Plan/

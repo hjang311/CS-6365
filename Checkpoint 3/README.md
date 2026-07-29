@@ -10,18 +10,18 @@ Single index for the Checkpoint 3 deliverable: what each script does, how the da
 | **2 — Unrolled loop** | Explicit pre-registered hypothesis list executed by deterministic Python OLS. The LLM never picks the next test | Done | `08_unrolled_loop.py`, `loop_results_v2/`, `PHASE2_UNROLLED_LOOP.md` |
 | **3 — Agentic loop** | Agent evaluates results, proposes new indicators, pursues finer-granularity data (e.g. soup-kitchen density) | **Done in Checkpoint 4** | [`Checkpoint 4/`](../Checkpoint%204/) (`09_phase3_agentic_loop.py`, `reproduce.sh`) |
 
-## Script map
+## Studio layout & script map
 
-| Script | Phase | Role | Interactive? |
-|--------|-------|------|--------------|
-| `00_dataset_discovery_agent.py` | pre-1 | LLM librarian prompt for dataset ideation | Yes (stdin) |
-| `01_acquire_data.py` | 1 | Subset NCCS core files; download Zillow ZHVI | No (network for Zillow) |
-| `02_merge_pipeline.py` | 1 | Build `data/cp3_modeling_frame.csv` (BMF, ACS, density, ZHVI, FDIC) | No |
-| `03_hitl_hypothesis_engine.py` | prototype | Single-hypothesis HITL runner (predates phase model) | Yes (stdin) |
-| `04_validate_frame.py` | 1 | Data contracts on the modeling frame (exit 0/1) | No |
-| `06_run_h4_h5_split.py` | 1 | H4/H5 formal tables with mid/large size splits | No |
-| `07_deterministic_loop.py` | historical | 215-pair combinatorial batch with per-hit agent prompts. **Superseded by 08** — keep for provenance; do not present as the Phase 2 entry | Yes (stdin) |
-| `08_unrolled_loop.py` | 2 | Unrolled loop: List A (curated hypotheses) + List B (pre-registered two-variable limitation harness) | No |
+| Entry / Script | Location / Subfolder | Phase | Role | Interactive? |
+|----------------|----------------------|-------|------|--------------|
+| `08_unrolled_loop.py` | `Checkpoint 3/` (Root) | **2 (Main Entry)** | Unrolled loop: List A (curated hypotheses) + List B (pre-registered limitation harness) | No |
+| `00_dataset_discovery_agent.py` | `pipeline/` (wrapper in root) | pre-1 | LLM librarian prompt for dataset ideation | Yes (stdin) |
+| `01_acquire_data.py` | `pipeline/` (wrapper in root) | 1 | Subset NCCS core files; download Zillow ZHVI | No (network) |
+| `02_merge_pipeline.py` | `pipeline/` (wrapper in root) | 1 | Build `data/cp3_modeling_frame.csv` (BMF, ACS, density, ZHVI, FDIC) | No |
+| `03_hitl_hypothesis_engine.py` | `pipeline/` (wrapper in root) | prototype | Single-hypothesis HITL runner (predates phase model) | Yes (stdin) |
+| `04_validate_frame.py` | `pipeline/` (wrapper in root) | 1 | Data contracts on the modeling frame (exit 0/1) | No |
+| `06_run_h4_h5_split.py` | `pipeline/` (wrapper in root) | 1 | H4/H5 formal tables with mid/large size splits | No |
+| `07_deterministic_loop.py` | `pipeline/` (wrapper in root) | historical | 215-pair combinatorial batch with per-hit agent prompts. **Superseded by 08** | Yes (stdin) |
 
 There is no `05` — CP2's validator role is filled by `04_validate_frame.py` here.
 
@@ -31,18 +31,18 @@ There is no `05` — CP2's validator role is filled by `04_validate_frame.py` he
 
 For the shortest path through the project argument:
 
-1. [`PHASE1_MANUAL_PIPELINE.md`](PHASE1_MANUAL_PIPELINE.md) — acquisition,
+1. [`docs/PHASE1_MANUAL_PIPELINE.md`](docs/PHASE1_MANUAL_PIPELINE.md) — acquisition,
    merging, human-designed specialization/cleaning, and manual H2/H4/H5 tests.
 2. [`H4/H4_VERIFICATION_RUN.md`](H4/H4_VERIFICATION_RUN.md) and
    [`H5/H5_VERIFICATION_RUN.md`](H5/H5_VERIFICATION_RUN.md) — substantive
    findings (including H5's rejected direction).
-3. [`PHASE2_UNROLLED_LOOP.md`](PHASE2_UNROLLED_LOOP.md) — how the repeated
+3. [`docs/PHASE2_UNROLLED_LOOP.md`](docs/PHASE2_UNROLLED_LOOP.md) — how the repeated
    manual sequence became a fixed-list deterministic loop.
 4. [`loop_results_v2/two_variable_limitation.md`](loop_results_v2/two_variable_limitation.md)
    — why statistical significance in this frame is not a finished research
    result and what Phase 3 must add.
 
-`07_deterministic_loop.py`, `LOOP_DOCUMENTATION.md`, and `loop_results/` are
+`07_deterministic_loop.py`, `docs/LOOP_DOCUMENTATION.md`, and `loop_results/` are
 historical implementation context, not part of the main presentation path.
 
 ## Reproduction mode A — data handoff (CSV inputs already present)
@@ -54,9 +54,9 @@ The `data/` directory (~470 MB) is **gitignored** — a fresh clone has no CSVs.
 python3 -m venv .venv
 .venv/bin/python -m pip install -r "Checkpoint 3/requirements.txt"
 
-.venv/bin/python "Checkpoint 3/02_merge_pipeline.py"        # rebuild modeling frame
-.venv/bin/python "Checkpoint 3/04_validate_frame.py"        # data contracts (exit 0 = pass)
-.venv/bin/python "Checkpoint 3/06_run_h4_h5_split.py"       # H4/H5 formal tables
+.venv/bin/python "Checkpoint 3/pipeline/02_merge_pipeline.py"        # rebuild modeling frame
+.venv/bin/python "Checkpoint 3/pipeline/04_validate_frame.py"        # data contracts (exit 0 = pass)
+.venv/bin/python "Checkpoint 3/pipeline/06_run_h4_h5_split.py"       # H4/H5 formal tables
 .venv/bin/python "Checkpoint 3/08_unrolled_loop.py" --validate
 .venv/bin/python "Checkpoint 3/08_unrolled_loop.py" --run
 ```
@@ -67,7 +67,7 @@ This mode proves deterministic reconstruction from handed-off source CSVs. It do
 
 ## Reproduction mode B — fresh clone (no CSV inputs)
 
-Mode B is a **separate** live reacquisition path from the handoff-frame PASS checks above. Drift vs the committed frame is documented in [`MODE_B_DRIFT.md`](MODE_B_DRIFT.md) (contract pass rate and β deltas).
+Mode B is a **separate** live reacquisition path from the handoff-frame PASS checks above. Drift vs the committed frame is documented in [`docs/MODE_B_DRIFT.md`](docs/MODE_B_DRIFT.md) (contract pass rate and β deltas).
 
 > [!TIP]
 > For the complete, step-by-step canonical student guide for Mode B data build and execution, see [`Checkpoint 4/docs/STUDENT_QUICKSTART.md`](../Checkpoint%204/docs/STUDENT_QUICKSTART.md).
@@ -100,11 +100,11 @@ cp "Checkpoint 2/H2_Pipeline/data/fdic_branches_by_zip.csv" "Checkpoint 3/data/"
 4. **Run the CP3 pipeline** (adds the exact December 2022 Zillow snapshot and builds the frame):
 
 ```bash
-.venv/bin/python "Checkpoint 3/01_acquire_data.py"   # core subset + Zillow ZHVI download
-.venv/bin/python "Checkpoint 3/02_merge_pipeline.py"
+.venv/bin/python "Checkpoint 3/pipeline/01_acquire_data.py"   # core subset + Zillow ZHVI download
+.venv/bin/python "Checkpoint 3/pipeline/02_merge_pipeline.py"
 ```
 
-Then continue with validation and analysis commands from mode A, starting at `04_validate_frame.py`.
+Then continue with validation and analysis commands from mode A, starting at `pipeline/04_validate_frame.py`.
 
 ## Data inventory (`data/`, gitignored)
 
@@ -126,16 +126,17 @@ Then continue with validation and analysis commands from mode A, starting at `04
 - **Cleaning:** contributions/spend > 0, spend ≥ $5K, efficiency ≤ 1,000, ZIP population ≥ 1,000, revenue ≥ $500K.
 - **H4:** `log_zhvi_2022` → efficiency (negative, confirmed). **H5:** `log_nonprofit_branch_density` → efficiency (expected negative, observed **positive** — theory rejected). Note H4 n (116,587) < H5 n (117,510) because ~12K rows lack ZHVI and are listwise-deleted.
 
-## Documentation
+## Teaching & Documentation (`docs/`)
 
-- `PHASE1_MANUAL_PIPELINE.md` — Phase 1 acquisition, merge, cleaning, and manual-hypothesis narrative
-- `PHASE2_UNROLLED_LOOP.md` — Phase 2 student guide (unrolled-loop metaphor, List A vs B)
-- `LOOP_DOCUMENTATION.md` — historical guide for `07`
-- `H4/H4_VERIFICATION_RUN.md`, `H5/H5_VERIFICATION_RUN.md` — formal hypothesis write-ups
-- `RQ2/RQ2_VERIFICATION_RUN.md` — standalone RQ2 verification carry-forward
-- `MODE_B_DRIFT.md` — Mode B vs handoff-frame drift note
-- `TEST_EXECUTION_PLAN.md` — ordered test/ship checklist with acceptance criteria
+- [`docs/PHASE1_MANUAL_PIPELINE.md`](docs/PHASE1_MANUAL_PIPELINE.md) — Phase 1 acquisition, merge, cleaning, and manual-hypothesis narrative
+- [`docs/PHASE2_UNROLLED_LOOP.md`](docs/PHASE2_UNROLLED_LOOP.md) — Phase 2 student guide (unrolled-loop metaphor, List A vs B)
+- [`docs/LOOP_DOCUMENTATION.md`](docs/LOOP_DOCUMENTATION.md) — historical guide for `07`
+- [`H4/H4_VERIFICATION_RUN.md`](H4/H4_VERIFICATION_RUN.md), [`H5/H5_VERIFICATION_RUN.md`](H5/H5_VERIFICATION_RUN.md) — formal hypothesis write-ups
+- [`RQ2/RQ2_VERIFICATION_RUN.md`](RQ2/RQ2_VERIFICATION_RUN.md) — standalone RQ2 verification carry-forward
+- [`docs/MODE_B_DRIFT.md`](docs/MODE_B_DRIFT.md) — Mode B vs handoff-frame drift note
+- [`docs/TEST_EXECUTION_PLAN.md`](docs/TEST_EXECUTION_PLAN.md) — ordered test/ship checklist with acceptance criteria
 
 **Phase 3 (rolled)** lives in [`Checkpoint 4/`](../Checkpoint%204/) — start with [`docs/STUDENT_QUICKSTART.md`](../Checkpoint%204/docs/STUDENT_QUICKSTART.md) / `reproduce.sh` / [`docs/STRUCTURE.md`](../Checkpoint%204/docs/STRUCTURE.md).
 
-The write-up [`Checkpoint_3_Report_DRAFT.md`](Checkpoint_3_Report_DRAFT.md) retains a DRAFT filename for historical continuity; treat it as the Checkpoint 3 narrative alongside the phase docs above.
+The executive report [`docs/Checkpoint_3_Report.md`](docs/Checkpoint_3_Report.md) provides the Checkpoint 3 summary alongside the phase docs above.
+
