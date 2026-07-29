@@ -19,11 +19,11 @@
 ### Sample Selection & Financial Cleaning Rules
 * **Enterprise Threshold**: Total Revenue $\ge \$500,000$.
 * **Valid Filers**: Total Contributions $> 0$, Direct Spend $\ge \$5,000$.
-* **Winsorization**: Dependent variable ($\text{Fundraising Efficiency} = \text{Contributions} / \text{Direct Expenses}$) winsorized at the 99th percentile ($681.94$).
+* **Winsorization**: Dependent variable (`Fundraising Efficiency` = `Contributions` / `Direct Expenses`) winsorized at the 99th percentile ($681.94$).
 * **Sample Size**: **$N = 147,718$ organization-years** (Full national panel across 5 years).
 
 ### OLS Regression Specification
-$$\text{Efficiency\_w}_i = \beta_0 + \beta_1 (\log(\text{Bank\_Branch\_Density}_i)) + \beta_2 (\log(\text{Total\_Revenue}_i)) + \text{C(NTEE)} + \text{C(Region)} + \text{Poverty\_Rate} + \text{Median\_Income} + \varepsilon_i$$
+$$\text{Efficiency\textunderscore w}_i = \beta_0 + \beta_1 (\log(\text{Bank\textunderscore Branch\textunderscore Density}_i)) + \beta_2 (\log(\text{Total\textunderscore Revenue}_i)) + \text{C(NTEE)} + \text{C(Region)} + \text{Poverty\textunderscore Rate} + \text{Median\textunderscore Income} + \varepsilon_i$$
 
 * Model fits use **HC1 heteroskedasticity-robust standard errors**.
 
@@ -32,11 +32,11 @@ $$\text{Efficiency\_w}_i = \beta_0 + \beta_1 (\log(\text{Bank\_Branch\_Density}_
 ## 3. Key Findings & Statistical Results
 
 ### Primary OLS Regression Results ($N = 147,718$)
-| Model / Size Tier | Independent Variable ($\log(\text{Bank\_Branch\_Density})$ $\beta$) | 95% Confidence Interval | p-value | Significance |
+| Model / Size Tier | Independent Variable (`log(Bank_Branch_Density)`) $\beta$ | 95% Confidence Interval | p-value | Significance |
 | :--- | :---: | :---: | :---: | :---: |
 | **Model 1: Bivariate** | $-0.13412$ | $[-0.207, -0.061]$ | $0.00035$ | $p < 0.001$ |
 | **Model 2: Full Controls** | **$-0.11453$** | $[-0.186, -0.043]$ | **$0.00167$** | **Significant** ($p < 0.01$) |
-| **Mid-Sized ($\$500\text{K} - \$2\text{M}$)** | **$-0.08145$** | $[-0.123, -0.040]$ | $0.00013$ | Significant ($p < 0.001$) |
+| **Mid-Sized ($500K–$2M)** | **$-0.08145$** | $[-0.123, -0.040]$ | $0.00013$ | Significant ($p < 0.001$) |
 | **Large ($\ge \$2\text{M}$)** | **$-0.15211$** | $[-0.257, -0.047]$ | $0.00470$ | Significant ($p < 0.01$) |
 
 ### Theoretical Interpretation

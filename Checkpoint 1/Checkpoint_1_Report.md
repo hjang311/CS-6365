@@ -22,14 +22,14 @@
 ### Sample Characteristics & Data Filtering
 * **Initial Joined Dataset**: 11,028 Georgia nonprofit records.
 * **Final Analysis Sample ($N$)**: **457 organizations** after listwise deletion of records with zero/negative contributions, zero/negative total revenue, or missing/invalid community household counts.
-* **Winsorization**: To prevent extreme outliers from skewing OLS estimates, the fundraising cost ratio ($\text{Expenses} / \text{Contributions}$) was winsorized at the 1st (`0.0000`) and 99th (`4.3375`) percentiles.
+* **Winsorization**: To prevent extreme outliers from skewing OLS estimates, the fundraising cost ratio (`Expenses` / `Contributions`) was winsorized at the 1st (`0.0000`) and 99th (`4.3375`) percentiles.
 
 ### OLS Regression Specification & Control Framework
-$$\text{Cost\_Ratio}_i = \beta_0 + \beta_1 (\text{Broadband\_Rate}_i) + \beta_2 (\log(\text{Total\_Revenue}_i)) + \sum \gamma_k (\text{NTEE\_Dummy}_{i,k}) + \varepsilon_i$$
+$$\text{Cost\textunderscore Ratio}_i = \beta_0 + \beta_1 (\text{Broadband\textunderscore Rate}_i) + \beta_2 (\log(\text{Total\textunderscore Revenue}_i)) + \sum \gamma_k (\text{NTEE\textunderscore Dummy}_{i,k}) + \varepsilon_i$$
 
-* **Dependent Variable ($Y$)**: Winsorized Fundraising Cost Ratio ($\text{Fundraising Expenses} / \text{Contributions}$).
+* **Dependent Variable ($Y$)**: Winsorized Fundraising Cost Ratio (`Fundraising Expenses` / `Contributions`).
 * **Key Independent Variable ($X_1$)**: Community Broadband Subscription Rate (%).
-* **Controls**: $\log(\text{Total Revenue})$ to control for organizational size and financial scale, plus **NTEE Category Dummies** for sector-specific cost structures.
+* **Controls**: `log(Total Revenue)` to control for organizational size and financial scale, plus **NTEE Category Dummies** for sector-specific cost structures.
 
 ---
 
@@ -44,7 +44,7 @@ $$\text{Cost\_Ratio}_i = \beta_0 + \beta_1 (\text{Broadband\_Rate}_i) + \beta_2 
 ### OLS Regression Parameter Estimates ($N = 457$)
 | Variable | Coefficient ($\beta$) | Std. Error | t-statistic | p-value | Conclusion |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Intercept ($\text{const}$)** | `-0.0433` | `0.457` | `-0.095` | `0.925` | Not Significant |
+| **Intercept (`const`)** | `-0.0433` | `0.457` | `-0.095` | `0.925` | Not Significant |
 | **Broadband Subscription Rate** | `+0.3678` | `0.407` | `+0.904` | `0.367` | **Null Result** ($p > 0.05$) |
 | **Log Total Revenue** | `-0.0016` | `0.020` | `-0.080` | `0.936` | Not Significant |
 

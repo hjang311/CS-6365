@@ -19,7 +19,7 @@ The project strictly adheres to the course's pedagogical **Manual $\rightarrow$ 
 +-----------------------------------------------------------------------------------+
 |  Phase 1: Manual Specialization                                                   |
 |  - Human domain selection of indicators (ZHVI, IRS BMF provider counts)          |
-|  - Automated data contract verification (04_validate_frame.py, 11 contracts)      |
+|  - Automated data contract verification (pipeline/04_validate_frame.py)          |
 |  - Hand-coded robust OLS models with size segmentation ($500K-$2M vs. ≥$2M)        |
 +-----------------------------------------------------------------------------------+
                                         |
@@ -42,7 +42,7 @@ The project strictly adheres to the course's pedagogical **Manual $\rightarrow$ 
 ### Key Technical Implementation Details:
 1. **Data Contract Validation (`pipeline/04_validate_frame.py`):** Enforces 11 automated schema, range, and integrity contracts on the national frame before statistical estimation. All 11 contracts pass on the committed handoff frame ($N = 158,323$).
 2. **Deterministic Pre-Registration:** Replaced early unconstrained combinatorial scanners with `08_unrolled_loop.py`. Hypotheses are defined in pre-registered JSON manifests before fitting OLS models.
-3. **Control & Model Specification:** All models apply robust OLS with HC1 standard errors, controlling for organizational scale ($\log(\text{total\_revenue})$), sector ($\text{C(ntee\_major)}$), region ($\text{C(region)}$), poverty rate, and median household income.
+3. **Control & Model Specification:** All models apply robust OLS with HC1 standard errors, controlling for organizational scale (`log(total_revenue)`), sector (`C(ntee_major)`), region (`C(region)`), poverty rate, and median household income.
 
 ---
 
@@ -50,9 +50,9 @@ The project strictly adheres to the course's pedagogical **Manual $\rightarrow$ 
 
 | Hypothesis | Independent Variable (IV) | Expected $\beta$ | Observed $\beta$ (Full Sample) | $p$-value | Full Model $R^2$ | Outcome / Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **RQ4 (H4)** | $\log(\text{ZHVI})$ | Negative | **$-7.916$** | $2.4 \times 10^{-22}$ | $0.177$ | **CONFIRMED** |
-| **RQ5 (H5)** | $\log(\text{provider\_density})$ | Negative | **$+2.120$** | $0.0024$ | $0.176$ | **REJECTED (Sign Flip)** |
-| **RQ2 (Replay)** | $\log(\text{bank\_branch\_density})$ | Negative | **$-0.116$** | $< 0.01$ | $0.176$ | **CONFIRMED** |
+| **RQ4 (H4)** | `log(ZHVI)` | Negative | **$-7.916$** | $2.4 \times 10^{-22}$ | $0.177$ | **CONFIRMED** |
+| **RQ5 (H5)** | `log(provider_density)` | Negative | **$+2.120$** | $0.0024$ | $0.176$ | **REJECTED (Sign Flip)** |
+| **RQ2 (Replay)** | `log(bank_branch_density)` | Negative | **$-0.116$** | $< 0.01$ | $0.176$ | **CONFIRMED** |
 
 ### Statistical Breakdown by Size Tier:
 
@@ -83,6 +83,6 @@ The Phase 2 List B experiments demonstrated that in large-sample observational f
 ### Architectural Shift in Phase 3
 Phase 3 transitions control of agenda proposal to an LLM agent while delegating statistical fitting to a deterministic verification engine:
 
-1.  **Higher-Order & Multi-Variable Specifications:** The agent is required to propose interaction terms (e.g., $\text{ZHVI} \times \text{provider\_density}$) and non-linear specifications rather than single IV additions.
+1.  **Higher-Order & Multi-Variable Specifications:** The agent is required to propose interaction terms (e.g. `ZHVI * provider_density`) and non-linear specifications rather than single IV additions.
 2.  **Finer Domain Granularity:** Shift from coarse county/NTEE counts to targeted indicators (e.g., licensed Feeding America / food pantry density).
 3.  **Strict Verification Gates:** Proposed hypotheses must pass automated pre-registration, HC1 OLS estimation, Wald F-tests ($p < 0.05$), and a minimum effect threshold ($\Delta R^2 \ge 5 \times 10^{-4}$) before acceptance. Null and gate-rejected findings remain first-class artifacts in the pipeline's decision log.
