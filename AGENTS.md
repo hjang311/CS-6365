@@ -39,7 +39,7 @@ Preferred live Phase 3 path (IDE-agnostic): **host agent as Orchestrator** → s
 - Unrolled List A/B engine (`08`) and `loop_results_v2/`
 - Rolled multi-agent loop + HC1 Wald F + ΔR² ≥ 5e-4 Verifier gate
 - Offline `reproduce.sh` demos (requires `Checkpoint 3/data/cp3_modeling_frame.csv`)
-- CP3 carry-forwards: `RQ2/RQ2_VERIFICATION_RUN.md`, `MODE_B_DRIFT.md`
+- CP3 carry-forwards: `RQ2/RQ2_VERIFICATION_RUN.md`, `Checkpoint 3/docs/MODE_B_DRIFT.md`
 
 ## Hard scientific rules
 
@@ -62,7 +62,7 @@ bash "Checkpoint 4/reproduce.sh"
   --out "Checkpoint 4/phase3_results/ta_verify"
 ```
 
-Prefer `reproduce.sh` first — it preflights the gitignored modeling frame and prints Mode A/B regenerate steps. Direct `09 --validate` / `--verify-ta-specs` / `--run` assume `Checkpoint 3/data/cp3_modeling_frame.csv` already exists (same cliff; see root README and `Checkpoint 3/MODE_B_DRIFT.md`).
+Prefer `reproduce.sh` first — it preflights the gitignored modeling frame and prints Mode A/B regenerate steps. Direct `09 --validate` / `--verify-ta-specs` / `--run` assume `Checkpoint 3/data/cp3_modeling_frame.csv` already exists (same cliff; see root README and `Checkpoint 3/docs/MODE_B_DRIFT.md`).
 
 Student path: `Checkpoint 4/docs/STUDENT_QUICKSTART.md` → `docs/CURRICULUM.md` → `Checkpoint 4/docs/BENCHMARK.md`.
 

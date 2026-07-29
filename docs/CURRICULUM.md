@@ -36,7 +36,7 @@ Humans design acquire → merge → clean → specify → OLS **separately for e
 | Hypothesis | Entry point |
 |------------|-------------|
 | H2 / RQ2 (bank-branch density) | [`Checkpoint 2/H2_Pipeline/`](../Checkpoint%202/H2_Pipeline/) |
-| H4 / RQ4 (housing cost / ZHVI) | [`Checkpoint 3/H4/`](../Checkpoint%203/H4/) + [`PHASE1_MANUAL_PIPELINE.md`](../Checkpoint%203/PHASE1_MANUAL_PIPELINE.md) |
+| H4 / RQ4 (housing cost / ZHVI) | [`Checkpoint 3/H4/`](../Checkpoint%203/H4/) + [`docs/PHASE1_MANUAL_PIPELINE.md`](../Checkpoint%203/docs/PHASE1_MANUAL_PIPELINE.md) |
 | H5 / RQ5 (provider density) | [`Checkpoint 3/H5/`](../Checkpoint%203/H5/) |
 
 **Effort:** days–weeks per hypothesis (see BENCHMARK). Every merge key, cleaning rule, and control set is a human decision.
@@ -46,7 +46,7 @@ Humans design acquire → merge → clean → specify → OLS **separately for e
 Pre-register an agenda (List A / List B), then run deterministic OLS in batch. The human still chooses *what* to test; the engine prevents mid-run p-hacking.
 
 - Engine: [`Checkpoint 3/08_unrolled_loop.py`](../Checkpoint%203/08_unrolled_loop.py)
-- Narrative: [`Checkpoint 3/PHASE2_UNROLLED_LOOP.md`](../Checkpoint%203/PHASE2_UNROLLED_LOOP.md)
+- Narrative: [`Checkpoint 3/docs/PHASE2_UNROLLED_LOOP.md`](../Checkpoint%203/docs/PHASE2_UNROLLED_LOOP.md)
 - Artifacts: `Checkpoint 3/loop_results_v2/`
 
 **Effort:** setup once; each batch is minutes.

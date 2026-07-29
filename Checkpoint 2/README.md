@@ -52,4 +52,4 @@ See [`H2_Pipeline/README.md`](H2_Pipeline/README.md) for sources, join keys, and
 
 ## Curriculum context
 
-This is the **first Manual (Phase 1) hypothesis pipeline**. H4/H5 in Checkpoint 3 each required further manual specialization. See [`docs/CURRICULUM.md`](../docs/CURRICULUM.md) and [`Checkpoint 3/PHASE1_MANUAL_PIPELINE.md`](../Checkpoint%203/PHASE1_MANUAL_PIPELINE.md).
+This is the **first Manual (Phase 1) hypothesis pipeline**. H4/H5 in Checkpoint 3 each required further manual specialization. See [`docs/CURRICULUM.md`](../docs/CURRICULUM.md) and [`Checkpoint 3/docs/PHASE1_MANUAL_PIPELINE.md`](../Checkpoint%203/docs/PHASE1_MANUAL_PIPELINE.md).

@@ -6,9 +6,9 @@ Pedagogical comparison for the next cohort. The point is **workflow / loop engin
 
 | Stage | What you do | Effort (honest) | Entry |
 |-------|-------------|-----------------|-------|
-| **Manual (Phase 1)** | For each hypothesis (H2, then H4, then H5), adjust acquire → merge → clean → specify → OLS by hand | **Days–weeks per hypothesis**; every column and control is a human edit | [`Checkpoint 2/H2_Pipeline/`](../Checkpoint%202/H2_Pipeline/), [`Checkpoint 3/PHASE1_MANUAL_PIPELINE.md`](../Checkpoint%203/PHASE1_MANUAL_PIPELINE.md), H4/H5 folders |
-| **Unrolled (Phase 2)** | Pre-register List A/B, run one deterministic engine | **Setup once** (frame + lists); each batch is **minutes** | [`08_unrolled_loop.py`](../Checkpoint%203/08_unrolled_loop.py), `loop_results_v2/` |
-| **Rolled (Phase 3)** | Agents scout / critic / acquire / propose / interpret; Stats engine + Verifier gate | Offline demos in **minutes** once the CP3 frame exists | [`reproduce.sh`](reproduce.sh), [`09_phase3_agentic_loop.py`](09_phase3_agentic_loop.py) |
+| **Manual (Phase 1)** | For each hypothesis (H2, then H4, then H5), adjust acquire → merge → clean → specify → OLS by hand | **Days–weeks per hypothesis**; every column and control is a human edit | [`Checkpoint 2/H2_Pipeline/`](../Checkpoint%202/H2_Pipeline/), [`Checkpoint 3/docs/PHASE1_MANUAL_PIPELINE.md`](../../Checkpoint%203/docs/PHASE1_MANUAL_PIPELINE.md), H4/H5 folders |
+| **Unrolled (Phase 2)** | Pre-register List A/B, run one deterministic engine | **Setup once** (frame + lists); each batch is **minutes** | [`08_unrolled_loop.py`](../../Checkpoint%203/08_unrolled_loop.py), `loop_results_v2/` |
+| **Rolled (Phase 3)** | Agents scout / critic / acquire / propose / interpret; Stats engine + Verifier gate | Offline demos in **minutes** once the CP3 frame exists | [`reproduce.sh`](../reproduce.sh), [`09_phase3_agentic_loop.py`](../09_phase3_agentic_loop.py) |
 
 ### Measured run profile (this team, Jul 2026)
 
@@ -24,7 +24,7 @@ Pedagogical comparison for the next cohort. The point is **workflow / loop engin
 
 ### Why Manual hurt
 
-Phase 1 was not “run the same notebook three times.” H2 (bank density), H4 (ZHVI), and H5 (provider density) each required **manual pipeline specialization**—new sources, join keys, cleaning rules, and specs—before Phase 2 wrapped those recipes in a pre-registered loop. See [`PHASE1_MANUAL_PIPELINE.md`](../Checkpoint%203/PHASE1_MANUAL_PIPELINE.md).
+Phase 1 was not “run the same notebook three times.” H2 (bank density), H4 (ZHVI), and H5 (provider density) each required **manual pipeline specialization**—new sources, join keys, cleaning rules, and specs—before Phase 2 wrapped those recipes in a pre-registered loop. See [`Checkpoint 3/docs/PHASE1_MANUAL_PIPELINE.md`](../../Checkpoint%203/docs/PHASE1_MANUAL_PIPELINE.md).
 
 ### What Unrolled bought
 

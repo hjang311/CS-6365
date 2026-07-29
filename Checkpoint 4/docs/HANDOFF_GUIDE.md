@@ -72,7 +72,7 @@ Housing is NTEE-only by design (`data/acquisitions/housing_services/README.md`).
 ## CP3 carry-forwards
 
 - RQ2 write-up: `Checkpoint 3/RQ2/RQ2_VERIFICATION_RUN.md`
-- Mode B drift: `Checkpoint 3/MODE_B_DRIFT.md`
+- Mode B drift: `Checkpoint 3/docs/MODE_B_DRIFT.md`
 - From-scratch ingest (Census key + public federal acquire): [STUDENT_QUICKSTART — Mode B](STUDENT_QUICKSTART.md#if-the-modeling-frame-is-missing--build-from-scratch-mode-b)
 
 ## How to add your own research question

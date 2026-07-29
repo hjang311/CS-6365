@@ -65,7 +65,7 @@ bash "Checkpoint 4/reproduce.sh"
 
 **Drift caveat:** Mode B proves the same recipe on live inputs. Exact β identity
 vs a handoff frame is **not** guaranteed — see
-[`Checkpoint 3/MODE_B_DRIFT.md`](../Checkpoint%203/MODE_B_DRIFT.md). Bit-identical
+[`Checkpoint 3/docs/MODE_B_DRIFT.md`](../../Checkpoint%203/docs/MODE_B_DRIFT.md). Bit-identical
 PASS/REJECT demos assume a fixed handoff frame + offline `reproduce.sh`.
 
 Full Mode A (handoff CSVs already present) vs Mode B detail:
@@ -148,7 +148,7 @@ hybrid multi-agent session.
 | Stage | Path |
 |-------|------|
 | Manual H2 | `Checkpoint 2/H2_Pipeline/` |
-| Manual H4/H5 | `Checkpoint 3/H4/`, `Checkpoint 3/H5/`, `PHASE1_MANUAL_PIPELINE.md` |
+| Manual H4/H5 | `Checkpoint 3/H4/`, `Checkpoint 3/H5/`, `Checkpoint 3/docs/PHASE1_MANUAL_PIPELINE.md` |
 | Unrolled | `Checkpoint 3/08_unrolled_loop.py`, `loop_results_v2/` |
 
 ## Provenance vs canonical

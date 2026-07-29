@@ -78,7 +78,7 @@ Then read [`Checkpoint 4/docs/STUDENT_QUICKSTART.md`](Checkpoint%204/docs/STUDEN
 
 | Stage | What you do | Where |
 |-------|-------------|-------|
-| **Manual (Phase 1)** | Human adjusts acquire → merge → clean → specify → OLS per hypothesis (H2, H4, H5) | [`Checkpoint 2/H2_Pipeline/`](Checkpoint%202/H2_Pipeline/), [`Checkpoint 3/PHASE1_MANUAL_PIPELINE.md`](Checkpoint%203/PHASE1_MANUAL_PIPELINE.md) |
+| **Manual (Phase 1)** | Human adjusts acquire → merge → clean → specify → OLS per hypothesis (H2, H4, H5) | [`Checkpoint 2/H2_Pipeline/`](Checkpoint%202/H2_Pipeline/), [`Checkpoint 3/docs/PHASE1_MANUAL_PIPELINE.md`](Checkpoint%203/docs/PHASE1_MANUAL_PIPELINE.md) |
 | **Unrolled (Phase 2)** | Pre-registered List A/B + deterministic OLS engine; human still picks agenda | [`Checkpoint 3/08_unrolled_loop.py`](Checkpoint%203/08_unrolled_loop.py) |
 | **Rolled (Phase 3)** | Multi-agent discover → acquire → propose → gated OLS; agents own the agenda | [`Checkpoint 4/`](Checkpoint%204/) |
 

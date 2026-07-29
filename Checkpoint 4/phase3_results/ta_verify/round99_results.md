@@ -1,7 +1,7 @@
 # Phase 3 Round 99 Results
 
 Pre-registered proposals: `Checkpoint 4/phase3_results/ta_verify/proposals_ta_verify.json`
-Proposals mtime precedes results write: **yes** (proposals_mtime=1785316232).
+Proposals mtime precedes results write: **yes** (proposals_mtime=1785320433).
 
 Higher-order specs use the TA Verifier gate: robust HC1 Wald F (p < 0.05) **and** ΔR² ≥ 0.0005 over main effects on identical rows (controls-only baseline also reported).
 
@@ -32,4 +32,4 @@ Higher-order specs use the TA Verifier gate: robust HC1 Wald F (p < 0.05) **and*
   - Wald F=0.6135463198164344, p=0.4334572656374638; ΔR²(ho)=4.570584675733791e-06; R² full/main/ctrl=0.17662416363542532/0.1766195930507496/0.17593367323960063
 
 ---
-*Generated: 2026-07-29 09:10:32 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21) · built_by: Phase3_MultiAgent*
+*Generated: 2026-07-29 10:20:33 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21) · built_by: Phase3_MultiAgent*
