@@ -4,7 +4,7 @@
 
 * **Domain**: Commercial Bank Branch Density vs. Nonprofit Fundraising Efficiency (Proxying Fintech Adoption).
 * **Research Question (RQ2)**: Does commercial bank branch density in a nonprofit’s headquarters ZIP code impact its fundraising efficiency? Specifically, does operating in a "bank desert" (lower physical branch availability) correlate with higher fintech adoption and improved fundraising efficiency?
-* **Hypothesis (H2)**: Among enterprise nonprofits ($\text{Revenue} \ge \$500,000$), lower physical bank-branch density is associated with **higher fundraising efficiency** (lower cost per contribution dollar), with the strongest effect present in smaller enterprise filers.
+* **Hypothesis (H2)**: Among enterprise nonprofits (Total Revenue ≥ $500,000), lower physical bank-branch density is associated with **higher fundraising efficiency** (lower cost per contribution dollar), with the strongest effect present in smaller enterprise filers.
 
 ---
 
@@ -17,13 +17,13 @@
 4. **IRS Business Master File (BMF)**: Headquarters state and NTEE sector classification.
 
 ### Sample Selection & Financial Cleaning Rules
-* **Enterprise Threshold**: Total Revenue $\ge \$500,000$.
-* **Valid Filers**: Total Contributions $> 0$, Direct Spend $\ge \$5,000$.
+* **Enterprise Threshold**: Total Revenue ≥ $500,000.
+* **Valid Filers**: Total Contributions > 0, Direct Spend ≥ $5,000.
 * **Winsorization**: Dependent variable (`Fundraising Efficiency` = `Contributions` / `Direct Expenses`) winsorized at the 99th percentile ($681.94$).
 * **Sample Size**: **$N = 147,718$ organization-years** (Full national panel across 5 years).
 
 ### OLS Regression Specification
-$$\text{Efficiency\textunderscore w}_i = \beta_0 + \beta_1 (\log(\text{Bank\textunderscore Branch\textunderscore Density}_i)) + \beta_2 (\log(\text{Total\textunderscore Revenue}_i)) + \text{C(NTEE)} + \text{C(Region)} + \text{Poverty\textunderscore Rate} + \text{Median\textunderscore Income} + \varepsilon_i$$
+$$\text{Efficiency}_i = \beta_0 + \beta_1 (\log(\text{BankBranchDensity}_i)) + \beta_2 (\log(\text{TotalRevenue}_i)) + \text{Controls}_i + \varepsilon_i$$
 
 * Model fits use **HC1 heteroskedasticity-robust standard errors**.
 
@@ -32,16 +32,16 @@ $$\text{Efficiency\textunderscore w}_i = \beta_0 + \beta_1 (\log(\text{Bank\text
 ## 3. Key Findings & Statistical Results
 
 ### Primary OLS Regression Results ($N = 147,718$)
-| Model / Size Tier | Independent Variable (`log(Bank_Branch_Density)`) $\beta$ | 95% Confidence Interval | p-value | Significance |
+| Model / Size Tier | Independent Variable (`log(Bank_Branch_Density)`) β | 95% Confidence Interval | p-value | Significance |
 | :--- | :---: | :---: | :---: | :---: |
 | **Model 1: Bivariate** | $-0.13412$ | $[-0.207, -0.061]$ | $0.00035$ | $p < 0.001$ |
 | **Model 2: Full Controls** | **$-0.11453$** | $[-0.186, -0.043]$ | **$0.00167$** | **Significant** ($p < 0.01$) |
 | **Mid-Sized ($500K–$2M)** | **$-0.08145$** | $[-0.123, -0.040]$ | $0.00013$ | Significant ($p < 0.001$) |
-| **Large ($\ge \$2\text{M}$)** | **$-0.15211$** | $[-0.257, -0.047]$ | $0.00470$ | Significant ($p < 0.01$) |
+| **Large (≥ $2M)** | **$-0.15211$** | $[-0.257, -0.047]$ | $0.00470$ | Significant ($p < 0.01$) |
 
 ### Theoretical Interpretation
-* **Confirmed H2 Baseline**: Lower physical bank branch density is significantly associated with higher fundraising efficiency ($\beta = -0.1145$, $p = 0.00167$). Organizations in bank-sparse ZIPs demonstrate higher returns per fundraising dollar, supporting the hypothesis that physical banking constraints drive adoption of digital financial technologies (fintech platforms, online payment gateways) that reduce overhead.
-* **Scale Differences**: Large enterprise nonprofits ($\ge \$2\text{M}$) exhibited a larger negative coefficient ($\beta = -0.152$) than mid-sized filers ($\beta = -0.081$), indicating that larger institutions capture greater operational leverage when shifting away from traditional branch banking.
+* **Confirmed H2 Baseline**: Lower physical bank branch density is significantly associated with higher fundraising efficiency ($\beta = -0.1145, p = 0.00167$). Organizations in bank-sparse ZIPs demonstrate higher returns per fundraising dollar, supporting the hypothesis that physical banking constraints drive adoption of digital financial technologies (fintech platforms, online payment gateways) that reduce overhead.
+* **Scale Differences**: Large enterprise nonprofits (≥ $2M) exhibited a larger negative coefficient ($\beta = -0.152$) than mid-sized filers ($\beta = -0.081$), indicating that larger institutions capture greater operational leverage when shifting away from traditional branch banking.
 
 ---
 
@@ -61,5 +61,5 @@ Checkpoint 2 conducted two direct feasibility probes to move beyond spatial prox
 ## 5. Pedagogical & Curriculum Role
 
 * **First Manual Phase 1 Pipeline**: Serves as the canonical baseline for Phase 1 in the 3-phase curriculum model (Manual $\rightarrow$ Unrolled $\rightarrow$ Rolled).
-* **Deterministic Baseline Construction**: Established the exact multi-year NCCS CORE + Census + FDIC merge recipe and $N \approx 147\text{K}$ modeling frame reused and extended in Checkpoint 3 and Checkpoint 4.
+* **Deterministic Baseline Construction**: Established the exact multi-year NCCS CORE + Census + FDIC merge recipe and N ≈ 147K modeling frame reused and extended in Checkpoint 3 and Checkpoint 4.
 * **Adversarial Validation (`05_validator.py`)**: Introduced automated data contracts verifying DV non-negativity, winsorization limits, and coefficient tolerances before reporting findings.

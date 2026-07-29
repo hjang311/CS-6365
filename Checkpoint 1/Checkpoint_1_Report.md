@@ -25,7 +25,7 @@
 * **Winsorization**: To prevent extreme outliers from skewing OLS estimates, the fundraising cost ratio (`Expenses` / `Contributions`) was winsorized at the 1st (`0.0000`) and 99th (`4.3375`) percentiles.
 
 ### OLS Regression Specification & Control Framework
-$$\text{Cost\textunderscore Ratio}_i = \beta_0 + \beta_1 (\text{Broadband\textunderscore Rate}_i) + \beta_2 (\log(\text{Total\textunderscore Revenue}_i)) + \sum \gamma_k (\text{NTEE\textunderscore Dummy}_{i,k}) + \varepsilon_i$$
+$$\text{CostRatio}_i = \beta_0 + \beta_1 (\text{BroadbandRate}_i) + \beta_2 (\log(\text{TotalRevenue}_i)) + \sum \gamma_k (\text{NTEEDummy}_{i,k}) + \varepsilon_i$$
 
 * **Dependent Variable ($Y$)**: Winsorized Fundraising Cost Ratio (`Fundraising Expenses` / `Contributions`).
 * **Key Independent Variable ($X_1$)**: Community Broadband Subscription Rate (%).

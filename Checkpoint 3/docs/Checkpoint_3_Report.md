@@ -2,7 +2,7 @@
 
 ## 1. Core Research Questions & Domain Focus
 
-The **NORP (Nonprofit Organization Research Pipeline)** combines multi-source federal and sectoral datasets—joining NCCS CORE 990 filings (2018–2022, ~$158\text{K}$ organization-years), IRS Business Master File (BMF), FDIC BankFind, Census ACS5, and Zillow Home Value Index (ZHVI)—to investigate operational determinants of nonprofit fundraising efficiency (`fundraising_efficiency_w`).
+The **NORP (Nonprofit Organization Research Pipeline)** combines multi-source federal and sectoral datasets—joining NCCS CORE 990 filings (2018–2022, ~158K organization-years), IRS Business Master File (BMF), FDIC BankFind, Census ACS5, and Zillow Home Value Index (ZHVI)—to investigate operational determinants of nonprofit fundraising efficiency (`fundraising_efficiency_w`).
 
 Checkpoint 3 extended the core national modeling frame to evaluate two primary domain hypotheses:
 
@@ -57,15 +57,15 @@ The project strictly adheres to the course's pedagogical **Manual $\rightarrow$ 
 ### Statistical Breakdown by Size Tier:
 
 *   **RQ4 / H4 (Real-Estate Overhead Pressure):**
-    *   *Full Sample ($\ge \$500\text{K}$, $n=116,587$):* $\beta = -7.916$, $p = 2.4 \times 10^{-22}$, $R^2 = 0.177$
-    *   *Mid-Sized ($500\text{K} - \$2\text{M}$, $n=53,650$):* $\beta = -2.995$, $p = 3.6 \times 10^{-11}$, $R^2 = 0.091$
-    *   *Large ($\ge \$2\text{M}$, $n=62,936$):* $\beta = -11.534$, $p = 2.4 \times 10^{-16}$, $R^2 = 0.099$
+    *   *Full Sample (≥ $500K, n=116,587):* $\beta = -7.916, p = 2.4 \times 10^{-22}, R^2 = 0.177$
+    *   *Mid-Sized ($500K to $2M, n=53,650):* $\beta = -2.995, p = 3.6 \times 10^{-11}, R^2 = 0.091$
+    *   *Large (≥ $2M, n=62,936):* $\beta = -11.534, p = 2.4 \times 10^{-16}, R^2 = 0.099$
     *   *Core Insight:* Supported. Higher real-estate costs significantly reduce fundraising efficiency across all groups. Large organizations experience a fourfold stronger negative impact ($\beta = -11.53$ vs $-3.00$), indicating that larger physical footprints and payrolls amplify market cost exposure.
 
 *   **RQ5 / H5 (Provider Density & Donor Field):**
-    *   *Full Sample ($\ge \$500\text{K}$, $n=117,510$):* $\beta = +2.120$, $p = 0.0024$, $R^2 = 0.176$
-    *   *Mid-Sized ($500\text{K} - \$2\text{M}$, $n=53,972$):* $\beta = +1.107$, $p = 0.0047$, $R^2 = 0.090$
-    *   *Large ($\ge \$2\text{M}$, $n=63,537$):* $\beta = +3.056$, $p = 0.0091$, $R^2 = 0.097$
+    *   *Full Sample (≥ $500K, n=117,510):* $\beta = +2.120, p = 0.0024, R^2 = 0.176$
+    *   *Mid-Sized ($500K to $2M, n=53,972):* $\beta = +1.107, p = 0.0047, R^2 = 0.090$
+    *   *Large (≥ $2M, n=63,537):* $\beta = +3.056, p = 0.0091, R^2 = 0.097$
     *   *Core Insight:* Rejected. Rather than donor cannibalization, the positive coefficient reveals an **agglomeration effect**—nonprofits cluster in geographic areas with concentrated donor capital and philanthropic infrastructure, out-weighing competitive crowding. Disconfirmation is reported as a first-class result.
 
 *   **List B Limitation Harness Lessons:**
@@ -78,7 +78,7 @@ The project strictly adheres to the course's pedagogical **Manual $\rightarrow$ 
 ## 4. Transition to Phase 3 (Rolled Agentic Loop)
 
 ### Why Statistical Significance Alone is Insufficient
-The Phase 2 List B experiments demonstrated that in large-sample observational frames ($N \approx 158\text{K}$), simple 2-variable regressions routinely "light up" with $p < 0.05$ without meaningfully improving model fit ($\Delta R^2 \approx 0.001$). Relying solely on $p$-values creates false positive discoveries and mechanical noise.
+The Phase 2 List B experiments demonstrated that in large-sample observational frames (N ≈ 158K), simple 2-variable regressions routinely "light up" with $p < 0.05$ without meaningfully improving model fit ($\Delta R^2 \approx 0.001$). Relying solely on $p$-values creates false positive discoveries and mechanical noise.
 
 ### Architectural Shift in Phase 3
 Phase 3 transitions control of agenda proposal to an LLM agent while delegating statistical fitting to a deterministic verification engine:
