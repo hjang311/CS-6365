@@ -50,12 +50,12 @@ pip install -r "Checkpoint 4/requirements.txt"
 cp .env.example .env   # fill CENSUS_API_KEY only if doing Mode B acquire
 ```
 
-### Modeling-frame prerequisite (important)
+### Modeling-frame prerequisite (Mode A vs Mode B)
 
-`Checkpoint 3/data/cp3_modeling_frame.csv` (~158k rows × 30 cols) is **gitignored**. Offline `reproduce.sh` **fails fast** with regenerate instructions if it is missing.
+`Checkpoint 3/data/cp3_modeling_frame.csv` (~158k rows × 30 cols) is **gitignored**.
 
-- **Mode A** (handoff CSVs under `Checkpoint 3/data/`): run `02_merge_pipeline.py` — see [`Checkpoint 3/README.md`](Checkpoint%203/README.md)
-- **Mode B** (fresh acquire): follow Mode B in that same README (`CENSUS_API_KEY` + network)
+- **Fresh Clone (Mode B - Build from scratch)**: Follow [`docs/STUDENT_QUICKSTART.md`](docs/STUDENT_QUICKSTART.md) for step-by-step raw data reacquisition & merge.
+- **Pre-built Frame (Mode A - Fast Track)**: If `cp3_modeling_frame.csv` is present in `Checkpoint 3/data/`, run `bash "Checkpoint 4/reproduce.sh"`.
 
 ### Run everything offline (≈ minutes once the frame exists)
 

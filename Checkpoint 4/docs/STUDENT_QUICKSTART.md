@@ -31,7 +31,7 @@ Ingest public federal sources (+ one free Census key), merge into
 | `GEMINI_API_KEY` | **Not** needed to build the frame |
 
 ```bash
-# From repo root. CP2 acquire reads the shell env — it does not auto-load .env.
+# From repo root. (Auto-loads .env if CENSUS_API_KEY is defined, or reads shell env)
 .venv/bin/python -m pip install -r "Checkpoint 2/H2_Pipeline/requirements.txt"
 export CENSUS_API_KEY="YOUR_CENSUS_API_KEY"
 
@@ -45,7 +45,16 @@ cp "Checkpoint 2/H2_Pipeline/data/census_acs_by_zip.csv" "Checkpoint 3/data/"
 cp "Checkpoint 2/H2_Pipeline/data/fdic_branches_by_zip.csv" "Checkpoint 3/data/"
 
 .venv/bin/python "Checkpoint 3/01_acquire_data.py"   # core subset + Zillow ZHVI
-.venv/bin/python "Checkpoint 3/02_merge_pipeline.py" # → cp3_modeling_frame.csv
+.venv/bin/python "Checkpoint 3/02_merge_pipeline.py" # → builds cp3_modeling_frame.csv
+
+# 1. Validate data contracts on new frame
+.venv/bin/python "Checkpoint 3/04_validate_frame.py"
+
+# 2. Reproduce Phase 2 Unrolled Loop (List A & List B hypotheses)
+.venv/bin/python "Checkpoint 3/08_unrolled_loop.py" --run
+
+# 3. Reproduce Phase 3 Multi-Agent Loop
+bash "Checkpoint 4/reproduce.sh"
 ```
 
 Then:

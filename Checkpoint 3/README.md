@@ -67,9 +67,12 @@ This mode proves deterministic reconstruction from handed-off source CSVs. It do
 
 ## Reproduction mode B — fresh clone (no CSV inputs)
 
-Mode B is a **separate** live reacquisition path from the handoff-frame PASS checks above. Drift vs the committed frame is documented in [`MODE_B_DRIFT.md`](MODE_B_DRIFT.md) (contract pass rate and β deltas). All commands below are run from the **repo root**.
+Mode B is a **separate** live reacquisition path from the handoff-frame PASS checks above. Drift vs the committed frame is documented in [`MODE_B_DRIFT.md`](MODE_B_DRIFT.md) (contract pass rate and β deltas).
 
-1. **Create the environment and export the Census key.** The CP2 acquisition script reads the shell environment; it does not automatically load `.env`.
+> [!TIP]
+> For the complete, step-by-step canonical student guide for Mode B data build and execution, see [`docs/STUDENT_QUICKSTART.md`](../docs/STUDENT_QUICKSTART.md).
+
+1. **Create the environment and export the Census key.** The acquisition script auto-loads `.env` if `python-dotenv` is installed, or reads `CENSUS_API_KEY` directly from shell environment variables.
 
 ```bash
 python3 -m venv .venv

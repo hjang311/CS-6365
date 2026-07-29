@@ -44,7 +44,7 @@ Theory-first hypotheses wrapping Phase 1 (H4/H5) plus labeled control cases.
 - **weak_population**: Expected weak after controls; 2-var limitation case
 
 ---
-*Generated: 2026-07-12 10:37:47 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
+*Generated: 2026-07-29 07:22:16 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
 
 ```
 
@@ -66,7 +66,7 @@ This is not a discovery agenda. The primary DV is fixed to `fundraising_efficien
 | B07 | limitation_harness | `total_expenses` → `fundraising_efficiency_w` | unspecified | negative | exploratory (no prior) | -0.00000 | 0.04677 | 0.1757 | 117,510 | ok |
 
 ---
-*Generated: 2026-07-12 10:37:47 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
+*Generated: 2026-07-29 07:22:16 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
 
 ```
 
@@ -143,9 +143,9 @@ for per-hypothesis theory outcomes.
 | H5 | `log_nonprofit_branch_density` | `2.11963` | `2.11963` | `0.000003` | **PASS** |
 
 ---
-*Generated: 2026-07-12 10:37:47 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
+*Generated: 2026-07-29 07:22:16 UTC · Frame: `Checkpoint 3/data/cp3_modeling_frame.csv` (158,323 rows x 30 cols) · 08_unrolled_loop.py v2.1 (2026-07-12)*
 
 ```
 
 ---
-*Generated: 2026-07-29 07:03:53 UTC · Phase2: `Checkpoint 3/loop_results_v2` · built_by: Phase3_MultiAgent · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)*
+*Generated: 2026-07-29 07:23:07 UTC · Phase2: `Checkpoint 3/loop_results_v2` · built_by: Phase3_MultiAgent · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)*
