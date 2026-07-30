@@ -3,9 +3,9 @@
 # regenerate a lock from a working .venv:
 #   .venv/bin/pip freeze > Checkpoint 4/requirements-lock.txt
 #
-# Verified teaching stack (this team, Jul 2026): Python 3.10+ on macOS;
-# pandas/statsmodels/scipy/requests as below. Offline reproduce.sh does not
-# need google-generativeai.
+# Verified teaching stack (this team, Jul 2026): Python 3.10+ (tested on Python 3.14.5 on macOS);
+# Tested runtime versions: pandas 3.0.3, numpy 2.4.6, statsmodels 0.14.6, scipy 1.17.1, requests 2.34.2.
+# Minimum version ranges are specified below. Offline reproduce.sh does not need google-generativeai.
 pandas>=2.0
 numpy>=1.24
 statsmodels>=0.14
