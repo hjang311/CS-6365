@@ -4,7 +4,7 @@ Source: **fixture**
 
 # Phase 3 Interpretation (fixture)
 
-Proposals were pre-registered before OLS. Theory outcomes use sign + significance vs `expected_direction`. Higher-order specs also report the TA Verifier gate (HC1 Wald F p < 0.05 and ΔR² ≥ 0.0005 over main effects).
+Proposals were pre-registered before OLS. Theory outcomes use sign + significance vs `expected_direction`. Higher-order specs also report the TA Verifier gate (HC1 Wald F `p < 0.05` and ΔR² ≥ 0.0005 over main effects).
 
 - **F2P01** (two_var, `log_zhvi_2022`): β=-30.60634, p=0.156028, outcome=not significant, status=ok.
 - **F2P02** (interaction, `log_zhvi_2022 × log_bank_branch_density`): β=61.80136, p=0.0781141, outcome=exploratory (no prior), status=ok.

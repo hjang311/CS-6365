@@ -1139,7 +1139,7 @@ def cmd_run(
         f"(proposals_mtime={prop_mtime:.0f}).",
         "",
         "Higher-order specs use the TA Verifier gate: robust HC1 Wald F "
-        f"(p < {GATE_ALPHA}) **and** ΔR² ≥ {GATE_MIN_DELTA_R2} over main effects "
+        f"(`p < {GATE_ALPHA}`) **and** ΔR² ≥ {GATE_MIN_DELTA_R2} over main effects "
         "on identical rows (controls-only baseline also reported).",
         "",
         "| ID | Spec | Vars | Expected | Observed | Outcome | β | p | R² | n | Gate | Status |",
@@ -1299,7 +1299,7 @@ def _fixture_interpretation_from_results(out_dir: Path, round_n: int) -> str:
         "",
         "Proposals were pre-registered before OLS. Theory outcomes use sign + "
         "significance vs `expected_direction`. Higher-order specs also report the "
-        f"TA Verifier gate (HC1 Wald F p < {GATE_ALPHA} and "
+        f"TA Verifier gate (HC1 Wald F `p < {GATE_ALPHA}` and "
         f"ΔR² ≥ {GATE_MIN_DELTA_R2} over main effects).",
         "",
     ]

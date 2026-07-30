@@ -45,7 +45,7 @@ Preferred live Phase 3 path (IDE-agnostic): **host agent as Orchestrator** → s
 
 1. **LLM never fits OLS.** Only `09_phase3_agentic_loop.py --run` / validation / verify paths fit models (HC1).
 2. **Pre-register before OLS** for exploratory agendas (List A/B; Phase 3 proposals JSON).
-3. **Higher-order ACCEPT** only if Wald F p < 0.05 **and** ΔR² ≥ 5e-4 on identical rows.
+3. **Higher-order ACCEPT** only if Wald F `p < 0.05` **and** ΔR² ≥ 5e-4 on identical rows.
 4. **Null / gate REJECT are first-class** — document them; do not bury them.
 5. **Critic ToS gates** — do not scrape login-walled directories; use named adapters.
 

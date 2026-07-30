@@ -11,7 +11,7 @@
 ## 2. Key Hypotheses & Methodology
 
 ### Data Sources & Integration Pipeline
-1. **NCCS CORE 990 (2018–2022)**: Multi-year Form 990 financial extracts ($N \approx 147,718$ clean organization-years across the US).
+1. **NCCS CORE 990 (2018–2022)**: Multi-year Form 990 financial extracts (N ≈ 147,718 clean organization-years across the US).
 2. **FDIC BankFind API**: Geocoded commercial bank branch locations aggregated by 5-digit ZIP code.
 3. **Census ACS 5-Year (2018–2022)**: ZIP-level population, poverty rate, and median household income controls.
 4. **IRS Business Master File (BMF)**: Headquarters state and NTEE sector classification.
@@ -19,8 +19,8 @@
 ### Sample Selection & Financial Cleaning Rules
 * **Enterprise Threshold**: Total Revenue ≥ $500,000.
 * **Valid Filers**: Total Contributions > 0, Direct Spend ≥ $5,000.
-* **Winsorization**: Dependent variable (`Fundraising Efficiency` = `Contributions` / `Direct Expenses`) winsorized at the 99th percentile ($681.94$).
-* **Sample Size**: **$N = 147,718$ organization-years** (Full national panel across 5 years).
+* **Winsorization**: Dependent variable (`Fundraising Efficiency` = `Contributions` / `Direct Expenses`) winsorized at the 99th percentile (681.94).
+* **Sample Size**: **N = 147,718 organization-years** (Full national panel across 5 years).
 
 ### OLS Regression Specification
 $$\text{Efficiency}_i = \beta_0 + \beta_1 (\log(\text{BankBranchDensity}_i)) + \beta_2 (\log(\text{TotalRevenue}_i)) + \text{Controls}_i + \varepsilon_i$$
@@ -31,17 +31,17 @@ $$\text{Efficiency}_i = \beta_0 + \beta_1 (\log(\text{BankBranchDensity}_i)) + \
 
 ## 3. Key Findings & Statistical Results
 
-### Primary OLS Regression Results ($N = 147,718$)
+### Primary OLS Regression Results (N = 147,718)
 | Model / Size Tier | Independent Variable (`log(Bank_Branch_Density)`) β | 95% Confidence Interval | p-value | Significance |
 | :--- | :---: | :---: | :---: | :---: |
-| **Model 1: Bivariate** | $-0.13412$ | $[-0.207, -0.061]$ | $0.00035$ | $p < 0.001$ |
-| **Model 2: Full Controls** | **$-0.11453$** | $[-0.186, -0.043]$ | **$0.00167$** | **Significant** ($p < 0.01$) |
-| **Mid-Sized ($500K–$2M)** | **$-0.08145$** | $[-0.123, -0.040]$ | $0.00013$ | Significant ($p < 0.001$) |
-| **Large (≥ $2M)** | **$-0.15211$** | $[-0.257, -0.047]$ | $0.00470$ | Significant ($p < 0.01$) |
+| **Model 1: Bivariate** | `-0.13412` | `[-0.207, -0.061]` | `0.00035` | `p < 0.001` |
+| **Model 2: Full Controls** | **`-0.11453`** | `[-0.186, -0.043]` | **`0.00167`** | **Significant** (`p < 0.01`) |
+| **Mid-Sized ($500K to $2M)** | **`-0.08145`** | `[-0.123, -0.040]` | `0.00013` | Significant (`p < 0.001`) |
+| **Large (≥ $2M)** | **`-0.15211`** | `[-0.257, -0.047]` | `0.00470` | Significant (`p < 0.01`) |
 
 ### Theoretical Interpretation
-* **Confirmed H2 Baseline**: Lower physical bank branch density is significantly associated with higher fundraising efficiency ($\beta = -0.1145, p = 0.00167$). Organizations in bank-sparse ZIPs demonstrate higher returns per fundraising dollar, supporting the hypothesis that physical banking constraints drive adoption of digital financial technologies (fintech platforms, online payment gateways) that reduce overhead.
-* **Scale Differences**: Large enterprise nonprofits (≥ $2M) exhibited a larger negative coefficient ($\beta = -0.152$) than mid-sized filers ($\beta = -0.081$), indicating that larger institutions capture greater operational leverage when shifting away from traditional branch banking.
+* **Confirmed H2 Baseline**: Lower physical bank branch density is significantly associated with higher fundraising efficiency (β = -0.1145, p = 0.00167). Organizations in bank-sparse ZIPs demonstrate higher returns per fundraising dollar, supporting the hypothesis that physical banking constraints drive adoption of digital financial technologies (fintech platforms, online payment gateways) that reduce overhead.
+* **Scale Differences**: Large enterprise nonprofits (≥ $2M) exhibited a larger negative coefficient (β = -0.152) than mid-sized filers (β = -0.081), indicating that larger institutions capture greater operational leverage when shifting away from traditional branch banking.
 
 ---
 

@@ -45,7 +45,7 @@ The analysis is performed on:
 | Large (>=$2M) | 63,537 | 3.05552 | 0.009074 | [0.7603, 5.3507] | 0.0973 |
 
 **Interpretation:**
-The hypothesis is **rejected**. The data reveals a highly statistically significant ($p < 0.01$) **positive** association between social-service provider density and fundraising efficiency across all size segments. Rather than intense competition depressing efficiency, a higher density of mission-critical nonprofits in a ZIP code is correlated with *better* fundraising efficiency. This may suggest an agglomeration effect or a clustering around high-donor capital that offsets the competition. Furthermore, contrary to expectations, the positive effect is stronger for large organizations ($\beta = +3.06$) than mid-sized ones ($\beta = +1.11$).
+The hypothesis is **rejected**. The data reveals a highly statistically significant (`p < 0.01`) **positive** association between social-service provider density and fundraising efficiency across all size segments. Rather than intense competition depressing efficiency, a higher density of mission-critical nonprofits in a ZIP code is correlated with *better* fundraising efficiency. This may suggest an agglomeration effect or a clustering around high-donor capital that offsets the competition. Furthermore, contrary to expectations, the positive effect is stronger for large organizations (β = +3.06) than mid-sized ones (β = +1.11).
 
 ## Phase 1 Execution and Phase 2 Replay
 

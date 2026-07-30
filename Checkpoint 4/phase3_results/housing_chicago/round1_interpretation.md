@@ -4,7 +4,7 @@ Source: **fixture**
 
 # Phase 3 Interpretation (fixture)
 
-Proposals were pre-registered before OLS. Theory outcomes use sign + significance vs `expected_direction`. Higher-order specs also report the TA Verifier gate (HC1 Wald F p < 0.05 and ΔR² ≥ 0.0005 over main effects).
+Proposals were pre-registered before OLS. Theory outcomes use sign + significance vs `expected_direction`. Higher-order specs also report the TA Verifier gate (HC1 Wald F `p < 0.05` and ΔR² ≥ 0.0005 over main effects).
 
 - **H01** (two_var, `log_housing_services_density`): β=5.04243, p=0.447483, outcome=exploratory (no prior), status=ok.
 - **H02** (interaction, `poverty_rate × log_housing_services_density`): β=0.42692, p=0.766121, outcome=exploratory (no prior), status=ok.

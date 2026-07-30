@@ -22,5 +22,5 @@ phase3_results/
 ## Key Student Inspection Points
 
 1. **`validation_check.md`**: Open this file first after running `reproduce.sh` to confirm H4/H5 OLS coefficient reproduction (**PASS**).
-2. **`round1_results.md` & `round2_results.md`**: Inspect how the multi-agent loop evaluates indicators (e.g. `F01` food assistance density) against the ΔR² ≥ 5e-4 & Wald F p < 0.05 verifier gates.
+2. **`round1_results.md` & `round2_results.md`**: Inspect how the multi-agent loop evaluates indicators (e.g. `F01` food assistance density) against the ΔR² ≥ 5e-4 & Wald F `p < 0.05` verifier gates.
 3. **`ta_verify/round99_results.md`**: Inspect how invalid / identity / post-hoc proposals (I1, I2, Q1) are correctly **REJECTED** by the Stats Engine.

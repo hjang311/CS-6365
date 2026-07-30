@@ -3,7 +3,7 @@
 Pre-registered proposals: `Checkpoint 4/phase3_results/proposals_round1.json`
 Proposals mtime precedes results write: **yes** (proposals_mtime=1785371726).
 
-Higher-order specs use the TA Verifier gate: robust HC1 Wald F (p < 0.05) **and** ΔR² ≥ 0.0005 over main effects on identical rows (controls-only baseline also reported).
+Higher-order specs use the TA Verifier gate: robust HC1 Wald F (`p < 0.05`) **and** ΔR² ≥ 0.0005 over main effects on identical rows (controls-only baseline also reported).
 
 | ID | Spec | Vars | Expected | Observed | Outcome | β | p | R² | n | Gate | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|

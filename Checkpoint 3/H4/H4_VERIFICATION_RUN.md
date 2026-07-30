@@ -44,7 +44,7 @@ The analysis is performed on:
 | Large (>=$2M) | 62,936 | -11.53377 | 2.447e-16 | [-14.2913, -8.7762] | 0.0985 |
 
 **Interpretation:**
-There is a highly statistically significant ($p < 0.001$) negative association between local real estate prices and fundraising efficiency across all size segments. For the full sample, a 1-unit increase in the log of ZHVI decreases the winsorized fundraising efficiency by approximately 7.92 units. Notably, the penalty of operating in high-cost ZIP codes is much more severe for large organizations ($\beta = -11.53$) than for mid-sized organizations ($\beta = -3.00$). This provides strong evidence supporting the nonprofit spatial mismatch hypothesis.
+There is a highly statistically significant (`p < 0.001`) negative association between local real estate prices and fundraising efficiency across all size segments. For the full sample, a 1-unit increase in the log of ZHVI decreases the winsorized fundraising efficiency by approximately 7.92 units. Notably, the penalty of operating in high-cost ZIP codes is much more severe for large organizations (β = -11.53) than for mid-sized organizations (β = -3.00). This provides strong evidence supporting the nonprofit spatial mismatch hypothesis.
 
 ## Phase 1 Execution and Phase 2 Replay
 

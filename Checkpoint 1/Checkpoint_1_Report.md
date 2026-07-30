@@ -21,14 +21,14 @@
 
 ### Sample Characteristics & Data Filtering
 * **Initial Joined Dataset**: 11,028 Georgia nonprofit records.
-* **Final Analysis Sample ($N$)**: **457 organizations** after listwise deletion of records with zero/negative contributions, zero/negative total revenue, or missing/invalid community household counts.
+* **Final Analysis Sample (N)**: **457 organizations** after listwise deletion of records with zero/negative contributions, zero/negative total revenue, or missing/invalid community household counts.
 * **Winsorization**: To prevent extreme outliers from skewing OLS estimates, the fundraising cost ratio (`Expenses` / `Contributions`) was winsorized at the 1st (`0.0000`) and 99th (`4.3375`) percentiles.
 
 ### OLS Regression Specification & Control Framework
 $$\text{CostRatio}_i = \beta_0 + \beta_1 (\text{BroadbandRate}_i) + \beta_2 (\log(\text{TotalRevenue}_i)) + \sum \gamma_k (\text{NTEEDummy}_{i,k}) + \varepsilon_i$$
 
-* **Dependent Variable ($Y$)**: Winsorized Fundraising Cost Ratio (`Fundraising Expenses` / `Contributions`).
-* **Key Independent Variable ($X_1$)**: Community Broadband Subscription Rate (%).
+* **Dependent Variable (Y)**: Winsorized Fundraising Cost Ratio (`Fundraising Expenses` / `Contributions`).
+* **Key Independent Variable (X1)**: Community Broadband Subscription Rate (%).
 * **Controls**: `log(Total Revenue)` to control for organizational size and financial scale, plus **NTEE Category Dummies** for sector-specific cost structures.
 
 ---
@@ -36,24 +36,24 @@ $$\text{CostRatio}_i = \beta_0 + \beta_1 (\text{BroadbandRate}_i) + \beta_2 (\lo
 ## 3. Key Findings & Statistical Results
 
 ### Correlation Analysis
-| Test Type | Coefficient ($\beta$ / $\rho$) | p-value | Significance ($p < 0.05$) |
+| Test Type | Coefficient (β / ρ) | p-value | Significance (p < 0.05) |
 | :--- | :---: | :---: | :---: |
-| **Pearson Correlation ($r$)** | `+0.0650` | `0.1656` | Not Significant |
-| **Spearman Correlation ($\rho$)** | `-0.0273` | `0.5598` | Not Significant |
+| **Pearson Correlation (r)** | `+0.0650` | `0.1656` | Not Significant |
+| **Spearman Correlation (ρ)** | `-0.0273` | `0.5598` | Not Significant |
 
-### OLS Regression Parameter Estimates ($N = 457$)
-| Variable | Coefficient ($\beta$) | Std. Error | t-statistic | p-value | Conclusion |
+### OLS Regression Parameter Estimates (N = 457)
+| Variable | Coefficient (β) | Std. Error | t-statistic | p-value | Conclusion |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Intercept (`const`)** | `-0.0433` | `0.457` | `-0.095` | `0.925` | Not Significant |
-| **Broadband Subscription Rate** | `+0.3678` | `0.407` | `+0.904` | `0.367` | **Null Result** ($p > 0.05$) |
+| **Intercept (const)** | `-0.0433` | `0.457` | `-0.095` | `0.925` | Not Significant |
+| **Broadband Subscription Rate** | `+0.3678` | `0.407` | `+0.904` | `0.367` | **Null Result** (p > 0.05) |
 | **Log Total Revenue** | `-0.0016` | `0.020` | `-0.080` | `0.936` | Not Significant |
 
 ### Model Fit Summary
-* **$R^2$**: `0.0432` (Model explains ~4.3% of variance in fundraising cost ratios).
-* **Adjusted $R^2$**: `-0.0076` (Additional features do not improve fit beyond random chance).
+* **R²**: `0.0432` (Model explains ~4.3% of variance in fundraising cost ratios).
+* **Adjusted R²**: `-0.0076` (Additional features do not improve fit beyond random chance).
 
 ### Null Result & Sociological Interpretation
-* **Confirmed Null Result**: With $p = 0.367$, there is no statistically significant linear relationship between local community broadband coverage and nonprofit fundraising efficiency.
+* **Confirmed Null Result**: With p = 0.367, there is no statistically significant linear relationship between local community broadband coverage and nonprofit fundraising efficiency.
 * **Sociological Insights**:
   1. **Geographic Uncoupling**: Modern nonprofit fundraising is non-local. Donors, foundation grants, and corporate sponsorships are solicited regionally or nationally rather than strictly from the nonprofit's immediate ZIP code.
   2. **Infrastructure Access**: Local residential broadband metrics do not restrict an organization's commercial internet access or digital operations.
