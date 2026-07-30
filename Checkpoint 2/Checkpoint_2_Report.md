@@ -34,7 +34,7 @@ $$\text{Efficiency}_i = \beta_0 + \beta_1 (\log(\text{BankBranchDensity}_i)) + \
 ### Primary OLS Regression Results (N = 147,718)
 | Model / Size Tier | Independent Variable (`log(Bank_Branch_Density)`) β | 95% Confidence Interval | p-value | Significance |
 | :--- | :---: | :---: | :---: | :---: |
-| **Model 1: Bivariate** | `-0.13412` | `[-0.207, -0.061]` | `0.00035` | `p < 0.001` |
+| **Model 1: Bivariate** | `-0.13412` | `[-0.207, -0.061]` | `0.00035` | Significant (`p < 0.001`) |
 | **Model 2: Full Controls** | **`-0.11453`** | `[-0.186, -0.043]` | **`0.00167`** | **Significant** (`p < 0.01`) |
 | **Mid-Sized ($500K to $2M)** | **`-0.08145`** | `[-0.123, -0.040]` | `0.00013` | Significant (`p < 0.001`) |
 | **Large (≥ $2M)** | **`-0.15211`** | `[-0.257, -0.047]` | `0.00470` | Significant (`p < 0.01`) |
