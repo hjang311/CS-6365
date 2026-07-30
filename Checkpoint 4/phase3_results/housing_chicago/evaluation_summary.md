@@ -76,7 +76,7 @@ This is not a discovery agenda. The primary DV is fixed to `fundraising_efficien
 # Two-Variable Correlation Limitation (Phase 2 Evaluation)
 
 **Important:** Limitation is *not* proven by “few significant p-values.”
-With n ≈ 100k+, tiny coefficients routinely clear `p < 0.05`. The professor’s point is that
+With n ≈ 100k+, tiny coefficients routinely clear p < 0.05. The professor’s point is that
 2-variable tests on this frame are **easy to light up and hard to trust as research** —
 mechanical hits, wrong-direction theory, and nearly indistinguishable full-model R².
 
@@ -93,13 +93,13 @@ So `total_contributions`, `fundraising_expense_proxy`, event expenses, and profe
 are mechanically related to the DV. Calling those “discoveries” inflates the significant count
 and **looks like the opposite** of a limitation argument. The harness now excludes those mechanical IVs.
 
-Even after that filter, `p < 0.05` is still common. That is expected at this sample size —
+Even after that filter, p < 0.05 is still common. That is expected at this sample size —
 and it is exactly why significance count alone cannot prove the method is “working well.”
 
 ## Bounded limitation harness summary (non-mechanical candidate IVs)
 
 - Pairs executed successfully: **7**
-- Significant at `p < 0.05`: **6**
+- Significant at p < 0.05: **6**
 - Not significant: **1**
 - Model R² range across the harness: **0.1756 – 0.1766** (span ≈ 0.0010)
 
@@ -148,4 +148,4 @@ for per-hypothesis theory outcomes.
 ```
 
 ---
-*Generated: 2026-07-30 00:35:27 UTC · Phase2: `Checkpoint 3/loop_results_v2` · built_by: Phase3_MultiAgent · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)*
+*Generated: 2026-07-30 01:33:05 UTC · Phase2: `Checkpoint 3/loop_results_v2` · built_by: Phase3_MultiAgent · 09_phase3_agentic_loop.py v2.1 (Phase3 Multi-Agent / 2026-07-21)*
